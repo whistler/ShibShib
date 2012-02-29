@@ -3,13 +3,8 @@
 one:
   name: MyString
   email: MyString
-  password: MyString
-  facebook_id: MyString
-  facebook_token: MyString
 
 two:
   name: MyString
-  email: MyString
-  password: MyString
-  facebook_id: MyString
-  facebook_token: MyString
+  email: MyString1
+

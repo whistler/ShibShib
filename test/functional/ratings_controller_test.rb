@@ -35,7 +35,7 @@ class RatingsControllerTest < ActionController::TestCase
   end
 
   test "should update rating" do
-    put :update, id: @rating, rating: @rating.attributes
+    put :update, id: @rating, value: @rating.attributes
     assert_redirected_to rating_path(assigns(:rating))
   end
 
