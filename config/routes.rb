@@ -1,4 +1,6 @@
 ShibShibBlastic::Application.routes.draw do
+  get "welcome/index"
+
   resources :ratings
 
   resources :posts
