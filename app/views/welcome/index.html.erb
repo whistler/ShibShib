@@ -1,13 +1,12 @@
-<h1>Shibshib Blastic</h1>
-
 <% if user_signed_in? then %>
-<%= link_to 'Create a new post', new_post_path %>
-<%= link_to 'Sign out', destroy_user_session_path%>
-<% else %>
-<%= link_to 'Log in', new_user_session_path %>
-<%= link_to 'Sign up', new_user_registration_path %>
+	<%= link_to 'Create a new post', new_post_path %>
+	<%= link_to 'Sign out', destroy_user_session_path%>
+<!-- No need for the user to sign in to be able to see the posts 
+% else %
+	%= link_to 'Log in', new_user_session_path %
+	%= link_to 'Sign up', new_user_registration_path %
+-->
 <% end %>
-
 <% @posts.each do |post|%>
 	<div class="post">
 		<h2><%= post.title %></h2>
