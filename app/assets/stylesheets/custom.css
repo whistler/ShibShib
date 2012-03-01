@@ -82,5 +82,12 @@ body {
 }
 .rightPosts {
 	width: 460px;
-	float:right;
+	float:left;
+}
+hr {
+	width: 90%;
+	clear: both;
+	border: none;
+	border-top: 1px solid #AAA;
+	border-bottom: 1px solid #DDD;
 }
