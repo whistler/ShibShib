@@ -1,17 +1,30 @@
 ﻿<header>
 <div class="wraper">
 
-	<%= image_tag("logo.png", :alt => "ShibShib") %>
 	<nav>
-	<%= link_to "Home ● الرئيسية", root_path %>
+	<%= link_to root_path do %>
+	<p>الرئيسية<br/>Home</p>
+	<% end %>
+	<%= link_to root_path do %>
+	<%= image_tag("logo.png", :alt => "ShibShib") %>
+	<% end %>
 	</nav>
+	
 	<div class="userControl">
 	<% if user_signed_in? then %>
-		<%= link_to 'Sign out ● الخروج', destroy_user_session_path %>
-		<%= link_to 'New post ● مشاركة جديدة', new_post_path %>
+		<%= link_to destroy_user_session_path do %>
+		<p>الخروج<br/>Sign out</p>
+		<% end %>
+		<%= link_to new_post_path do %>
+		<p>مشاركة جديدة<br/>New post</p>
+		<% end %>
 	<% else %>
-		<%= link_to 'Log in ● الدخول', new_user_session_path %>
-		<%= link_to 'Sign up ● التسجيل', new_user_registration_path %>
+		<%= link_to new_user_session_path do %>
+		<p>الدخول<br/>Login</p>
+		<% end %>
+		<%= link_to new_user_registration_path do %>
+		<p>التسجيل<br/>Sign up</p>
+		<% end %>
 	<% end %>
 	</div>
 </div>
