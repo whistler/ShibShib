@@ -27,9 +27,14 @@
 <body>
 	<div id="header" align="center">
 		<%= image_tag("logo.png", :alt => "ShibShib") %>
-		<%= link_to "Home", '#' , :class => "normal" %>
-		<%= link_to "New Post", '#' , :class => "normal" %>
-		<%= link_to "Sign In", '#' , :class => "normal" %>
+		<%= link_to 'Home', root_path , :class => "normal" %>
+		<% if user_signed_in? then %>
+			<%= link_to 'New post', new_post_path, :class=>"normal" %>
+			<%= link_to 'Sign out', destroy_user_session_path, :class=>"normal"%>
+		<% else %>
+			<%= link_to 'Log in', new_user_session_path, :class=>"normal" %>
+			<%= link_to 'Sign up', new_user_registration_path, :class=>"normal" %>
+		<% end %>
 	</div>
 	<div class="container">
 		<section class="round">

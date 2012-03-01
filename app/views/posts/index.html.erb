@@ -5,7 +5,7 @@
   <tr>
     <th>User</th>
     <th>Title</th>
-    <th>Image url</th>
+    <th>Image</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,7 +15,7 @@
   <tr>
     <td><%= post.user_id %></td>
     <td><%= post.title %></td>
-    <td><%= post.image_url %></td>
+    <td><%= post.image(:large) %></td>
     <td><%= link_to 'Show', post %></td>
     <td><%= link_to 'Edit', edit_post_path(post) %></td>
     <td><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></td>
