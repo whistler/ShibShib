@@ -40,8 +40,15 @@ header a {
 	box-shadow: -1px 0 #666 inset;
     -moz-box-shadow: -1px 0 #666 inset;
     -webkit-box-shadow: -1px 0 #666 inset; 
+	-webkit-transition: color .2s linear;
+	-moz-transition: color .2s linear;
 }
-header a:hover {
+nav a:hover {
+	text-decoration: none;
+	background:none;
+}
+
+.userControl a:hover {
 	text-decoration: none;
 	background:none;
 }
@@ -55,18 +62,11 @@ header a:hover {
 	-moz-border-radius:	10px;
 	-webkit-border-radius: 10px;
 	border-radius: 15px;
-}
-section {
-	
+	padding: 10px;
 }
 
-.background {
+body {
 	background: #abcdef;
-}
-
-a:hover {
-	color: #24bbff;
-	background:none;
 }
 
 a:active {
