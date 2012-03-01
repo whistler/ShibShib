@@ -1,8 +1,15 @@
 .container{
 	width: 710px;
+	margin:auto;
+	background: #fff;
 }
 
-#menu{background:#383838; border:#1E1E1E 1px solid; padding:10px 0px 10px 0px;}
+#header {
+	background:#383838;
+	border:#1E1E1E 1px solid; 
+	padding:10px 0px 10px 0px;
+}
+
 .normal {
 font-size:16px; color:#666; 
 padding:10px 30px 10px 30px; 
@@ -18,18 +25,11 @@ text-decoration:none;
 }
 
 body {
-	background: #eee;
+	background: #ddd;
 }
 
 section {
 	margin-top: 1em;
 	font-size: 120%;
 	padding: 20px;
-}
-
-/* Links */
-
-a:visited {
-	color: #000;
-	text-decoration: none;
 }

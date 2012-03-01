@@ -26,13 +26,13 @@
   
 </head>
 <body>
+	<div id="header" align="center">
+		<%= image_tag("logo.png", :alt => "ShibShib", :class => "round") %>
+		<%= link_to "Home", '#' , :class => "normal" %>
+		<%= link_to "New Post", '#' , :class => "normal" %>
+		<%= link_to "Sign In", '#' , :class => "normal" %>
+	</div>
 	<div class="container">
-		<div id="menu">
-			<%= image_tag("logo.png", :alt => "ShibShib", :class => "round") %>
-			<%= link_to "Home", '#' , :class => "hover" %>
-			<%= link_to "New Post", '#' , :class => "normal" %>
-			<%= link_to "Sign In", '#' , :class => "normal" %>
-		</div>
 		<section class="round">
 		    <p class="notice"><%= notice %></p>
 			<p class="alert"><%= alert %></p>
