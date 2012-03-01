@@ -44,6 +44,16 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(params[:post])
 
+    pic = params[:file]
+    #filename = pictagram.id.to_s + '.jpeg'
+    filename = pic.name
+
+    #store image to Amazon S3
+    AWS::S3::S3Object.store(filename, pic, 'ShibShibBlastic', :access => :public_read )  
+
+    url = 'http://s3.amazonaws.com/pictagram-images/' + filename
+    pictagram.pictures.create(:url=>url)
+
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
