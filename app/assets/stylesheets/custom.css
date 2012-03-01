@@ -1,24 +1,17 @@
 .container{
-	width: 710px;
+	width: 760px;
 	margin:auto;
 	background: #fff;
 }
 
 #header {
-	background:#383838;
+	background:#333;
 	border:#1E1E1E 1px solid; 
 	padding:10px 0px 10px 0px;
 }
 
 .normal {
 font-size:16px; color:#666; 
-padding:10px 30px 10px 30px; 
-border:#1E1E1E 1px solid; 
-text-decoration:none;
-}
-.hover {
-background-color:#055F7C;
-font-size:16px; color:#FFF;
 padding:10px 30px 10px 30px; 
 border:#1E1E1E 1px solid; 
 text-decoration:none;
@@ -32,4 +25,23 @@ section {
 	margin-top: 1em;
 	font-size: 120%;
 	padding: 20px;
+}
+a {
+	color: #00a5f0;
+	text-decoration: none;
+	-moz-transition: color .2s linear;
+}
+
+a:hover {
+	color: #24bbff;
+}
+
+a:active {
+	color: #0082bd;
+}
+
+.round {
+	-moz-border-radius:	10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;	
 }
