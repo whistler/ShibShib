@@ -1,6 +1,6 @@
 
-<div id="hidden">
 <% @posts.each do |post|%>
+</div>
 	<div class="leftPosts">
 		<%= image_tag(post.image.url(:large)) %>
 		</div>
@@ -10,5 +10,5 @@
 	<div>
 	<hr> 
 	</div>
-<% end %>
 </div>
+<% end %>
