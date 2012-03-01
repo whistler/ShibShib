@@ -1,14 +1,5 @@
 
-<div class="leftPosts">
-	Some Left
-	<br/>
-	dasdasdas
-	adasd
-</div>
-<div class="rightPosts">
-	<h2>some Right</h2>
-</div>
-<hr>
+<div id="hidden">
 <% @posts.each do |post|%>
 	<div class="leftPosts">
 		<%= image_tag(post.image.url(:large)) %>
@@ -20,3 +11,4 @@
 	<hr> 
 	</div>
 <% end %>
+</div>

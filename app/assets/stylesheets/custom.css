@@ -75,14 +75,18 @@ body {
 }
 
 /* Posts tags */
-
+#hidden {
+	overflow:hidden;
+}
 .leftPosts {
-	width: 500px;
+	width: 600px;
 	float:left;
+	overflow:visible;
 }
 .rightPosts {
-	width: 460px;
+	width: 360px;
 	float:left;
+	overflow:;
 }
 hr {
 	width: 90%;
@@ -90,6 +94,6 @@ hr {
 	border: none;
 	border-top: 1px solid #AAA;
 	border-bottom: 1px solid #DDD;
-	margin-top: 80px;
-	margin-bottom: 80px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
