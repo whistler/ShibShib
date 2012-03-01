@@ -2,13 +2,42 @@
 <html>
 <head>
   <title><%= title %></title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="http:/ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+  <%= javascript_include_tag "jquery.effects.core" %>
+  <script type="text/javascript">
+  $(document).ready(function() {
+	$("#menu a").mouseenter(funtion () {
+		$(this).switchClass("normal", "hover", 1700);
+	});
+	$("#menu a").mouseleave(funtion () {
+		$(this).switchClass("hover", "normal", 1700);
+	});
+	});  
+  </script>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "custom", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  
 </head>
 <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-	<%= yield %>
+	<div class="container">
+		<div id="menu">
+			<%= image_tag("logo.png", :alt => "ShibShib", :class => "round") %>
+			<%= link_to "Home", '#' , :class => "normal" %>
+			<%= link_to "New Post", '#' , :class => "normal" %>
+			<%= link_to "Sign In", '#' , :class => "normal" %>
+		</div>
+		<section class="round">
+		    <p class="notice"><%= notice %></p>
+			<p class="alert"><%= alert %></p>
+			<%= yield %>
+		</section>
+	</div>
 </body>
 </html>
