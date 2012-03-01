@@ -1,0 +1,18 @@
+﻿<header>
+<div class="wraper">
+
+	<%= image_tag("logo.png", :alt => "ShibShib") %>
+	<nav>
+	<%= link_to "Home ● الرئيسية", root_path %>
+	</nav>
+	<div class="userControl">
+	<% if user_signed_in? then %>
+		<%= link_to 'Sign out ● الخروج', destroy_user_session_path %>
+		<%= link_to 'New post ● مشاركة جديدة', new_post_path %>
+	<% else %>
+		<%= link_to 'Log in ● الدخول', new_user_session_path %>
+		<%= link_to 'Sign up ● التسجيل', new_user_registration_path %>
+	<% end %>
+	</div>
+</div>
+</header>

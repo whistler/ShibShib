@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(:version => 20120301034635) do
   create_table "posts", :force => true do |t|
     t.integer  "user_id"
     t.string   "title"
-    t.string   "image"
+    t.string   "image_url"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
     t.string   "image_file_name"
