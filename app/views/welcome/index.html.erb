@@ -1,6 +1,14 @@
+
 <% @posts.each do |post|%>
-	<div class="post">
-		<h2><%= post.title %></h2>
+	<div class="leftPosts">
+		Some Left
 		<%= image_tag(post.image.url(:large)) %>
+		</div>
+	<div class="rightPosts">
+		some Right
+		<h2><%= post.title %></h2>
+	</div>
+	<div>
+	<hr> 
 	</div>
 <% end %>
