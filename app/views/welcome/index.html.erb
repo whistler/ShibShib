@@ -2,7 +2,7 @@
 <% Post.all.reverse.each do |post|%>
 <div id="hidden">
 	<div class="leftPosts">
-		<%= link_to image_tag(post.image.url(:large)), {:controller => 'post'}, {:class => 'displayed'} %>
+		<%= link_to image_tag(post.image.url(:large)), post, {:class => 'displayed'} %>
 	</div>
 	<div class="rightPosts">
 		<h2><%= post.title %></h2>
