@@ -11,7 +11,8 @@
 	</div>
 </div>
 <div >
-	<%= @post.image.url %>
+	<img src="<%= @post.image.url %>" />
+	
 </div>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
