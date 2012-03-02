@@ -7,8 +7,9 @@ header {
     -moz-box-shadow: 0 0 0 1px rgba(255, 255, 255, .2) inset;
     -webkit-box-shadow: 0 0 0 1px rgba(255, 255, 255, .2) inset;
 	top: 0;
+	left: 0;
 	position: fixed;
-	width: 100%;
+	width: 99.8%;
 }
 .wraper {
 	margin:auto;
@@ -60,7 +61,6 @@ nav a:hover {
 
 /* Container tags */
 .container {
-	margin:auto;
 	margin-top: 80px;
 	width: 960px;
 	background: #fff;
@@ -68,6 +68,7 @@ nav a:hover {
 	-webkit-border-radius: 10px;
 	border-radius: 15px;
 	padding: 10px;
+	position:static;
 }
 
 body {
@@ -104,4 +105,42 @@ hr {
 a:hover {
 	text-decoration: none;
 	background:none;
+}
+
+/* posta!! */
+
+.postaControl {
+	width: 960px;
+	background: #333;
+	-moz-border-radius:	10px;
+	-webkit-border-radius: 10px;
+	border-radius: 15px;
+	margin-left: -10px;
+	margin-top: -25px;
+	padding-right: 20px;
+}
+.postaTitle {
+	color:#CCCCCC;
+	padding: 30px;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:20px;
+	font-weight:bold;
+	top: -1px;
+}
+.postaData {
+	color:#CCCCCC;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:16px;
+	padding-left: 30px;
+	margin-bottom: 15px;
+}
+.postaSocial {
+	background: #abcdef;
+	color:#000;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:16px;
+	padding: 10px;
+	padding-left: 30px;
+	width: 960px;
+	
 }

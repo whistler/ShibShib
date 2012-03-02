@@ -1,20 +1,19 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <b>User:</b>
-  <%= @post.user_id %>
-</p>
-
-<p>
-  <b>Title:</b>
-  <%= @post.title %>
-</p>
-
-<p>
-  <b>Image:</b>
-  <%= @post.image %>
-</p>
-
+<div class="postaControl">
+<div class="postaTitle">
+	<%= @post.title %>
+</div>
+<div class="postaData">
+	User: <%= @post.user_id %> | days ago - comments - likes
+</div>
+<div class="postaSocial">
+	Social Linkes ~~
+</div>
+</div>
+<div >
+	<%= image_tag(post.image.url(:large) %>
+	<img class="displayed" alt="Virus-on-my-computer" src="http://s3.amazonaws.com/ShibShibBlastic/images/5/large/darthursdays0.jpg?1330629039" />
+</div>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
