@@ -4,15 +4,13 @@
 		<%= @post.title %>
 	</div>
 	<div class="postaData">
-		User: <%= @post.user_id %> | days ago - comments - likes
+		User:  | days ago - comments - likes
 	</div>
 	<div class="postaSocial">
 		Social Linkes ~~
 	</div>
 </div>
-<div >
-	<%= image_tag(@post.image.url(:large) %>
-</div>
+
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
