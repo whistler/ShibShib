@@ -11,7 +11,7 @@
 	</div>
 </div>
 <div >
-	<%= image_tag(@post.image_url) %>
+	<%= link_to image_tag(@post.image.url, :class => 'displayed'), post %>
 </div>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
