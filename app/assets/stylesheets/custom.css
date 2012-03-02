@@ -93,6 +93,7 @@ img.displayed {
     display: block;
     margin-left: auto;
     margin-right: auto;
+	padding: 10px;
 }
 hr {
 	width: 90%;
@@ -100,8 +101,8 @@ hr {
 	border: none;
 	border-top: 1px solid #AAA;
 	border-bottom: 1px solid #DDD;
-	margin-top: 40px;
-	margin-bottom: 30px;
+	margin-top: 30px;
+	margin-bottom: 20px;
 }
 a:hover {
 	text-decoration: none;
