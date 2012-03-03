@@ -7,7 +7,9 @@ ShibShibBlastic::Application.routes.draw do
 
   resources :ratings
 
-  resources :posts
+  resources :posts do 
+    get 'vote'
+  end
 
   resources :users
 

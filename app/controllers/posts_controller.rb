@@ -83,4 +83,12 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def vote
+    @post = Post.find(params[:post_id])
+    current_user.vote_for(@post) if !current_user.blank?
+    respond_to do |format|
+      format.js
+    end
+  end
 end

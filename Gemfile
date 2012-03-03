@@ -32,6 +32,7 @@ gem 'devise'
 
 gem 'aws-sdk'
 gem 'paperclip'
+gem 'thumbs_up'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -1,0 +1,7 @@
+<% selecter = '#votes-' + @post.id.to_s %>
+<% if current_user.nil? %>
+$("<%= selecter %>").before("<div id='login-required'>Log in or Sign up to Like</div>");
+$("#login-required").fadeOut(4000, function() {$("#login-required").remove();});
+<% else %>
+$("<%= selecter %>").html(<%= @post.plusminus %>);
+<% end %>
