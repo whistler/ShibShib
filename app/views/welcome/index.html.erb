@@ -8,7 +8,11 @@
 	<div class="rightPosts">
 		<h2><%= post.title %></h2>
 		<%= distance_of_time_in_words(Time.now, post.created_at) + " ago" %><br />
-		<%= link_to post.user.name, user_path(post.user) %>
+		<% if post.user == nil then %>
+			Anonymous
+		<% else %>
+			<%= link_to post.user.name, user_path(post.user) %>
+		<% end %>
 	</div>
 </div>
 <hr> 
