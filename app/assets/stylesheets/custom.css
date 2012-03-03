@@ -1,3 +1,15 @@
+/* General */
+a:hover {
+	text-decoration: none;
+	background:none;
+}
+
+a {
+	font-family:Tahoma, Geneva, sans-serif;
+	text-decoration: none;
+	background:none;
+}
+
 /* Header tags */
 header {
 	background:#333;
@@ -27,7 +39,6 @@ header nav {
 	padding-right: 5px;
 }
 header a {
-	color: #666;
 	line-height:4em;
 	display: block;
 	height: 65px;
@@ -64,11 +75,9 @@ nav a:hover {
 	margin-top: 80px;
 	width: 960px;
 	background: #fff;
-	-moz-border-radius:	10px;
-	-webkit-border-radius: 10px;
-	border-radius: 15px;
-	padding: 10px;
-	position:static;
+	-moz-border-radius:	7px;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
 }
 
 body {
@@ -82,12 +91,13 @@ body {
 .leftPosts {
 	width: 600px;
 	float:left;
-	overflow:visible;
+	padding: 20px 20px 0px 20px;
+	font-family:Tahoma, Geneva, sans-serif;
+	color:#000;
 }
 .rightPosts {
-	width: 360px;
 	float:left;
-	overflow:;
+	margin-left: 15px;
 }
 img.displayed {
     display: block;
@@ -104,45 +114,88 @@ hr {
 	margin-top: 30px;
 	margin-bottom: 20px;
 }
-a:hover {
-	text-decoration: none;
-	background:none;
-}
 
 /* posta!! */
-
 .postaControl {
-	width: 960px;
 	background: #333;
-	-moz-border-radius:	10px;
-	-webkit-border-radius: 10px;
-	border-radius: 15px;
-	margin-left: -10px;
-	margin-top: -25px;
-	padding-right: 20px;
+	-moz-border-radius:	7px;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+	margin-top: -18px;
 }
 .postaTitle {
-	color:#CCCCCC;
-	padding: 30px;
+	color:#FFF;
+	padding: 20px 0px 0px 20px;
 	font-family:Tahoma, Geneva, sans-serif;
 	font-size:20px;
-	font-weight:bold;
-	top: -1px;
 }
 .postaData {
 	color:#CCCCCC;
 	font-family:Tahoma, Geneva, sans-serif;
-	font-size:16px;
-	padding-left: 30px;
-	margin-bottom: 15px;
+	font-size:14px;
+	padding-left: 20px;
+	padding-bottom: 20px;
+	margin-top: 10px;
 }
-.postaSocial {
-	background: #abcdef;
-	color:#000;
+.postaData a {
+	color:#009EE6;
+	-webkit-transition: color .2s linear;
+	-moz-transition: color .2s linear;
+}
+.postaData a:hover {
+	color:#00AFFF;
+}
+#h3 {
+	-moz-box-shadow:inset 0px 1px 0px 0px #97c4fe;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #97c4fe;
+	box-shadow:inset 0px 1px 0px 0px #97c4fe;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #3d94f6), color-stop(1, #1e62d0) );
+	background:-moz-linear-gradient( center top, #3d94f6 5%, #1e62d0 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3d94f6', endColorstr='#1e62d0');
+	color:#fff;
 	font-family:Tahoma, Geneva, sans-serif;
-	font-size:16px;
-	padding: 10px;
-	padding-left: 30px;
+	font-weight:normal;
+	line-height:4em;
 	width: 960px;
-	
+}
+.postaPic {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.postaCosta {
+	float: left;
+}
+.postaOptions {
+	float: left;
+	height: 30px;
+	margin: 30px;
+}
+#report {
+	padding-right: 20px;
+	padding-top: 10px;
+	font-family:Tahoma, Geneva, sans-serif;
+	color:#C00;
+	-webkit-transition: color .2s linear;
+	-moz-transition: color .2s linear;
+}
+a:hover #report {
+	color: #F03;
+}
+
+/* Facebook */
+.comments {
+	padding: 20px;
+	font-family:Tahoma, Geneva, sans-serif;
+}
+
+/* Footer */
+.footer {
+	-moz-border-radius:	7px;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;	
+	background:#FFF;
+	line-height: 4em;
+	color: #222;
+	width: 960px;
+	margin:auto;
 }

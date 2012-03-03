@@ -1,16 +1,30 @@
-<p id="notice"><%= notice %></p>
-<div class="postaControl">
+﻿<div class="postaControl">
+	
 	<div class="postaTitle">
 		<%= @post.title %>
 	</div>
-	<div class="postaData">
-		User: | days ago - comments - likes
+	<div class="postaData" aling="center">
+		<%= link_to @post.user.name, user_path(@post.user) %> | <%= distance_of_time_in_words(Time.now, @post.created_at) + " ago" %> - # comments - # likes
 	</div>
-	<div class="postaSocial">
-		Social Linkes ~~
-	</div>
+	<div id="h3">YES!!! FINALY MOVING CORRECTLY!!!</div>
 </div>
-<img class="displayed" src="<%= @post.image.url %>" />
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<div class="postaPic">
+	<img class="displayed" src="<%= @post.image.url %>" />
+</div>
+
+<div class="leftPosts">
+	<h4>Comments ● التعليقات</h4>
+</div>
+<div align="right">
+<%= link_to root_path do %>
+	<p id="report">الإبلاغ عن المشاركة<br/>Report this post</p>
+<% end %>
+</div>
+
+<hr>
+<div class="comments">
+	<p>Facebook comments go here! </p>
+	<%= link_to 'Edit', edit_post_path(@post) %> |
+	<%= link_to 'Back', posts_path %>
+</div>
