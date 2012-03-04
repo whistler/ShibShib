@@ -1,20 +1,33 @@
-<% Post.all.reverse.each do |post|%>
+﻿<% Post.all.reverse.each do |post|%>
 <div id="hidden">
 	<div class="leftPosts">
 		<%= link_to image_tag(post.image.url(:large), :class => 'displayed'), post %>
 	</div>
 	<div class="rightPosts">
+		<h1><%= post.title %></h1>
 		<h2><%= post.title %></h2>
-		<%= distance_of_time_in_words(Time.now, post.created_at) + " ago" %><br />
+		
 		<% if post.user == nil then %>
 			Anonymous
 		<% else %>
 			<%= link_to post.user.name, user_path(post.user) %>
 		<% end %>
-		<br />
-		<span id="votes-<%= post.id %>"><%= post.plusminus %></span> Likes </br >
-		<%= link_to 'Like', {:controller=> 'posts', :action=>'vote', :post_id => post.id}, :remote => true, :method => 'get' %>
+		<%= distance_of_time_in_words(Time.now, post.created_at) + " ago" %><br />
+		<span id="votes-<%= post.id %>"><%= 
+		if(post.plusminus == 0) 
+			"Be the 1st one to like"
+		elsif(post.plusminus == 1)
+			post.plusminus.to_s + " Like"
+		else
+			post.plusminus.to_s + " Likes"
+		end %></span>  |
+		<%= link_to 'Like', {:controller=> 'posts', :action=>'vote', :post_id => post.id}, :remote => true, :method => 'get' %> <br/>
+		# comments | Link to comment<br/>
+		Social Networks
 	</div>
 </div>
 <hr> 
 <% end %>
+<p id="back-top">
+	<a href="#top"><span></span>إلى الأعلى<br/><br/>BACK TO TOP</A>
+</P>
