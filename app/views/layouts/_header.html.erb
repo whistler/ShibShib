@@ -6,14 +6,18 @@
 	<p>الرئيسية<br/>Home</p>
 	<% end %>
 	<%= link_to root_path do %>
-	<%= image_tag("6masha.png", :alt => "6masha") %>
+	<%= image_tag("logo.png", :alt => "logo") %>
 	<% end %>
+	
 	</nav>
 	
 	<div class="userControl">
 	<% if user_signed_in? then %>
 		<%= link_to destroy_user_session_path do %>
 		<p>الخروج<br/>Sign out</p>
+		<% end %>
+		<%= link_to root_path do %>
+		<p><%= "Header: link me to my account" %></p>
 		<% end %>
 		<%= link_to new_post_path do %>
 		<p>مشاركة جديدة<br/>New post</p>
