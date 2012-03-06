@@ -33,9 +33,9 @@ window.onload = function () {
 
 function getY()
 {
-	if(window.pageYOffset > 103){
+	if(window.pageYOffset > 123){
 		document.getElementById("social").style.position = "fixed";
-		document.getElementById("social").style.top = "83px";
+		document.getElementById("social").style.top = "63px";
 		document.getElementById("postaPic").style.marginTop = "95px";
 	}
 	else {
