@@ -19,7 +19,7 @@ window.onload = function () {
 
 
 $(document).ready(function(){
-
+	
 	$("#back-top").hide();
 	$(function () {
 		$(window).scroll(function () {
@@ -56,61 +56,101 @@ $(document).ready(function(){
 $(document).ready(function(){
 
 ///////////////////////////////////////////////////////////////
-	
-	$('h1').each(function(index)
+	$('div #m').each(function(index)
 	{
-	    $(this).wrap("<div class=\"wrapper\" id=\"section"+index+"Wrapper\" title=\""+index+"\"><div id=\"section"+index+"\"></div></div>");
+		
+	    $(this).wrap("<div id=\"section"+index+"Wrapper\"><div id=\"section"+index+"\"></div></div>");
+		
+		//alert($("#section"+index+"Wrapper").parent().height());
+		//index = index + 1;
+		//alert(index);
+		//alert(window.pageYOffset);
+		///alert(window.pageYOffset)
 	});
 	
-	$("body").append("<div id=\"section"+$("h1").size()+"Wrapper\"></div>");
-	$("body").before("<div id=\"section0Wrapper\"></div>");
+	//$("#panel").append("<div id=\"section"+$("rightPosts").size()+"Wrapper\"></div>");
+	//$("#panel").before("<div id=\"section0Wrapper\"></div>");
 	
 	$(window).scroll(function(){
-		
-		$("h1").each(function(index)
+
+		$("div #m").each(function(index)
 		{
-			if(index>0)
+			
+			
 			checkElem(index);
 
 		});
 
 	});
 
-	
 ///////////////////////////////////////////////////////////////
 	
 function checkElem(id)
 {
-
-		var top = $(window).scrollTop();
-		var y = 60;
+		var roof = window.pageYOffset + 75;
+		var picH = $('#section'+(id)+'Wrapper').siblings().height();
+		var panelH = $("#section"+(id)+" > #m").height();
 		
-		var cur = $('#section'+(id)+'Wrapper').position().top-y;
-		var prev = $('#section'+(id-1)+'Wrapper').position().top-y;
+		
+		//alert($('#section'+(id)+'Wrapper').siblings().height());
+	
+		var tresh = (picH - panelH) + top - 85;
+		
+		//swim along ...
+		var top = $('#section'+(id)+'Wrapper').position().top;
+		var buttom = $('#section'+(id+1)+'Wrapper').position().top - 285;
+		
+		var nextTop = $('#section'+(id+1)+'Wrapper').position().top;
+		var backward = tresh - roof;
+		
+		/*else
+		{
+			var tresh = (postH - panelH) + top - 85;
+			var nextUp = $('#section'+(id+1)+'Wrapper').position().top - 290;
+			var backward = tresh - roof;
+			
+			
+			/*var cur = $('#section'+(id)+'Wrapper').position().top-y;
+			var prev = $('#section'+(id-1)+'Wrapper').position().top-y;
+			delta = $("#section"+(id-1)+"Wrapper").parent().height() - $('#section'+(id-1)+'Wrapper').position().top;*/
+
+		
 		var el = $('#section'+(id));
 
-		if(top < cur && top > prev+100)
-			scroll(el);
-
-		else 
-			stick(el);
+		//if (offset < cur && offset > prev-60)
+		if ((roof > top && buttom > roof) || (roof > backward && roof < top) && nextTop < roof)
+			swim(el);
+		else if (roof < nextTop && top > roof)
+			original(el);
+		else if ((top < roof))
+			stick(el, (panelH+65), picH);
 
 }
 
 ///////////////////////////////////////////////////////////////
 	
-function scroll(element)
+function swim(element)
 {
-	element.addClass("float");
+	//element.removeClass("nail");
+	element.css('margin-top', '0%');
+	element.addClass("swim");
+	//alert("swiming");
 }
-	
 ///////////////////////////////////////////////////////////////
-
-function stick(element)
+function original(element)
 {
-	element.removeClass("float");
+	element.css('margin-top', '0%');
+	element.removeClass("swim");
+	//alert("original");
+    //element.css('margin-top', '40%');
+
+}
+///////////////////////////////////////////////////////////////
+function stick(element, panelH, picH)
+{
+	element.removeClass("swim");
+    element.css('margin-top', (picH-panelH)+"px");
+	//alert("sticking "+(picH-panelH)+"px");
 }
 
-///////////////////////////////////////////////////////////////
- 
 });

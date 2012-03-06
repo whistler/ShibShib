@@ -3,8 +3,7 @@
 	<div class="leftPosts">
 		<%= link_to image_tag(post.image.url(:large), :class => 'displayed'), post %>
 	</div>
-	<div class="rightPosts">
-		<h1><%= post.title %></h1>
+	<div class="rightPosts" id="m">
 		<h2><%= post.title %></h2>
 		
 		<% if post.user == nil then %>

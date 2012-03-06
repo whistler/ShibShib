@@ -98,6 +98,15 @@ body {
 .rightPosts {
 	float:left;
 	padding: 20px;
+	margin: 30px 20px 0px 20px;
+	-moz-box-shadow:inset 0px 1px 0px 0px #97c4fe;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #97c4fe;
+	box-shadow:inset 0px 1px 0px 0px #97c4fe;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3d94f6', endColorstr='#1e62d0');
+	border:1px solid #337fed;
+	-moz-border-radius:	7px;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
 }
 .rightPosts a {
 	color:#009EE6;
@@ -203,10 +212,9 @@ a:hover #report {
 	border-radius: 7px;	
 	background:#FFF;
 	line-height: 4em;
-	color: #666;
+	color: #222;
 	width: 960px;
 	margin:auto;
-	height: 4em;
 }
 .footer p {
 	font-family:Tahoma, Geneva, sans-serif;	
@@ -294,10 +302,8 @@ h1 {
 	line-height: 4em;
 	font-size: 15px;
 }
-.wrapper:firts-child, .float {
-	background: #0094e1;
-}
-.float {
+.swim {
 	position: fixed; 
-	top: 100px;
+	top: 80px;
+	right: 502px;
 }
