@@ -159,6 +159,7 @@ GEM
     uuidtools (2.1.2)
     warden (1.1.0)
       rack (>= 1.0)
+    will_paginate (3.0.3)
 
 PLATFORMS
   ruby
@@ -178,3 +179,4 @@ DEPENDENCIES
   sqlite3
   thumbs_up (= 0.4.5)
   uglifier (>= 1.0.3)
+  will_paginate (~> 3.0)

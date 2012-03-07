@@ -24,16 +24,17 @@ group :development, :test do
 end
 
 group :production do
-  gem 'pg'
+  gem 'pg'                      # Postgres database
 end
 
 gem 'jquery-rails'
-gem 'devise'
-gem 'omniauth-facebook'
+gem 'devise'                    # User authentication
+gem 'omniauth-facebook'         # Facebook login
 
-gem 'aws-sdk'
-gem 'paperclip'
-gem 'thumbs_up', '0.4.5'
+gem 'aws-sdk'                   # For storing images
+gem 'paperclip'                 # For uploading images
+gem 'thumbs_up', '0.4.5'        # For rating posts
+gem 'will_paginate', '~> 3.0'   # For pagination
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

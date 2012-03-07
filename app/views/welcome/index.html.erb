@@ -1,4 +1,4 @@
-﻿<% Post.all.reverse.each do |post|%>
+﻿<% @posts.sort_by { |post| post.plusminus }.reverse.each do |post|%>
 <div id="hidden">
 	<div class="leftPosts">
 		<%= link_to image_tag(post.image.url(:large), :class => 'displayed'), post %>
@@ -27,6 +27,7 @@
 </div>
 <hr> 
 <% end %>
+<%= will_paginate @posts %>
 <p id="back-top">
 	<a href="#top"><span></span>إلى الأعلى<br/><br/>BACK TO TOP</A>
 </P>
