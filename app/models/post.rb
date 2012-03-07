@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
   has_many :ratings
   has_attached_file :image,
-  :styles => { :large => "600x600>", :medium => "300x300>", :thumb => "100x100>" },
+  :styles => { :large => "600", :medium => "300x300>", :thumb => "100x100>" },
   :storage => :s3,
   :bucket => 'ShibShibBlastic',
   :s3_credentials => {
