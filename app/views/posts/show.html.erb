@@ -5,14 +5,18 @@
 	</div>
 	<div class="postaData" aling="center">
 		<%= link_to @post.user.name, user_path(@post.user) if !@post.user.blank? %> | 
-		<%= distance_of_time_in_words(Time.now, @post.created_at) + " ago" %>
+		<%= "#{distance_of_time_in_words(Time.now, @post.created_at)} #{t 'post.ago'}" %>
 		- # comments 
-		- <%= if(@post.plusminus == 1)
-			@post.plusminus.to_s + " Like"
+		- <%= if(@post.plusminus == 0)
+			t 'post.no_likes'
+		elsif(@post.plusminus == 1)
+			t 'post.one_like'
+		elsif(@post.plusminus > 1 || @post.plusminus < 11)
+			"#{@post.plusminus.to_s} #{t 'post.three_to_ten_likes'}"
 		else
-			@post.plusminus.to_s + " Likes"
+			"#{@post.plusminus.to_s} #{t 'post.many_likes'}"
 		end %>
-		
+		<%= link_to t('post.like_me'), {:controller=> 'posts', :action=>'vote', :post_id => @post.id}, :remote => true, :method => 'get' %> <br/>
 		
 	</div>
 	<div id="social">Social Sites Links</div>
@@ -23,11 +27,11 @@
 </div>
 
 <div class="leftPosts">
-	<h4>Comments ● التعليقات</h4>
+	<h4><%= t 'post.the_comments' %></h4>
 </div>
 <div align="right">
 <%= link_to root_path do %>
-	<p id="report">الإبلاغ عن المشاركة<br/>Report this post</p>
+	<p id="report"><%= t 'post.report' %></p>
 <% end %>
 </div>
 

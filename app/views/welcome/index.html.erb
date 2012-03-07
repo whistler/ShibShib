@@ -1,33 +1,7 @@
-﻿<% @posts.sort_by { |post| post.plusminus }.reverse.each do |post|%>
-<div id="hidden">
-	<div class="leftPosts">
-		<%= link_to image_tag(post.image.url(:large), :class => 'displayed'), post %>
-	</div>
-	<div class="rightPosts" id="m">
-		<h2><%= post.title %></h2>
-		
-		<% if post.user == nil then %>
-			Anonymous
-		<% else %>
-			<%= link_to post.user.name, user_path(post.user) %>
-		<% end %>
-		<%= distance_of_time_in_words(Time.now, post.created_at) + " ago" %><br />
-		<span id="votes-<%= post.id %>"><%= 
-		if(post.plusminus == 0) 
-			"Be the 1st one to like"
-		elsif(post.plusminus == 1)
-			post.plusminus.to_s + " Like"
-		else
-			post.plusminus.to_s + " Likes"
-		end %></span>  |
-		<%= link_to 'Like', {:controller=> 'posts', :action=>'vote', :post_id => post.id}, :remote => true, :method => 'get' %> <br/>
-		# comments | Link to comment<br/>
-		Social Networks
-	</div>
-</div>
-<hr> 
+﻿<div id="results">
+<% @posts.reverse.each do |a_post|%>
+<%= render :partial => "layouts/posts_list", :locals => {:post => a_post} %>
 <% end %>
-<%= will_paginate @posts %>
-<p id="back-top">
-	<a href="#top"><span></span>إلى الأعلى<br/><br/>BACK TO TOP</A>
-</P>
+<%= will_paginate(@posts, :more => true) %>
+</div>
+<p id="back-top"><a href="#top"><span></span><%= t 'others.back_to_top' %></a></P>

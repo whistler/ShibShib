@@ -1,4 +1,9 @@
 module ApplicationHelper
+	def javascript(*args)
+	  content_for(:head) { javascript_include_tag(*args) }
+	end
+
+
 	def title
 		base_title = "ShibShib"
 		if @title.nil?

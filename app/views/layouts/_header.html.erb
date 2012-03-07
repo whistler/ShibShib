@@ -3,31 +3,30 @@
 
 	<nav>
 	<%= link_to root_path do %>
-	<p>الرئيسية<br/>Home</p>
+	<p><%= t 'header.home' %></p>
 	<% end %>
 	<%= link_to root_path do %>
-	<%= image_tag("logo2.png", :alt => "logo") %>
+	<%= image_tag("shibshib.png", :alt => "logo") %>
 	<% end %>
-	
 	</nav>
 	
 	<div class="userControl">
 	<% if user_signed_in? then %>
 		<%= link_to destroy_user_session_path do %>
-		<p>الخروج<br/>Sign out</p>
+		<p><%= t 'header.sign_out' %></p>
 		<% end %>
 		<%= link_to root_path do %>
-		<p><%= "Header: link me to my account" %></p>
+		<%= link_to current_user.name, current_user %>
 		<% end %>
 		<%= link_to new_post_path do %>
-		<p>مشاركة جديدة<br/>New post</p>
+		<p><%= t 'header.new_post' %></p>
 		<% end %>
 	<% else %>
 		<%= link_to new_user_session_path do %>
-		<p>الدخول<br/>Login</p>
+		<p><%= t 'header.login' %></p>
 		<% end %>
 		<%= link_to new_user_registration_path do %>
-		<p>التسجيل<br/>Sign up</p>
+		<p><%= t 'header.sign_up' %></p>
 		<% end %>
 	<% end %>
 	</div>

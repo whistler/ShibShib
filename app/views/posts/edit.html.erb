@@ -1,6 +1,8 @@
-<h1>Editing post</h1>
+<div class="sign">
+<h2>Editing post</h2>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+<%= link_to "#{t 'general.show'}", @post %> |
+<%= link_to "#{t 'general.back'}", posts_path %>
+</div>

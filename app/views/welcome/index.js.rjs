@@ -1,0 +1,7 @@
+page.insert_html :bottom, 'hidden', :partial => "layouts/posts_list"
+if @posts.total_pages > @posts.current_page
+  page.call 'checkScroll'
+else
+  page[:loading].hide
+end
+
