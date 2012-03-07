@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.find(all, :order => "time DESC", :limit => 2)
+    @posts = Post.all #.find(all, :order => "time DESC", :limit => 2)
 	
     respond_to do |format|
       format.html # index.html.erb

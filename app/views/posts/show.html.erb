@@ -4,9 +4,17 @@
 		<%= @post.title %>
 	</div>
 	<div class="postaData" aling="center">
-		<%= link_to @post.user.name, user_path(@post.user) %> | <%= distance_of_time_in_words(Time.now, @post.created_at) + " ago" %> - # comments - # likes
+		<%= link_to @post.user.name, user_path(@post.user) %> | <%= distance_of_time_in_words(Time.now, @post.created_at) + " ago" %>
+		- # comments 
+		- <%= if(@post.plusminus == 1)
+			@post.plusminus.to_s + " Like"
+		else
+			@post.plusminus.to_s + " Likes"
+		end %>
+		
+		
 	</div>
-	<div id="h3">YES!!! FINALY MOVING CORRECTLY!!!</div>
+	<div id="social">Social Sites Links</div>
 </div>
 
 <div id="postaPic">
