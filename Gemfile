@@ -29,6 +29,7 @@ end
 
 gem 'jquery-rails'
 gem 'devise'
+gem 'omniauth-facebook'
 
 gem 'aws-sdk'
 gem 'paperclip'

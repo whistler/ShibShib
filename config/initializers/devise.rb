@@ -206,4 +206,6 @@ Devise.setup do |config|
   #   manager.intercept_401 = false
   #   manager.default_strategies(:scope => :user).unshift :some_external_strategy
   # end
+  require "omniauth-facebook"
+  config.omniauth :facebook, "254428867974812", "e6c5507c3f88d2341ef0c6103736e617"
 end
