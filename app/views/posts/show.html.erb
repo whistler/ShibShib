@@ -4,7 +4,8 @@
 		<%= @post.title %>
 	</div>
 	<div class="postaData" aling="center">
-		<%= link_to @post.user.name, user_path(@post.user) %> | <%= distance_of_time_in_words(Time.now, @post.created_at) + " ago" %>
+		<%= link_to @post.user.name, user_path(@post.user) if !@post.user.blank? %> | 
+		<%= distance_of_time_in_words(Time.now, @post.created_at) + " ago" %>
 		- # comments 
 		- <%= if(@post.plusminus == 1)
 			@post.plusminus.to_s + " Like"
