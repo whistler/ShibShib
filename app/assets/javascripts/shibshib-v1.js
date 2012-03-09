@@ -50,9 +50,9 @@ $(document).ready(function(){
 	
 
 	
-	$('div #m').each(function(index){ $(this).wrap("<div id=\"section"+index+"Wrapper\"><div id=\"section"+index+"\"></div></div>");});
+	//$('div #m').each(function(index){ $(this).wrap("<div id=\"section"+index+"Wrapper\"><div id=\"section"+index+"\"></div></div>");});
 	
-	$(window).scroll(function(){$("div #m").each(function(index){checkElem(index);});});
+	//$(window).scroll(function(){$("div #m").each(function(index){checkElem(index);});});
 
 ///////////////////////////////////////////////////////////////
 	

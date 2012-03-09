@@ -139,8 +139,16 @@ hr {
 .rightPosts {
 	float:left;
 	margin-top: 1%;
+	padding: 2%;
 	position: static;
 	top: 50px;
+	border:2px solid #222;
+	-moz-border-radius:	7px;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+	-moz-box-shadow: inset 0 0 7px #888;
+	-webkit-box-shadow: inset 0 0 7px #888;
+	box-shadow: inset 0 0 7px #888;
 }
 .swim {
 	position: fixed;
