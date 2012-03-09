@@ -1,33 +1,29 @@
 ﻿<header>
 <div class="wraper">
-
-	<nav>
-	<%= link_to root_path do %>
-	<p>الرئيسية<br/>Home</p>
-	<% end %>
-	<%= link_to root_path do %>
-	<%= image_tag("logo2.png", :alt => "logo") %>
-	<% end %>
-	
-	</nav>
+	<div class="nav">
+		<%= link_to root_path do %>
+			<%= image_tag("shibshib.png", :alt => "logo") %>
+		<% end %>
+		<%= link_to "#{t 'header.home'}", root_path %>
+	</div>
 	
 	<div class="userControl">
 	<% if user_signed_in? then %>
 		<%= link_to destroy_user_session_path do %>
-		<p>الخروج<br/>Sign out</p>
+			<%= t 'header.sign_out' %>
 		<% end %>
-		<%= link_to root_path do %>
-		<p><%= "Header: link me to my account" %></p>
+		<%= link_to current_user do %>
+			<%= current_user.name %>
 		<% end %>
 		<%= link_to new_post_path do %>
-		<p>مشاركة جديدة<br/>New post</p>
+			<%= t 'header.new_post' %>
 		<% end %>
 	<% else %>
 		<%= link_to new_user_session_path do %>
-		<p>الدخول<br/>Login</p>
+			<%= t 'header.login' %>
 		<% end %>
 		<%= link_to new_user_registration_path do %>
-		<p>التسجيل<br/>Sign up</p>
+			<%= t 'header.sign_up' %>
 		<% end %>
 	<% end %>
 	</div>

@@ -1,9 +1,10 @@
-
 <div class="postaControl">
 	<div class="postaTitle">
 		<%= @user.name %>
 	</div>
+	
 	<div class="postaData" aling="center">
+
 
 	</div>
 </div>
@@ -34,11 +35,12 @@
 		<%= link_to 'Like', {:controller=> 'posts', :action=>'vote', :post_id => post.id}, :remote => true, :method => 'get' %> <br/>
 		# comments | Link to comment<br/>
 		Social Networks
+>>>>>>> e388cd435e1aede0392c0bf3d8b8550348f1915d
 	</div>
 </div>
-<hr> 
 
-<% end %>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %> WHAT TO DO WITH THEM??
+	<% @posts.reverse.each do |a_post|%>
+	<%= render :partial => "layouts/posts_list", :locals => {:post => a_post} %>
+	<% end %>
+<%= link_to "#{t 'general.edit'}", edit_user_path(@user) %> |
+<%= link_to "#{t 'general.back'}", users_path %> WHAT TO DO WITH THEM??

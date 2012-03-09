@@ -50,9 +50,9 @@ $(document).ready(function(){
 	
 
 	
-	$('div #m').each(function(index){ $(this).wrap("<div id=\"section"+index+"Wrapper\"><div id=\"section"+index+"\"></div></div>");});
+	//$('div #m').each(function(index){ $(this).wrap("<div id=\"section"+index+"Wrapper\"><div id=\"section"+index+"\"></div></div>");});
 	
-	$(window).scroll(function(){$("div #m").each(function(index){checkElem(index);});});
+	//$(window).scroll(function(){$("div #m").each(function(index){checkElem(index);});});
 
 ///////////////////////////////////////////////////////////////
 	
@@ -89,21 +89,26 @@ $(document).ready(function(){
 	function swim(element)
 	{
 		element.css('margin-top', '0%');
-		element.addClass("swim");
+		element.css('position', 'fixed');
+		element.css('right', '29.6%');
+		element.css('top', '8%');
+		//element.addClass("swim");
 		//alert("swiming");
 	}
 ///////////////////////////////////////////////////////////////
 	function original(element)
 	{
 		element.css('margin-top', '0%');
-		element.removeClass("swim");
+		element.css('position', 'static');
+		//element.removeClass("swim");
 		//alert("original");
 	
 	}
 ///////////////////////////////////////////////////////////////
 	function stick(element, panelH, picH)
 	{
-		element.removeClass("swim");
+		element.css('margin-top', '0%');
+		element.css('position', 'static');
 		element.css('margin-top', (picH-panelH)+"px");
 	}
 

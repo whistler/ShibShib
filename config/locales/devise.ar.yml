@@ -1,0 +1,57 @@
+﻿# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+ar:
+  errors:
+    messages:
+      expired: "قد انتهت، يرجى طلب واحدة أخرى"
+      not_found: "لما يتم العثور عليها"
+      already_confirmed: "تم التأكيد عليها، يرجى الدخول"
+      not_locked: "ليست مغلقة"
+      not_saved:
+        one: ":من الحفظ %{resource} خطأ واحد منع"
+        other: ":من الحفظ %{resource} خطأ منعوا %{count}"
+
+  devise:
+    failure:
+      already_authenticated: '.لقد سجّلت الدخول مسبقاً'
+      unauthenticated: '.يجب أن تنشئ عضوية جديدة أو تسجّل الدخول قبل المتابعة'
+      unconfirmed: '.يجب تفعيل العضوية قبل المتابعة'
+      locked: '.عضويتك موقوفة'
+      invalid: '.بريد إلكتروني أو كلمة سر غير صحيحة'
+      invalid_token: '.رمز المرور غير صحيح'
+      timeout: '.جلستك الحالية قد انتهت، يرجى تسجيل الدخول مجدّداً'
+      inactive: '.عضويّتك لم تفعّل بعد'
+    sessions:
+      signed_in: '.تم تسجيل الدخول بنجاح'
+      signed_out: '.تم تسجيل الخروج بنجاح'
+    passwords:
+      send_instructions: '.ستتلقّى بريداً إلكترونياً في بضع دقائق تحتوي على تعليمات حول كيفية استرجاع كلمة السر الخاصة بك'
+      updated: '.تم تغيير كلمة السر بنجاح. تم تسجيل دخولك'
+      updated_not_active: '.تم تغيير كلمة السر بنجاح'
+      send_paranoid_instructions: ".إن كان لديك بريد إلكتروني مسجّل في قاعدة البيانات الخاصة بنا، سوف تتلقّى من خلالها رابطاً لاستعادة كلمة السر"
+    confirmations:
+      send_instructions: '.ستتلقّى بريداً إلكترونياً في بضع دقائق تحتوي على تعليمات حول كيفية تأكيد عضويتك'
+      send_paranoid_instructions: '.إن كان لديك بريد إلكتروني مسجّل في قاعدة البيانات الخاصة بنا، سوف تتلقّى من خلالها تعليمات حول كيفية تأكيد عضويتك'
+      confirmed: '.تم التأكيد على عضويتك. تم تسجيل دخولك'
+    registrations:
+      registrations:
+        signed_up: '.مرحباً! تم تسجيل دخولك بنجاح'
+        updated: '.تم تحديث عضويتك بنجاح'
+        destroyed: '.وداعاً! تم إلغاء عضويتك. نرجو أن نراك قريباً'
+        signed_up_but_unconfirmed: '.تم إرسال رابط لتفعيل عضويتك إلى بريدك الإلكتروني. يرجى الضغط عليه لتفعيلها'
+        signed_up_but_inactive: '.تم إنشاء عضويتك بنجاح، ولكن لا يمكنك تسجيل الدخول لأنها غير مغعّلة بعد'
+        signed_up_but_locked: '.تم إنشاء عضويتك بنجاح، ولكن لا يمكنك تسجيل الدخول لأنها مقفلة'
+    unlocks:
+      send_instructions: '.ستتلقّى بريداً إلكترونياً في بضع دقائق تحتوي على تعليمات حول كيفية فتح عضويتك'
+      unlocked: '.تم فتح عضويتك بنجاح. تم تسجيل دخولك'
+      send_paranoid_instructions: '.إن كانت عضويتك مسجّلة عندنا، ستتلقّى بريداً إلكترونياً في بضع دقائق تحتوي على تعليمات حول كيفية فتحها'
+    omniauth_callbacks:
+      success: '.بنجاح %{kind}تم ترخصيك لـ'
+      failure: '."%{reason}" بسبب %{kind}لا يمكن ترخيصك لـ'
+    mailer:
+      confirmation_instructions:
+        subject: 'تعليمات للتأكيد'
+      reset_password_instructions:
+        subject: 'تعليمات لاسترجاع كلمة السر'
+      unlock_instructions:
+        subject: 'تعليمات للفتح'

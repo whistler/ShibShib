@@ -2,4 +2,56 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  header:
+    home: "Home"
+    sign_up: "Sign up"
+    login: "Login"
+    sign_out: "Sign out"
+    new_post: "New post"
+  footer:
+    about: "About us"
+    faq: "FAQs"
+    contact: "Contact us"
+  post:
+    like_me: "Like"
+    no_likes: "Be the 1st one to like it"
+    one_like: "1 like"
+    two_likes: "2 likes"
+    three_to_ten_likes: " likes"
+    many_likes: " likes"
+    comment_on_me: "Comment"
+    no_comments: "Be the 1st one to comment on it"
+    one_comment: "comment"
+    two_comments: "Comments"
+    three_to_ten_comments: " comments"
+    many_comments: "Comments"
+    the_comments: "Comments"
+    report: "Report this post"
+    ago: " ago"
+    title: "Title"
+    image: "Image"
+    browse_btn: "Browse..."
+    create_post: "Create post"
+    new_post: "New post"
+  user:
+    new_user: "New user"
+  registrations:
+    email: "Email"
+    password: "Password"
+    remember_me: "Remember me"
+    sgin_in_btn: "Sign in"
+    sign_up_lnk: "Sign up"
+    forgot_pass: "Forgot your password?"
+    sign_in_fb: "Sign in with Facebook"
+    name: "Name"
+    password_confirm: "Password confirmation"
+    reset_password: "Rest password"
+    reset_password_btn: "Reset password"
+  general:
+    show: "Show"
+    edit: "Edit"
+    delete: "Delete"
+    back: "Back"
+    new: "New"
+  others:
+    back_to_top: "Back to top"
