@@ -1,7 +1,7 @@
 ﻿<% @posts.sort_by { |post| post.plusminus }.reverse.each do |post|%>
 <div id="hidden">
 	<div class="leftPosts">
-		<%= link_to image_tag(post.image.url(:large), :class => 'displayed'), post %>
+		<%= link_to image_tag(post.image.url(:medium), :class => 'displayed'), post %>
 	</div>
 	<div class="rightPosts" id="m">
 		<h2><%= post.title %></h2>
