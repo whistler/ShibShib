@@ -1,8 +1,11 @@
 ShibShibBlastic::Application.routes.draw do
+  
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  
   devise_for :users do
     get "/users/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session
-    get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
   end
+
   
   get "welcome/index"
 

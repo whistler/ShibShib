@@ -3,11 +3,15 @@ class Post < ActiveRecord::Base
   belongs_to :user
   has_many :ratings
   has_attached_file :image,
-  :styles => { :large => "800>", :medium => "600>", :thumb => "100x100>" },
+  :styles => { :large => ["720>",:png], :medium => ["560>",:png], :thumb => ["100x100>",:png] },
   :storage => :s3,
   :bucket => 'ShibShibBlastic',
   :s3_credentials => {
     :access_key_id => "AKIAIISMCRUVUPIWIV2A",
     :secret_access_key => "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"
   }
+  
+  validates_presence_of :title
+  validates_attachment_presence :image
+  validates_attachment_size :image, :less_than=>2.megabyte, :if => Proc.new { |imports| !imports.image_file_name.blank? }
 end
