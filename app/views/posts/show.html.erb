@@ -6,7 +6,7 @@
 	<div class="postaData" aling="center">
 		<%= link_to @post.user.name, user_path(@post.user) if !@post.user.blank? %> | 
 		<%= "#{distance_of_time_in_words(Time.now, @post.created_at)} #{t 'post.ago'}" %>
-		- # comments 
+		- <fb:comments-count href="http://shibshib.me/posts/<%= @post.id %>"></fb:comments-count> comments 
 		- <%= if(@post.plusminus == 0)
 			t 'post.no_likes'
 		elsif(@post.plusminus == 1)
@@ -37,7 +37,7 @@
 
 <hr>
 <div class="comments">
-	<p>Facebook comments go here! </p>
+	<div class="fb-comments" data-href="http://shibshib.me/posts/<%= @post.id %>" data-num-posts="3" data-width="470"></div>
 	<%= link_to 'Edit', edit_post_path(@post) %> |
 	<%= link_to 'Back', posts_path %>
 </div>

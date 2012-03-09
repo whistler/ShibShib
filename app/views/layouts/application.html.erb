@@ -11,7 +11,7 @@
 
 <body>
 	<%= render 'layouts/header' %>
-	<%= render 'layouts/googleanalytics'%>
+	<%= render 'layouts/google_analytics'%>
 	
 	<%= if ( (notice.to_s.length != 0) || (alert.to_s.length != 0) )
 		render 'layouts/notice'
@@ -20,5 +20,6 @@
 	  <%= yield %>
 	</div>
 	<%= render 'layouts/footer' %>
+	<%= render 'layouts/facebook_sdk' %>
 </body>
 </html>
