@@ -23,7 +23,7 @@
 </div>
 
 <div id="postaPic">
-	<img class="displayed" src="<%= @post.image.url %>" />
+	<%= image_tag @post.image.url(:large), :class=>'displayed' %>
 </div>
 
 <div class="leftPosts">
