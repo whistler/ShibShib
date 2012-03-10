@@ -1,31 +1,59 @@
 ﻿<header>
-<div class="wraper">
-	<div class="nav">
-		<%= link_to root_path do %>
-			<%= image_tag("shibshib.png", :alt => "logo") %>
-		<% end %>
-		<%= link_to "#{t 'header.home'}", root_path %>
-	</div>
-	
-	<div class="userControl">
-	<% if user_signed_in? then %>
-		<%= link_to destroy_user_session_path do %>
-			<%= t 'header.sign_out' %>
-		<% end %>
-		<%= link_to current_user do %>
-			<%= current_user.name %>
-		<% end %>
-		<%= link_to new_post_path do %>
-			<%= t 'header.new_post' %>
-		<% end %>
-	<% else %>
-		<%= link_to new_user_session_path do %>
-			<%= t 'header.login' %>
-		<% end %>
-		<%= link_to new_user_registration_path do %>
-			<%= t 'header.sign_up' %>
-		<% end %>
-	<% end %>
-	</div>
-</div>
+	<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+
+					<%= link_to root_path, :class=>"brand shibshib", :style=>"margin:0;padding:0" do %>
+						<%= image_tag("shibshib.png", :alt => "logo") %>
+					<% end %>
+					
+					<ul class="nav nav-collapse">
+						<% if user_signed_in? then %>
+							<li>
+								<%= link_to destroy_user_session_path do %>
+									<%= t 'header.sign_out' %>
+								<% end %>
+							</li>
+							<li>
+								<%= link_to current_user do %>
+									<%= current_user.name %>
+								<% end %>
+							</li>
+							<li>
+								<%= link_to new_post_path do %>
+									<%= t 'header.new_post' %>
+								<% end %>
+							</li>
+						<% else %>
+							<li>
+							<%= link_to new_user_session_path do %>
+								<%= t 'header.login' %>
+							<% end %>
+							</li>
+							<li>
+							<%= link_to new_user_registration_path do %>
+								<%= t 'header.sign_up' %>
+							<% end %>
+							</li>
+						<% end %>
+					</ul>
+					
+					<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+		      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </a>
+					
+      	</div>
+
+    </div>
+  </div>
 </header>
+
+
+
+<!--
+<div class="userControl">
+
+-->

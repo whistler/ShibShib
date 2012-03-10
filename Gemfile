@@ -37,6 +37,8 @@ gem 'paperclip'                 # For uploading images
 gem 'thumbs_up', '0.4.5'        # For rating posts
 gem 'will_paginate', '~> 3.0'   # For pagination
 
+gem 'twitter-bootstrap-rails'   # Twitter CSS Framework
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
