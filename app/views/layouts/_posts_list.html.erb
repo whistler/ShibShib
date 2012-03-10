@@ -1,28 +1,51 @@
-﻿<div id="hidden">
-	<div class="leftPosts">
+﻿<div class="row-fluid">
+	<div class="span8">
 		<%= link_to image_tag(post.image.url(:large), :class => 'displayed'), post %>
 	</div>
-	<div class="rightPosts" id="m">
+	<div class="span3">
 		<h2><%= post.title %></h2>
 		
 		<% if post.user == nil then %>
 			Anonymous
 		<% else %>
 			<%= link_to post.user.name, user_path(post.user) %>
-		<% end %>
-		<%= "#{distance_of_time_in_words(Time.now, post.created_at)} #{t 'post.ago'}" %><br />
-		<span id="votes-<%= post.id %>"><%= if(post.plusminus == 0)
-			t 'post.no_likes'
+		<% end %> - 
+		<%= "#{distance_of_time_in_words(Time.now, post.created_at)} #{t 'post.ago'}" %>
+		
+		<br />
+		
+		
+		<span id="votes-<%= post.id %>"><% if(post.plusminus == 0)
+			likes = "#{t 'post.no_likes'}"
 		elsif(post.plusminus == 1)
-			t 'post.one_like'
+			likes = "#{t 'post.one_like'}"
 		elsif(post.plusminus > 1 || post.plusminus < 11)
-			"#{post.plusminus.to_s} #{t 'post.three_to_ten_likes'}"
+			likes = "#{post.plusminus.to_s} #{t 'post.three_to_ten_likes'}"
 		else
-			"#{post.plusminus.to_s} #{t 'post.many_likes'}"
-		end %> | 
-		<%= link_to t('post.like_me'), {:controller=> 'posts', :action=>'vote', :post_id => post.id}, :remote => true, :method => 'get' %><br/>
-		# comments | Link to comment<br/>
-		Social Networks
+			likes = "#{post.plusminus.to_s} #{t 'post.many_likes'}"
+		end %>
+		<input class="btn disabled" type="submit" value="<%= likes %>">
+		<%= link_to root_path, {:controller=> 'posts', :action=>'vote', :post_id => post.id, :class => 'btn btn-mini'}, :remote => true, :method => 'get' do %>
+			<%= image_tag("like.png", :alt => "like") %>
+		  <% end %>
+		  
+		  
+		<br/>
+		
+		
+		<input class="btn disabled" type="submit" value="<%= likes %> (COMMENTS)">
+		<%= link_to root_path, {:controller=> 'posts', :action=>'vote', :post_id => post.id, :class => 'btn btn-mini'}, :remote => true, :method => 'get' do %>
+			<%= image_tag("comments.png", :alt => "comments") %>
+		  <% end %>
+		  
+		  
+		<br/>
+		
+		<div class="social">
+				<%= image_tag("tweet.png", :alt => "tweet") %> 1
+				<%= image_tag("fbshare.png", :alt => "fbshare") %> 1
+		</div>
+		
 	</div>
 </div>
-<hr>
+<HR>

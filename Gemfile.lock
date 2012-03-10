@@ -38,6 +38,7 @@ GEM
     bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
     builder (3.0.0)
+    certified (0.1.0)
     cocaine (0.2.1)
     coderay (1.0.5)
     coffee-rails (3.2.2)
@@ -174,6 +175,7 @@ PLATFORMS
 
 DEPENDENCIES
   aws-sdk
+  certified
   coffee-rails (~> 3.2.1)
   devise
   heroku

@@ -4,22 +4,24 @@
 <head>
   <title><%= title %></title>
   <%= csrf_meta_tags %>
-  <%= stylesheet_link_tag    "application", :media => "all" %>  
-  <%= stylesheet_link_tag    "custom", :media => "all" %>
- <%= javascript_include_tag "application", "shibshib-v1", "http://code.jquery.com/jquery-1.7.1.min.js" %>
+  <%= stylesheet_link_tag "application" %>
+  <%= stylesheet_link_tag "bootstrap" %>
+  <%= stylesheet_link_tag "bootstrap-responsive" %>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+	
+ <%= javascript_include_tag "application", "http://code.jquery.com/jquery-1.7.1.min.js" %>
+ <%= javascript_include_tag "bootstrap" %>
 </head>
 
-<body>
-	<%= render 'layouts/header' %>
-	<%= render 'layouts/google_analytics'%>
-	
-	<%= if ( (notice.to_s.length != 0) || (alert.to_s.length != 0) )
-		render 'layouts/notice'
-	end %>
-   <div class="container">
+<%= render 'layouts/googleanalytics'%>
+<%= render 'layouts/header' %>
+<%= render 'layouts/notice' %>
+<body>	
+   <div class="container white">
 	  <%= yield %>
 	</div>
-	<%= render 'layouts/footer' %>
-	<%= render 'layouts/facebook_sdk' %>
 </body>
 </html>
