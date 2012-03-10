@@ -1,43 +1,58 @@
-﻿<div class="postaControl">
+﻿<div class="navbar-inner">
 	
 	<div class="postaTitle">
 		<%= @post.title %>
 	</div>
-	<div class="postaData" aling="center">
-		<%= link_to @post.user.name, user_path(@post.user) if !@post.user.blank? %> | 
+	
+	<div class="postaData">
+	<% if @post.user == nil then %>
+			Anonymous
+		<% else %>
+			<%= link_to @post.user.name, user_path(@post.user) %>
+		<% end %> - 
 		<%= "#{distance_of_time_in_words(Time.now, @post.created_at)} #{t 'post.ago'}" %>
-		- # comments 
-		- <%= if(@post.plusminus == 0)
-			t 'post.no_likes'
+	
+	<br/>
+	<span id="votes-<%= @post.id %>"><% if(@post.plusminus == 0)
+			likes = "#{t 'post.no_likes'}"
 		elsif(@post.plusminus == 1)
-			t 'post.one_like'
+			likes = "#{t 'post.one_like'}"
 		elsif(@post.plusminus > 1 || @post.plusminus < 11)
-			"#{@post.plusminus.to_s} #{t 'post.three_to_ten_likes'}"
+			likes = "#{@post.plusminus.to_s} #{t 'post.three_to_ten_likes'}"
 		else
-			"#{@post.plusminus.to_s} #{t 'post.many_likes'}"
+			likes = "#{@post.plusminus.to_s} #{t 'post.many_likes'}"
 		end %>
-		<%= link_to t('post.like_me'), {:controller=> 'posts', :action=>'vote', :post_id => @post.id}, :remote => true, :method => 'get' %> <br/>
+		<input class="btn disabled" type="submit" value="<%= likes %>">
+		<%= link_to root_path, {:controller=> 'posts', :action=>'vote', :post_id => @post.id, :class => 'btn btn-mini'}, :remote => true, :method => 'get' do %>
+			<%= image_tag("like.png", :alt => "like") %>
+		  <% end %>
+		  
 		
+		<input class="btn disabled" type="submit" value="<%= likes %> (COMMENTS)">
+		<%= link_to root_path, {:controller=> 'posts', :action=>'vote', :post_id => @post.id, :class => 'btn btn-mini'}, :remote => true, :method => 'get' do %>
+			<%= image_tag("comments.png", :alt => "comments") %>
+		  <% end %>
+		  
+		 <div class="social">
+			<%= image_tag("tweet.png", :alt => "tweet") %> 1
+			<%= image_tag("fbshare.png", :alt => "fbshare") %> 1
+		</div>
+		<br/>
+		
+	
 	</div>
-	<div id="social">Social Sites Links</div>
 </div>
 
-<div id="postaPic">
-	<%= image_tag @post.image.url(:large), :class=>'displayed' %>
-</div>
+<%= image_tag @post.image.url(:large), :class=>'displayed' %>
 
-<div class="leftPosts">
-	<h4><%= t 'post.the_comments' %></h4>
+<div class="span12">
+<button class="btn btn-danger" type="submit"><%= t 'post.report' %></button>
 </div>
-<div align="right">
-<%= link_to root_path do %>
-	<p id="report"><%= t 'post.report' %></p>
-<% end %>
-</div>
-
+<br/>
 <hr>
-<div class="comments">
-	<p>Facebook comments go here! </p>
-	<%= link_to 'Edit', edit_post_path(@post) %> |
-	<%= link_to 'Back', posts_path %>
+<br/>
+<div class="span12">
+<p>Facebook comments go here! </p>
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
 </div>

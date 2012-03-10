@@ -16,14 +16,12 @@
  <%= javascript_include_tag "bootstrap" %>
 </head>
 
+<%= render 'layouts/googleanalytics'%>
+<%= render 'layouts/header' %>
+<%= render 'layouts/notice' %>
 
 
 <body>	
-<%= render 'layouts/googleanalytics'%>
-<%= render 'layouts/header' %>
-	<%= if ( (notice.to_s.length != 0) || (alert.to_s.length != 0) )
-		render 'layouts/notice'
-	end %>
    <div class="container white">
 	  <%= yield %>
 	</div>
