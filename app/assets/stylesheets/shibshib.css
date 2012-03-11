@@ -6,3 +6,11 @@
 .nav {
 	height: 50px;
 }
+
+.row {
+    text-align: center;
+}
+
+.btn-group {
+    display: inline-block;
+}
