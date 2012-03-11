@@ -26,6 +26,7 @@ end
 
 group :production do
   gem 'pg'                      # Postgres database
+  gem 'thin'                    # Faster server
 end
 
 gem 'jquery-rails'

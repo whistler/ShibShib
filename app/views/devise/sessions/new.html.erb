@@ -1,19 +1,24 @@
-<div class="span4">&nbsp;</div><div class="span4 mform">
-<h2 >Sign in</h2>
-<br />
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %>
-  <%= f.email_field :email %></div>
+<div class="row">
+	
+	<div class="span5 well">
+	<h2 >Login</h2>
+	<br />
+		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+		  <div><%= f.label :email %>
+		  <%= f.email_field :email %></div>
 
-  <div><%= f.label :password %>
-  <%= f.password_field :password %></div>
+		  <div><%= f.label :password %>
+		  <%= f.password_field :password %></div>
 
-  <% if devise_mapping.rememberable? -%>
-  <%= f.check_box :remember_me %> <%= f.label :remember_me %>
-  <% end -%>
-  <div><%= f.submit "Sign in" %></div>
-  <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), :class => "btn btn-primary btn-large" %>
-<% end %>
-
-<%= render :partial => "devise/shared/links" %>
+		  <% if devise_mapping.rememberable? -%>
+		  <%= f.check_box :remember_me,:style=>"display:inline-block" %> <%= f.label :remember_me, :style=>"display:inline-block;" %>
+	  <% end -%>
+	  <div><%= f.submit "Sign in", :class=>"btn btn-large" %></div>
+	</div>
+	
+	<div class="span5 well">
+		<%= render :partial => "devise/shared/links" %>
+	<% end %>
+	</div>
+	
 </div>
