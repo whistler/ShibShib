@@ -1,57 +1,63 @@
-﻿<div class="navbar-inner">
+﻿<div class="well">
 	
-	<div class="postaTitle">
-		<%= @post.title %>
+	<div>
+		<h1><%= @post.title %></h1>
 	</div>
 	
 	<div class="postaData">
-	<% if @post.user == nil then %>
+		
+		<i class="icon-user"></i>
+		<% if @post.user == nil then %>
 			Anonymous
 		<% else %>
 			<%= link_to @post.user.name, user_path(@post.user) %>
-		<% end %> - 
-		<%= "#{distance_of_time_in_words(Time.now, @post.created_at)} #{t 'post.ago'}" %>
-		<fb:comments-count href="http://shibshib.me/posts/<%= @post.id %>"></fb:comments-count> comments 
+		<% end %> | 
+		
+		<i class="icon-time"></i>
+		<%= "#{distance_of_time_in_words(Time.now, @post.created_at)} #{t 'post.ago'}" %> |
+		
+		<i class="icon-comment"></i>
+		<fb:comments-count href="http://shibshib.me/posts/<%= @post.id %>"></fb:comments-count> comments |
+		
+		<i class="icon-heart"></i>
+		<%= @post.plusminus.to_s %> likes
 	<br/>
-	<span id="votes-<%= @post.id %>"><% if(@post.plusminus == 0)
-			likes = "#{t 'post.no_likes'}"
-		elsif(@post.plusminus == 1)
-			likes = "#{t 'post.one_like'}"
-		elsif(@post.plusminus > 1 || @post.plusminus < 11)
-			likes = "#{@post.plusminus.to_s} #{t 'post.three_to_ten_likes'}"
-		else
-			likes = "#{@post.plusminus.to_s} #{t 'post.many_likes'}"
-		end %>
-		<input class="btn disabled" type="submit" value="<%= likes %>">
-		<%= link_to root_path, {:controller=> 'posts', :action=>'vote', :post_id => @post.id, :class => 'btn btn-mini'}, :remote => true, :method => 'get' do %>
-			<%= image_tag("like.png", :alt => "like") %>
-		  <% end %>
-		  
-		
-		<input class="btn disabled" type="submit" value="<%= likes %> (COMMENTS)">
-		<%= link_to root_path, {:controller=> 'posts', :action=>'vote', :post_id => @post.id, :class => 'btn btn-mini'}, :remote => true, :method => 'get' do %>
-			<%= image_tag("comments.png", :alt => "comments") %>
-		  <% end %>
-		  
-		 <div class="social">
-			<%= image_tag("tweet.png", :alt => "tweet") %> 1
-			<%= image_tag("fbshare.png", :alt => "fbshare") %> 1
-		</div>
-		<br/>
-		
 	
+
 	</div>
 </div>
 
 <%= image_tag @post.image.url(:large), :class=>'displayed' %>
 
-<div class="span12">
-<button class="btn btn-danger" type="submit"><%= t 'post.report' %></button>
+<div class="well">
+	<span id="votes-<%= @post.id %>"><% if(@post.plusminus == 0)
+		likes = "#{t 'post.no_likes'}"
+	elsif(@post.plusminus == 1)
+		likes = "#{t 'post.one_like'}"
+	elsif(@post.plusminus > 1 || @post.plusminus < 11)
+		likes = "#{@post.plusminus.to_s} #{t 'post.three_to_ten_likes'}"
+	else
+		likes = "#{@post.plusminus.to_s} #{t 'post.many_likes'}"
+	end %>
+	
+	<input class="btn disabled" type="submit" value="<%= likes %>">
+	
+	<%= link_to root_path, {:controller=> 'posts', :action=>'vote', :post_id => @post.id, :class => 'btn btn-mini'}, :remote => true, :method => 'get' do %>
+		<%= image_tag("like.png", :alt => "like") %>
+	<% end %>
+	  
+	 <div class="social">
+			<a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= post_url(@post)%>" data-text="<%= @post.title %>" data-size="large" data-hashtags="shibshib">Tweet</a>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+		<%= image_tag("fbshare.png", :alt => "fbshare") %> 1
+	</div>
+
+	<button class="btn btn-danger" type="submit"><%= t 'post.report' %></button>
 </div>
-<br/>
+
 <hr>
 
-<div class="comments">
+<div id="comments" class="comments">
 	<div class="fb-comments" data-href="http://shibshib.me/posts/<%= @post.id %>" data-num-posts="3" data-width="470"></div>
 	<%= link_to 'Edit', edit_post_path(@post) %> |
 	<%= link_to 'Back', posts_path %>
