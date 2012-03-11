@@ -50,17 +50,11 @@
 </div>
 <br/>
 <hr>
-<<<<<<< HEAD
+
 <div class="comments">
 	<div class="fb-comments" data-href="http://shibshib.me/posts/<%= @post.id %>" data-num-posts="3" data-width="470"></div>
 	<%= link_to 'Edit', edit_post_path(@post) %> |
 	<%= link_to 'Back', posts_path %>
 </div>
-=======
-<br/>
-<div class="span12">
-<p>Facebook comments go here! </p>
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
-</div>
->>>>>>> cffb4660cb17a565c6557596341c037c1f13bc80
+
+<%= render 'layouts/facebook_sdk' %>

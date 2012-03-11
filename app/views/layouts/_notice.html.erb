@@ -1,8 +1,8 @@
-﻿<div class="span4">&nbsp;</div><div class="span4 mform">
-	<% if (notice.to_s.length != 0) then %>
-		<div class="alert alert-error"><%= flash[:alert] %></div>
-	<% end %>
-	<% if (alert.to_s.length != 0) then %>
-		<div class="alert alert-info"><%= flash[:notice] %></div>
+﻿<div id="notices">
+	<% flash.each do |key, message| %>
+		<div class="<%= key %>">
+			<a class="close" data-dismiss="alert">×</a>
+			<%= message %>
+		</div>
 	<% end %>
 </div>
