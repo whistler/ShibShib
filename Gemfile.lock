@@ -63,6 +63,7 @@ GEM
       addressable (~> 2.2)
       multipart-post (~> 1.1)
       rack (~> 1.1)
+    feedbacker (0.1.5)
     hashie (1.2.0)
     heroku (2.21.2)
       launchy (>= 0.3.2)
@@ -195,6 +196,7 @@ DEPENDENCIES
   certified
   coffee-rails (~> 3.2.1)
   devise
+  feedbacker
   heroku
   jquery-rails
   omniauth-facebook

@@ -33,6 +33,14 @@ ActiveRecord::Schema.define(:version => 20120303205419) do
     t.timestamp "updated_at", :null => false
   end
 
+  create_table "remarks", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "source_url"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string    "name"
     t.timestamp "created_at",                                            :null => false

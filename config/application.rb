@@ -56,6 +56,8 @@ module ShibShibBlastic
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
     config.assets.initialize_on_precompile = false
-	config.assets.compile = true
+	  config.assets.compile = true
+	  
+	  config.paths['db/migrate'] = Feedbacker::Engine.paths['db/migrate'].existent
   end
 end

@@ -32,6 +32,7 @@ end
 gem 'jquery-rails'
 gem 'devise'                    # User authentication
 gem 'omniauth-facebook'         # Facebook login
+gem 'feedbacker'                # Puts a tab for feedback on every page
 
 gem 'aws-sdk'                   # For storing images
 gem 'paperclip'                 # For uploading images
