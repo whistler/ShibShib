@@ -14,3 +14,7 @@
 .btn-group {
     display: inline-block;
 }
+
+.navbar .nav > li > a {
+    line-height: 40px;
+}

@@ -4,12 +4,13 @@
 	</div>
 	<div class="span3 well">
 		<h2><%= post.title %></h2>
-		
+		<i class="icon-user"></i>
 		<% if post.user == nil then %>
 			Anonymous
 		<% else %>
 			<%= link_to post.user.name, user_path(post.user) %>
-		<% end %> - 
+		<% end %><br/>
+		<i class="icon-time"></i>
 		<%= "#{distance_of_time_in_words(Time.now, post.created_at)} #{t 'post.ago'}" %>
 		
 		<br />
