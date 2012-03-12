@@ -29,23 +29,13 @@
 		<%= link_to root_path, {:controller=> 'posts', :action=>'vote', :post_id => post.id, :class => 'btn btn-mini'}, :remote => true, :method => 'get' do %>
 			<%= image_tag("like.png", :alt => "like") %>
 		  <% end %>
-		  
-		  
-		<br/>
-		
-		
-		<input class="btn disabled" type="submit" value="<%= likes %> (COMMENTS)">
-		<%= link_to root_path, {:controller=> 'posts', :action=>'vote', :post_id => post.id, :class => 'btn btn-mini'}, :remote => true, :method => 'get' do %>
-			<%= image_tag("comments.png", :alt => "comments") %>
-		  <% end %>
-		  
-		  
-		<br/>
 		
 		<div class="social">
 				<a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= post_url(post)%>" data-text="<%= post.title %>" data-size="large" data-hashtags="shibshib">Tweet</a>
 				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-				<%= image_tag("fbshare.png", :alt => "fbshare") %> 1
+				<a name="fb_share" type="button"  share_url="<%= post_url(post)%>"></a> 
+				<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript">
+				</script>
 		</div>
 		
 	</div>
