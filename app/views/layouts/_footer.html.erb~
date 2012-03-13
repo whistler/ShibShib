@@ -2,7 +2,6 @@
   <hr>
   <div class="row span12">
     <div class="btn-group">
-
       <a class="btn" href="#">
         <i class="icon-info-sign"></i>
         <%= t 'footer.about' %>
