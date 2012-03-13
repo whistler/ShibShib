@@ -15,7 +15,7 @@ function loadRemainingItems(){
                       - Position.GetWindowSize().height;
   //compute height of bottom element
   var last = $$(".contact").last().getHeight();
-
+alert("gfgf");
   if(remaining < last*2 && !$('complete')){
     if(Ajax.activeRequestCount == 0){
       var url = "/contacts";

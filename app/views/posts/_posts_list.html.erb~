@@ -40,7 +40,7 @@
 			<!-- Facebook -->
 			<!--<a name="fb_share" type="button_count"  share_url="<%= post_url(post)%>">Share</a> 
 			<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script> -->
-			<a href="http://www.facebook.com/sharer.php?u=<%= post_url(post)%>">
+			<a href="http://www.facebook.com/sharer.php?u==<%= post_url(post)%>">
 			<img src="/assets/share.png"/></a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
 
 

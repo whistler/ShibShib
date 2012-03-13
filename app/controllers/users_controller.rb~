@@ -17,7 +17,7 @@ before_filter :check_user, :only => [:edit, :update, :destroy]
     #  format.html # index.html.erb
      # format.json { render json: @users }
    # end
-    redirect('/welcome')
+    redirect('/tweets')
   end
 
   # GET /users/1

@@ -1,5 +1,7 @@
-<% @posts.each do |a_post|%>
+<% @user.posts.each do |a_post| %>
 <%= render :partial => "posts/posts_list", :locals => {:post => a_post} %>
 <% end %>
 <%= will_paginate(@posts, :more => true) %>
 <p id="back-top"><a href="#top"><span></span><%= t 'others.back_to_top' %></a></P>
+<%= link_to "#{t 'general.edit'}", edit_user_path(@user) %> |
+<%= link_to "#{t 'general.back'}", users_path %> WHAT TO DO WITH THEM??

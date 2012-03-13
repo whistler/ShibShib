@@ -1,5 +1,5 @@
 <% @posts.each do |a_post|%>
 <%= render :partial => "posts/posts_list", :locals => {:post => a_post} %>
-<% end %>
 <%= will_paginate(@posts, :more => true) %>
+</div>
 <p id="back-top"><a href="#top"><span></span><%= t 'others.back_to_top' %></a></P>

@@ -11,7 +11,7 @@ ShibShibBlastic::Application.routes.draw do
   resources :ratings
 
   resources :posts do
-    get "new_post" => "posts#new"
+    get "/new_post" => "posts#new"
     get 'vote'
   end
 

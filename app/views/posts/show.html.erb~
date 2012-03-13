@@ -27,7 +27,7 @@
 	</div>
 </div>
 
-<%= image_tag @post.image.url(:large), :class=>'displayed', :alt => @post.title %>
+<%= image_tag @post.image.url(:large), :class=>'displayed', :alt => post.title %>
 
 <div class="well">
 	<span id="votes-<%= @post.id %>"><% if(@post.plusminus == 0)
