@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
 
-    @posts = Post.paginate(:page => params[:page], :per_page => 6)
+    @posts = Post.order("vote_count DESC").paginate(:page => params[:page], :per_page => 6)
 	
     respond_to do |format|
       format.html # index.html.erb
@@ -88,6 +88,7 @@ class PostsController < ApplicationController
   def vote
     @post = Post.find(params[:post_id])
     current_user.vote_for(@post) if !current_user.blank?
+    @post.vote_count = @post.plusminus
     respond_to do |format|
       format.js
     end
