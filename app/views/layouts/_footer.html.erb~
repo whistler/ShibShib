@@ -1,7 +1,13 @@
 ﻿<footer>
   <hr>
-  <div class="row span12">
+  <div class="row span11">
     <div class="btn-group">
+
+      <a class="btn" href="#">
+        <i class="icon-info-sign"></i>
+        <%= t 'footer.about' %>
+      </a>
+
       <a class="btn" href="#">
         <i class="icon-info-sign"></i>
         <%= t 'footer.about' %>

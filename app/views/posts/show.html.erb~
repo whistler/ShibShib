@@ -74,7 +74,7 @@
 <hr>
 
 <div id="comments" class="comments">
-	<div class="fb-comments" data-href="http://shibshib.me/posts/<%= @post.id %>" data-num-posts="3" data-width="470"></div>
+  <div class="fb-comments" data-href="http://shibshib.me/posts/<%= @post.id %>" data-num-posts="3" data-width="470"></div>
 </div>
 
 <%= render 'layouts/facebook_sdk' %>

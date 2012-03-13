@@ -20,8 +20,15 @@
         <ul class="nav pull-right">
           <% if user_signed_in? then %>
           <li><%= link_to "#{t 'header.new_post'}", new_post_path %></li>
-          <li><%= link_to current_user.name, current_user %></li>
-          <li><%= link_to "#{t 'header.sign_out'}", destroy_user_session_path %></li>
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <%= current_user.name %><b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="<%= user_path(current_user)%>">Profile</a></li>
+            <li><a href="<%= edit_user_path(current_user)%>">Settings</a></li>
+            <li class="divider"></li>
+            <li><a href="<%= destroy_user_session_path %>"><%= t 'header.sign_out' %></a></li>
+            </ul>
+          </li>
           <% else %>
           <li><%= link_to "#{t 'header.login'}", new_user_session_path %></li>
           <li><%= link_to "#{t 'header.sign_up'}", new_user_registration_path %></li>

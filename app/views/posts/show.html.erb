@@ -25,7 +25,7 @@
     <% if current_user.id == @post.user_id then %>
     <div class="btn-group">
     <a class="btn" href=" <%= edit_post_path(@post) %> ">
-    <i class="icon-pencil"></i>
+    <i class="icon-edit"></i>
     <%= t 'general.edit' %>
     </a>
 
