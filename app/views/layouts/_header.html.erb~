@@ -8,12 +8,13 @@
         <span class="icon-bar"></span>
       </a>
 
-      <%= link_to root_path do %>
-      <%= image_tag("shibshib.png", :alt => "logo", :class => "brand shibshib-logo", :style=>"margin:0; padding:0") %>
-      <% end %>
+
       
       <div class="nav-collapse">
         <ul class="nav">
+	      <%= link_to root_path do %>
+      <%= image_tag("shibshib.png", :alt => "logo", :class => "brand shibshib-logo", :style=>"margin:0; padding:0") %>
+      <% end %>
           <li class="active"><%= link_to "#{t 'header.home'}", root_path %></li>
         </ul>
 
