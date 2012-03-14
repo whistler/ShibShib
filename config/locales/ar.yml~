@@ -61,7 +61,7 @@ ar:
     resend: "إعادة الارسال"
     change_pass: "تغيير كلمة السر"
     new_pass: "كلمة سر جديدة"
-    new_pass_cnfrm: "تأكيد كلمة السر الجديدة"
+    new_pass_cnfrm: "Confirm new password"
   general:
     show: "استعراض"
     edit: "تحرير"

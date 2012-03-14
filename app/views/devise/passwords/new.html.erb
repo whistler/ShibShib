@@ -1,12 +1,16 @@
-<div class="span4">&nbsp;</div><div class="span4 mform">
-<h2>Forgot your password?</h2>
-<br />
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
+<div class="row">
+  <div class="span4">&nbsp;</div>
 
-  <div><%= f.label :email %>
-  <%= f.email_field :email %></div>
+  <div class="span4 well">
+    <h2><%= "#{t 'registrations.forgot_pass'}" %></h2>
+    <br /><br />
+    <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+    <%= devise_error_messages! %>
 
-  <div><%= f.submit "Send me reset password instructions" %></div>
-<% end %>
+    <%= f.label "#{t 'registrations.email'}" %> <%= f.email_field :email %>
+    <br /><br />
+    <%= f.submit "#{t 'registrations.reset_password'}", :class=>"btn btn-medium" %>
+    <% end %>
+  </div>
+
 </div>

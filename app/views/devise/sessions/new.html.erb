@@ -1,24 +1,30 @@
 <div class="row">
-	
-	<div class="span5 well">
-	<h2 >Login</h2>
-	<br />
-		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-		  <div><%= f.label :email %>
-		  <%= f.email_field :email %></div>
 
-		  <div><%= f.label :password %>
-		  <%= f.password_field :password %></div>
+  <div class="span5 well">
+    <h2 ><%= t 'registrations.sign_in_btn' %></h2>
+    <br /><br />
+    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+    <%= f.label "#{t 'registrations.email'}" %> <%= f.email_field :email %>
+    <%= f.label "#{t 'registrations.password'}" %> <%= f.password_field :password %>
 
-		  <% if devise_mapping.rememberable? -%>
-		  <%= f.check_box :remember_me,:style=>"display:inline-block" %> <%= f.label :remember_me, :style=>"display:inline-block;" %>
-	  <% end -%>
-	  <div><%= f.submit "Sign in", :class=>"btn btn-large" %></div>
-	</div>
-	
-	<div class="span5 well">
-		<%= render :partial => "devise/shared/links" %>
-	<% end %>
-	</div>
+    <% if devise_mapping.rememberable? -%>
+    <br />
+    <% if (I18n.locale.to_s == "ar") %>
+      <%= f.label "#{t 'registrations.remember_me'}", :style=>"display:inline-block;"%>
+      <%= f.check_box :remember_me,:style=>"display:inline-block"%>
+    <% elsif (I18n.locale.to_s == "en") %>
+      <%= f.check_box :remember_me,:style=>"display:inline-block"%>
+      <%= f.label "#{t 'registrations.remember_me'}", :style=>"display:inline-block;"%>
+    <% end %>
+
+    <% end -%>
+    <br /><br />
+    <%= f.submit "#{t 'registrations.sign_in_btn'}", :class=>"btn btn-medium" %>
+  </div>
+
+  <div class="span5 well">
+    <%= render :partial => "devise/shared/links" %>
+    <% end %>
+  </div>
 	
 </div>

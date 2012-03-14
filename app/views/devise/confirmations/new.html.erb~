@@ -8,7 +8,7 @@
     <%= devise_error_messages! %>
 
     <%= f.label "#{t 'registrations.email'}" %> <%= f.email_field :email %><br /><br />
-    <%= f.submit "#{t 'registrations.resend'}", :class=>"btn btn-medium" %>
+    <%= f.submit "#{t 'registrations.resend'}",  %>
     <% end %>
   </div>
 

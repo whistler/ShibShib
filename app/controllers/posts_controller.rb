@@ -85,7 +85,7 @@ class PostsController < ApplicationController
     @post.destroy
 
     respond_to do |format|
-      format.html { redirect_to posts_url }
+      format.html { redirect_to user_path(current_user.id) }
       format.json { head :no_content }
     end
   end

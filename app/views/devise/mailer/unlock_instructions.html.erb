@@ -1,7 +1,13 @@
-<p>Hello <%= @resource.email %>!</p>
+<% if (I18n.locale.to_s == "ar") %>
+  <p>!<%= @resource.email %> أهلاً</p>
+  <p>.لقد تم قفل عضويتك نتيجة لمحاوﻻت الدخول الفاشلة</p>
+  <p>:اضغط على الرابط التالي لفتحها</p>
+  <p><%= link_to 'Unlock my account', unlock_url(@resource, :unlock_token => @resource.unlock_token) %></p>
 
-<p>Your account has been locked due to an excessive amount of unsuccessful sign in attempts.</p>
+<% elsif (I18n.locale.to_s == "en") %>
+  <p>Hello <%= @resource.email %>!</p>
+  <p>Your account has been locked due to an excessive amount of unsuccessful sign in attempts.</p>
+  <p>Click the link below to unlock your account:</p>
+  <p><%= link_to 'Unlock my account', unlock_url(@resource, :unlock_token => @resource.unlock_token) %></p>
 
-<p>Click the link below to unlock your account:</p>
-
-<p><%= link_to 'Unlock my account', unlock_url(@resource, :unlock_token => @resource.unlock_token) %></p>
+<% end %>

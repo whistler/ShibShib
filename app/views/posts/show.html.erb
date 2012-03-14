@@ -11,25 +11,27 @@
     <% else %>
     <%= link_to @post.user.name, user_path(@post.user) %>
     <% end %> |
-
+    <!-- the below line is needed for Arabic alginment -->
+    <i style="visibility:hidden;" ><%= "#{t 'post.fake'}" %></i>
     <i class="icon-time"></i>
     <%= "#{distance_of_time_in_words(Time.now, @post.created_at)} #{t 'post.ago'}" %> |
 
     <i class="icon-comment"></i>
-    <fb:comments-count href="http://shibshib.me/posts/<%= @post.id %>"></fb:comments-count> comments |
-	
+    <fb:comments-count href="http://shibshib.me/posts/<%= @post.id %>"></fb:comments-count>
+    <%= t 'post.many_comments' %> |
+
     <i class="icon-heart"></i>
-    <%= @post.plusminus.to_s %> likes
+    <%= @post.plusminus.to_s %> <%= t 'post.many_likes' %>
 
     <br/>
-    <% if current_user.id == @post.user_id then %>
+    <% if ((user_signed_in?) && (current_user.id == @post.user_id)) then %>
     <div class="btn-group">
     <a class="btn" href=" <%= edit_post_path(@post) %> ">
     <i class="icon-edit"></i>
     <%= t 'general.edit' %>
     </a>
 
-    <a class="btn" href=" <%= @post %> " data-method="delete" data-confirm="Are you sure?">
+    <a class="btn" href=" <%= @post %> " data-method="delete" data-confirm="<%= %-#{t 'general.delete_cnfrm'}- %>">
     <i class="icon-remove"></i>
     <%= t 'general.delete' %>
     </a>
@@ -37,11 +39,12 @@
     <% end %>
 
   </div>
-</div>
+</div><!-- end of 1st well -->
 
 <%= image_tag @post.image.url(:large), :class=>'displayed', :alt => @post.title %>
 
 <div class="well">
+
   <span id="votes-<%= @post.id %>">
     <% if(@post.plusminus == 0)
       likes = "#{t 'post.no_likes'}"
@@ -55,7 +58,7 @@
   <input class="btn disabled" type="submit" value="<%= likes %>">
   <%= link_to root_path, {:controller=> 'posts', :action=>'vote', :post_id => @post.id, :class => 'btn btn-mini'}, :remote => true, :method => 'get' do %>
   <%= image_tag("like.png", :alt => "like") %>
-  <% end %>
+  <% end %></span>
 
   <div class="social">
     <a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= post_url(@post)%>" data-text="<%= @post.title %>" data-size="large" data-hashtags="shibshib">Tweet</a>
@@ -66,15 +69,14 @@
     <img src="/assets/share.png"/></a>
     <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script> -->
 
-    <br/>
-    <button class="btn btn-danger" type="submit"><%= t 'post.report' %></button>
-  
-</div>
+  </div><!-- end of social div -->
 
-<hr>
+  <button class="btn btn-danger" type="submit"><%= t 'post.report' %></button>
+  <hr>
 
-<div id="comments" class="comments">
-  <div class="fb-comments" data-href="http://shibshib.me/posts/<%= @post.id %>" data-num-posts="3" data-width="470"></div>
-</div>
+  <div id="comments" class="comments">
+    <div class="fb-comments" data-href="http://shibshib.me/posts/<%= @post.id %>" data-num-posts="3" data-width="470"></div>
+  <%= render 'layouts/facebook_sdk' %>
+  </div>
 
-<%= render 'layouts/facebook_sdk' %>
+</div><!-- end of 2nd well -->
