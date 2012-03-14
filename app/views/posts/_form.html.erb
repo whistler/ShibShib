@@ -14,7 +14,12 @@
       </ul>
     </div>
   <% end %>
-  
+
+  <% if (action_name == "new") %>
+        <h2><%= t 'post.new_post' %></h2>
+  <% elsif (action_name == "edit") %>
+        <h2><%= t 'post.edit_post' %></h2>
+  <% end %>
   <%= f.hidden_field :user_id %>
   <%= f.label "#{t 'post.title'}" %> <%= f.text_field :title %>
   <%= f.label "#{t 'post.image'}" %> <%= f.file_field :image %>

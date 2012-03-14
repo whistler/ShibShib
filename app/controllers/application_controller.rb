@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   private
   
   def set_user_language
-	I18n.locale = 'ar' #current_user.language if logged_in?
+	I18n.locale = params[:locale]
   end
   
 end

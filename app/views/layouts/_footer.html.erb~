@@ -4,7 +4,7 @@
     <div class="btn-group">
 
       <a class="btn" href="#">
-        <i class="icon-info-sign"></i>
+        <i class="icon-font"></i>
         <%= t 'footer.language' %>
       </a>
 
