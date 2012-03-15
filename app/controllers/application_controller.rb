@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
   private
   
   def set_user_language
-	I18n.locale = params[:locale]
+	I18n.locale = 'ar'
+        I18n.default_locale = 'ar'
   end
   
 end

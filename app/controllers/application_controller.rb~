@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
   private
   
   def set_user_language
-	I18n.locale = params[:locale] || request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first 
+	I18n.locale = 'ar'
+        I18n.defult_locale = 'ar'
   end
   
 end
