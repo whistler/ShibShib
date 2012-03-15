@@ -1,4 +1,11 @@
 ShibShibBlastic::Application.routes.draw do 
+
+
+  scope "/:locale" do
+    resources :welcome
+    resources :posts
+    resources :users
+  end
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
   devise_scope :users do
@@ -14,7 +21,6 @@ ShibShibBlastic::Application.routes.draw do
     get "new_post" => "posts#new"
     get 'vote'
   end
-
   resources :users
 
   # The priority is based upon order of creation:

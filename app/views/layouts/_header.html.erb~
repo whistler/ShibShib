@@ -18,8 +18,8 @@
           <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t 'footer.language' %><b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><%= link_to "العربية", I18n.locale => 'ar' %></li>
-            <li><%= link_to "English", :locale=>'en' %></li>
+            <li><%= link_to "العربية", :controller => 'application', :action => 'set', :id => 'ar' %></li>
+            <li><%= link_to "English", :controller => 'application', :action => 'set', :id => 'en' %></li>
           </ul>
           </li>
         </ul>

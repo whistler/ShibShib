@@ -49,12 +49,6 @@ module ShibShibBlastic
     # in your app. As such, your models will need to explicitly whitelist or blacklist accessible
     # parameters by using an attr_accessible or attr_protected declaration.
     # config.active_record.whitelist_attributes = true
- config.before_eager_load do
-   I18n.locale = :ar
-   I18n.load_path += Dir[Rails.root.join('config', 'locales', 'ar.yml').to_s]
-   I18n.reload!
- end
-
     # Enable the asset pipeline
     config.assets.enabled = true
 
