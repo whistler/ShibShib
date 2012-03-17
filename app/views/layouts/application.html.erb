@@ -20,6 +20,7 @@
     <%= stylesheet_link_tag "bootstrap_and_overrides" %>
     <%= stylesheet_link_tag "docs" %>
     <%= stylesheet_link_tag "shibshib" %>
+    <%= stylesheet_link_tag "pagination" %>
 
     <!-- Le fav and touch icons -->
     <%= favicon_link_tag %>
@@ -54,7 +55,7 @@
   <%= render 'layouts/google_analytics' %>
   <script src="/assets/shibshib-v1.js" type="text/javascript"></script>
   <script src="/assets/bootstrap.js" type="text/javascript"></script>
-
+  <script src="/assets/posts.js.coffee" type="text/javascript"></script>
   </body>
 <%= debug(params) if Rails.env.development? %>
 </html>

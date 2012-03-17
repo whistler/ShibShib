@@ -12,9 +12,9 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   respond_to :html, :js
+
   def index
-	last = params[:last].blank? ? Time.now + 1.second : Time.parse(params[:last])
-	@posts = Post.feed(last)
+    @posts = Post.page(params[:page]).per_page(10)
   end
 
   # GET /posts/1

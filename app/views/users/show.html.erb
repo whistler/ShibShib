@@ -1,4 +1,5 @@
-﻿<div class="well">
+﻿<div class="userPage" type="fake">
+<div class="well">
   <div>
   <h1><%= @user.name %></h1>
   </div>
@@ -6,8 +7,7 @@
   <b>Other meaningful statics worth to show: </b>
   <i class="icon-heart"></i> # of likes earned | # of tweets | # of shares | # of comments
 </div>
-<% @posts.each do |a_post| %>
-<%= render :partial => "posts/posts_list", :locals => {:post => a_post} %>
-<% end %>
-<%= will_paginate(@posts, :more => true) %>
+<%= render @posts %>
+</div>
+<%= will_paginate(@posts, :more => true, :class => "digg_pagination") %>
 <p id="back-top"><a href="#top"><span></span><%= t 'others.back_to_top' %></a></P>

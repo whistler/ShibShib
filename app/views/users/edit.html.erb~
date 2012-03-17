@@ -1,3 +1,0 @@
-<h2><%= t 'header.settings' %></h2>
-
-<%= render 'form' %>

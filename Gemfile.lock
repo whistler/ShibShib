@@ -210,4 +210,4 @@ DEPENDENCIES
   thumbs_up (= 0.4.5)
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
-  will_paginate (~> 3.0)
+  will_paginate (~> 3.0.3)

@@ -265,3 +265,18 @@ ar:
         subject: 'تعليمات استرجاع كلمة السر'
       unlock_instructions:
         subject: 'تعليمات الفتح'
+  will_paginate:
+    next_label: التالي &#8594;
+    page_entries_info:
+      multi_page: "%{count} من أصل %{to} - %{from} %{model} عرض"
+      multi_page_html: "<b>%{count}</b> من أصل <b>%{to}&nbsp;-&nbsp;%{from}</b> %{model} عرض"
+      single_page:
+        one: "واحد %{model} عرض"
+        other: "%{model} %{count} عرض"
+        zero: "%{model} لم يتم العثور على"
+      single_page_html:
+        one: "<b>واحد</b> %{model} عرض"
+        other: "%{model} <b>%{count}</b> عرض"
+        zero: "%{model} لم يتم العثور على"
+    page_gap: ! '&hellip;'
+    previous_label: ! '&#8592; السابق'

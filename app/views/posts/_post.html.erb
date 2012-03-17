@@ -1,4 +1,3 @@
-
 <div class="row">
 	<div class="span8">
 		<%= link_to image_tag(post.image.url(:large), :class => 'displayed', :alt => post.title), post %>
@@ -11,8 +10,8 @@
 		<% else %>
 			<%= link_to post.user.name, user_path(post.user) %>
 		<% end %><br/>
-    <!-- the below line is needed for Arabic alginment -->
-    <i style="visibility:hidden;" ><%= "#{t 'post.fake'}" %></i>
+		<!-- the below line is needed for Arabic alginment -->
+ 		<i style="visibility:hidden;" ><%= "#{t 'post.fake'}" %></i>
 		<i class="icon-time"></i>
 		<%= "#{distance_of_time_in_words(Time.now, post.created_at)} #{t 'post.ago'}" %>
 		

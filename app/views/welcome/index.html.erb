@@ -5,22 +5,19 @@
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="1">
-    <% @posts.each do |a_post|%>
-    <%= render :partial => "posts/posts_list", :locals => {:post => a_post} %>
-    <% end %>
+    <div id="posts">
+    <%= render @posts %>
+    </div>
     <%= will_paginate(@posts, :more => true) %>
     </div>
 
     <div class="tab-pane" id="2">
-    <% @posts.reverse.each do |a_post|%>
-    <%= render :partial => "posts/posts_list", :locals => {:post => a_post} %>
-    <% end %>
+    <div id="posts">
+    <%= render @posts %>
+    </div>
     <%= will_paginate(@posts, :more => true) %>
     </div>
     </div>
 </div> <!-- /tabbable -->
-
-
-
 
 <p id="back-top"><a href="#top"><span></span><%= t 'others.back_to_top' %></a></P>
