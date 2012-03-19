@@ -14,14 +14,15 @@ class PostsController < ApplicationController
   respond_to :html, :js
 
   def index
-    @posts = Post.page(params[:page]).per_page(10)
+    #@posts = Post.page(params[:page]).per_page(10)
+    redirect_to root_path
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
-	  @title = @post.title
+    @title = @post.title
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @post }
@@ -31,8 +32,8 @@ class PostsController < ApplicationController
   # GET /posts/new
   # GET /posts/new.json
   def new
+    @title = t 'header.new_post'
     @post = Post.new
-	
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @post }
@@ -42,12 +43,17 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
+    if (params[:locale] == "ar")
+      @title = "#{t 'general.edit'}: #{@post.title}"
+    else
+      @title = "#{t 'general.edit'}ing: #{@post.title}"
+    end
   end
 
   # POST /posts
   # POST /posts.json
   def create
-
+    @title = t 'header.new_post'
     @post = Post.new(params[:post])
     @post.user_id = current_user.id
     respond_to do |format|
@@ -66,7 +72,6 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     @post.user_id = current_user.id
-    
     respond_to do |format|
       if @post.update_attributes(params[:post])
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
@@ -83,7 +88,6 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-
     respond_to do |format|
       format.html { redirect_to user_path(current_user.id) }
       format.json { head :no_content }

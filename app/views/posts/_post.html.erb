@@ -28,9 +28,7 @@
 			likes = "#{post.plusminus.to_s} #{t 'post.many_likes'}"
 		end %>
 		<input class="btn disabled" type="submit" value="<%= likes %>">
-		<%= link_to root_path, {:controller=> 'posts', :action=>'vote', :post_id => post.id, :class => 'btn btn-mini'}, :remote => true, :method => 'get' do %>
-			<%= image_tag("like.png", :alt => "like") %>
-		  <% end %></span>
+		<%= link_to image_tag("like.png", :alt => "like"), {:controller=> 'posts', :action=>'vote', :post_id => post.id}, :class => 'btn btn-mini', :remote => true, :method => 'get' %></span>
 		
 		<div class="social">
 

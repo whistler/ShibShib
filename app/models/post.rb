@@ -1,4 +1,7 @@
 class Post < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :title
+
   acts_as_voteable
   belongs_to :user
   has_many :ratings

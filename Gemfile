@@ -33,14 +33,12 @@ gem 'jquery-rails'
 gem 'devise'                    # User authentication
 gem 'omniauth-facebook'         # Facebook login
 gem 'feedbacker'                # Puts a tab for feedback on every page
-
 gem 'aws-sdk'                   # For storing images
 gem 'paperclip'                 # For uploading images
 gem 'thumbs_up', '0.4.5'        # For rating posts
-gem 'will_paginate', '~> 3.0.3'   # For pagination
-
+gem 'will_paginate', '~> 3.0.3' # For pagination
 gem 'twitter-bootstrap-rails'   # Twitter CSS Framework
-
+gem 'friendly_id'               # For displaying names and titles instead of IDs
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

@@ -64,6 +64,7 @@ GEM
       multipart-post (~> 1.1)
       rack (~> 1.1)
     feedbacker (0.1.5)
+    friendly_id (4.0.3)
     hashie (1.2.0)
     heroku (2.21.2)
       launchy (>= 0.3.2)
@@ -197,6 +198,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise
   feedbacker
+  friendly_id
   heroku
   jquery-rails
   omniauth-facebook

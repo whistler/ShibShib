@@ -12,19 +12,23 @@ before_filter :check_user, :only => [:edit, :update, :destroy]
   # GET /users.json
   def index
     # @users = User.all
-
+   redirect_to root_path
    # respond_to do |format|
     #  format.html # index.html.erb
      # format.json { render json: @users }
    # end
-    redirect('/welcome')
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-    @posts = Post.where(:user_id => params[:id]).page(params[:page]).per_page(10)
+    @posts = Post.where(:user_id => @user.id).page(params[:page]).per_page(10)
+    if (params[:locale] == "ar")
+      @title = "#{@user.name} #{t 'header.profile'}"
+    else
+      @title = "#{@user.name}'s #{t 'header.profile'}"
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }
@@ -35,7 +39,6 @@ before_filter :check_user, :only => [:edit, :update, :destroy]
   # GET /users/new.json
   def new
     @user = User.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @user }
@@ -45,13 +48,17 @@ before_filter :check_user, :only => [:edit, :update, :destroy]
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    if (params[:locale] == "ar")
+      @title = "#{t 'header.settings'}"
+    else
+      @title = "#{t 'header.settings'}"
+    end
   end
 
   # POST /users
   # POST /users.json
   def create
     @user = User.new(params[:user])
-
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
@@ -67,7 +74,6 @@ before_filter :check_user, :only => [:edit, :update, :destroy]
   # PUT /users/1.json
   def update
     @user = User.find(params[:id])
-
     respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -84,7 +90,6 @@ before_filter :check_user, :only => [:edit, :update, :destroy]
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-
     respond_to do |format|
       format.html { redirect_to users_url }
       format.json { head :no_content }
