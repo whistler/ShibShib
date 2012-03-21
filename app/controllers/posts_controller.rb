@@ -14,7 +14,6 @@ class PostsController < ApplicationController
   respond_to :html, :js
 
   def index
-    #@posts = Post.page(params[:page]).per_page(10)
     redirect_to root_path
   end
 
@@ -71,14 +70,15 @@ class PostsController < ApplicationController
   # PUT /posts/1.json
   def update
     @post = Post.find(params[:id])
-    @post.user_id = current_user.id
-    respond_to do |format|
-      if @post.update_attributes(params[:post])
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+    if @post.user_id == current_user.id then
+      respond_to do |format|
+        if @post.update_attributes(params[:post])
+          format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @post.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
