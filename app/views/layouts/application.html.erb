@@ -32,7 +32,6 @@
           <div class="span12">
 						<%= render 'layouts/notice' %>
             <%= yield %>
-						<%= render(:partial => 'feedbacker/tab') %>.
           </div>
         </div><!--/row-->
       </div><!--/content-->
@@ -44,8 +43,6 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <%= javascript_include_tag "application" %>
-		<%= javascript_include_tag :feedbacker %>
-		<%= stylesheet_link_tag :feedbacker %>
 		<%= render 'layouts/google_analytics' %>
 
   </body>
