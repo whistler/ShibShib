@@ -8,7 +8,10 @@ ShibShibBlastic::Application.routes.draw do
     get "/users/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session
   end
 
+  match "index" => "welcome#index"
+  match "latest" => "welcome#latest"
   get "welcome/index"
+  get "welcome/latest"
 
   resources :ratings
 
