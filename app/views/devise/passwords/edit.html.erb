@@ -1,14 +1,19 @@
-<div class="span4">&nbsp;</div><div class="span4 mform">
-<h2>Change your password</h2>
-<br />
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
+<div class="row">
+  <div class="span4">&nbsp;</div>
 
-  <%= f.label :password, "New password" %> <%= f.password_field :password %>
+  <div class="span4 well">
+    <h2><%= "#{t 'registrations.change_pass'}" %></h2>
+    <br /><br />
+    <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
+    <%= devise_error_messages! %>
+    <%= f.hidden_field :reset_password_token %>
 
-  <%= f.label :password_confirmation, "Confirm new password" %><%= f.password_field :password_confirmation %>
+    <%= f.label :password, "#{t 'registrations.new_pass'}" %> <%= f.password_field :password %>
+    <%= f.label :password_confirmation, "#{t 'registrations.new_pass_cnfrm'}" %><%= f.password_field :password_confirmation %>
 
-  <div><%= f.submit "Change my password" %></div>
-<% end %>
+    <br /><br />
+    <%= f.submit "#{t 'general.submit'}" %>
+    <% end %>
+  </div>
+
 </div>

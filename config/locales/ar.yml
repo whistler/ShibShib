@@ -8,10 +8,16 @@ ar:
     login: "الدخول"
     sign_out: "الخروج"
     new_post: "مشاركة جديدة"
+    profile: "الملف الشخصي"
+    settings: "الإعدادات"
   footer:
-    about: "عنّا نحن"
+    language: "تغيير اللغة"
+    about: "من نحن؟"
     faq: "أسئلة متكرّرة"
-    contact: "اتّصل بنا"
+    contact: "تواصل معنا"
+  tabs:
+    most_voted: "الأكثر تصويتاً"
+    latest: "آخر المشاركات"
   post:
     like_me: "أعجبني"
     no_likes: "كن أوّل من يُعجب بها"
@@ -28,31 +34,43 @@ ar:
     the_comments: "التعليقات"
     report: "الإبلاغ عن هذه المشاركة"
     ago: "قبل "
+    fake: "ء"
     title: "العنوان"
     image: "الصورة"
     browse_btn: "...استدراج"
-    create_post: "إنشاء المشاركة"
+    create_post: "اعتمد المشاركة"
     new_post: "مشاركة جديدة"
+    edit_post: "تعديل المشاركة"
+    edit_note: "إذا كنت ﻻ ترغب في تعديل الصورة، تستطيع ترك الحقل المخصص لها فارغاً"
   user:
     new_user: "مستخدم جديد"
   registrations:
     email: "البريد الإلكتروني"
     password: "كلمة السر"
     remember_me: "تذكّرني"
-    sgin_in_btn: "تسجيل الدخول"
-    sign_up_lnk: "عضوية جديدة"
+    sign_in_btn: "تسجيل الدخول"
+    sign_up_btn: "تسجيل"
+    sign_up: "عضوية جديدة"
     forgot_pass: "نسيت كلمة السر؟"
-    sign_in_fb: "الدخول عن طريق عضوية الفيسبوك"
+    sign_in_with: "الدخول عن طريق الـ"
     name: "الاسم"
     password_confirm: "تأكيد كلمة السر"
     reset_password: "استعادة كلمة السر"
     reset_password_btn: "استعادة كلمة السر"
+    resend_cnfrm: "إعادة ارسال تعليمات التأكيد"
+    resend: "إعادة الارسال"
+    change_pass: "تغيير كلمة السر"
+    new_pass: "كلمة سر جديدة"
+    new_pass_cnfrm: "تأكيد كلمة السر الجديدة"
   general:
     show: "استعراض"
     edit: "تحرير"
     delete: "مسح"
+    delete_cnfrm: "هل أنت متأكد من ذلك؟"
     back: "عودة"
     new: "جديد"
+    update: "تحديث"
+    submit: "اعتمد"
   others:
     back_to_top: "إلى الأعلى"
   datetime:
@@ -195,8 +213,8 @@ ar:
     pm: مساءا
   errors:
     messages:
-      expired: "قد انتهت، يرجى طلب واحدة أخرى"
-      not_found: "لما يتم العثور عليها"
+      expired: "انتهت صلاحيتها، يرجى التسجيل بأخرى جديدة"
+      not_found: "لم يتم العثور عليها"
       already_confirmed: "تم التأكيد عليها، يرجى الدخول"
       not_locked: "ليست مغلقة"
       not_saved:
@@ -205,7 +223,7 @@ ar:
 
   devise:
     failure:
-      already_authenticated: '.لقد سجّلت الدخول مسبقاً'
+      already_authenticated: '.قمت بتسجيل الدخول مسبقاً'
       unauthenticated: '.يجب أن تنشئ عضوية جديدة أو تسجّل الدخول قبل المتابعة'
       unconfirmed: '.يجب تفعيل العضوية قبل المتابعة'
       locked: '.عضويتك موقوفة'
@@ -217,35 +235,48 @@ ar:
       signed_in: '.تم تسجيل الدخول بنجاح'
       signed_out: '.تم تسجيل الخروج بنجاح'
     passwords:
-      send_instructions: '.ستتلقّى بريداً إلكترونياً في بضع دقائق تحتوي على تعليمات حول كيفية استرجاع كلمة السر الخاصة بك'
+      send_instructions: '.ستتلقّى بريداً إلكترونياً في بضع دقائق يحتوي على تعليمات حول كيفية استرجاع كلمة السر الخاصة بك'
       updated: '.تم تغيير كلمة السر بنجاح. تم تسجيل دخولك'
       updated_not_active: '.تم تغيير كلمة السر بنجاح'
-      send_paranoid_instructions: ".إن كان لديك بريد إلكتروني مسجّل في قاعدة البيانات الخاصة بنا، سوف تتلقّى من خلالها رابطاً لاستعادة كلمة السر"
+      send_paranoid_instructions: ".إن كان لديك بريد إلكتروني مسجّل في قاعدة البيانات الخاصة بنا، فسوف تتلقّى من خلاله رابطاً لاستعادة كلمة السر"
     confirmations:
       send_instructions: '.ستتلقّى بريداً إلكترونياً في بضع دقائق تحتوي على تعليمات حول كيفية تأكيد عضويتك'
-      send_paranoid_instructions: '.إن كان لديك بريد إلكتروني مسجّل في قاعدة البيانات الخاصة بنا، سوف تتلقّى من خلالها تعليمات حول كيفية تأكيد عضويتك'
-      confirmed: '.تم التأكيد على عضويتك. تم تسجيل دخولك'
+      send_paranoid_instructions: '.إن كان لديك بريد إلكتروني مسجّل في قاعدة البيانات الخاصة بنا، فسوف تتلقّى من خلاله تعليمات حول كيفية تأكيد عضويتك'
+      confirmed: '.تم تأكيد عضويتك. تم تسجيل دخولك'
     registrations:
       registrations:
         signed_up: '.مرحباً! تم تسجيل دخولك بنجاح'
         updated: '.تم تحديث عضويتك بنجاح'
         destroyed: '.وداعاً! تم إلغاء عضويتك. نرجو أن نراك قريباً'
-        signed_up_but_unconfirmed: '.تم إرسال رابط لتفعيل عضويتك إلى بريدك الإلكتروني. يرجى الضغط عليه لتفعيلها'
+        signed_up_but_unconfirmed: '.تم إرسال رابط تفعيل العضوية إلى بريدك الإلكتروني. يرجى الضغط عليه لتفعيلها'
         signed_up_but_inactive: '.تم إنشاء عضويتك بنجاح، ولكن لا يمكنك تسجيل الدخول لأنها غير مغعّلة بعد'
         signed_up_but_locked: '.تم إنشاء عضويتك بنجاح، ولكن لا يمكنك تسجيل الدخول لأنها مقفلة'
-      user:
-        signed_up: '.مرحباً! تم تسجيل دخولك بنجاح'
     unlocks:
-      send_instructions: '.ستتلقّى بريداً إلكترونياً في بضع دقائق تحتوي على تعليمات حول كيفية فتح عضويتك'
+      send_instructions: '.ستتلقّى بريداً إلكترونياً في بضع دقائق يحتوي على تعليمات حول كيفية فتح عضويتك'
       unlocked: '.تم فتح عضويتك بنجاح. تم تسجيل دخولك'
-      send_paranoid_instructions: '.إن كانت عضويتك مسجّلة عندنا، ستتلقّى بريداً إلكترونياً في بضع دقائق تحتوي على تعليمات حول كيفية فتحها'
+      send_paranoid_instructions: '.إن كانت عضويتك مسجّلة لدينا، ستتلقّى بريداً إلكترونياً في بضع دقائق يحتوي على تعليمات حول كيفية فتحها'
     omniauth_callbacks:
       success: '.بنجاح %{kind}تم ترخصيك لـ'
       failure: '."%{reason}" بسبب %{kind}لا يمكن ترخيصك لـ'
     mailer:
       confirmation_instructions:
-        subject: 'تعليمات للتأكيد'
+        subject: 'تعليمات التأكيد'
       reset_password_instructions:
-        subject: 'تعليمات لاسترجاع كلمة السر'
+        subject: 'تعليمات استرجاع كلمة السر'
       unlock_instructions:
-        subject: 'تعليمات للفتح'
+        subject: 'تعليمات الفتح'
+  will_paginate:
+    next_label: التالي &#8594;
+    page_entries_info:
+      multi_page: "%{count} من أصل %{to} - %{from} %{model} عرض"
+      multi_page_html: "<b>%{count}</b> من أصل <b>%{to}&nbsp;-&nbsp;%{from}</b> %{model} عرض"
+      single_page:
+        one: "واحد %{model} عرض"
+        other: "%{model} %{count} عرض"
+        zero: "%{model} لم يتم العثور على"
+      single_page_html:
+        one: "<b>واحد</b> %{model} عرض"
+        other: "%{model} <b>%{count}</b> عرض"
+        zero: "%{model} لم يتم العثور على"
+    page_gap: ! '&hellip;'
+    previous_label: ! '&#8592; السابق'

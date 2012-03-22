@@ -1,117 +1,50 @@
-$("#back-top").hide();
-	$(function () {
-		$(window).scroll(function () {
-			if ($(this).scrollTop() > 200) {
-				$('#back-top').fadeIn();
-			} else {
-				$('#back-top').fadeOut();
-			}
-		});
-		
-		$('#back-top a').click(function () {
-			$top = 0;
-			$('body,html').animate(
-			{scrollTop: $top}, {duration: 800, 
-				step: function(){
-					var mousewheelevt=(/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel" //FF doesn't recognize mousewheel as of FF3.x
-					if (document.attachEvent) //if IE (and Opera depending on user setting)
-						document.attachEvent("on"+mousewheelevt, function(e){$('body,html').stop()})
-					else if (document.addEventListener) //WC3 browsers
-						document.addEventListener(mousewheelevt, function(e){$('body,html').stop()}, false)
-      				 }
-				});
-			return false;
-		});
-	});	
+// from http://codesnippets.joyent.com/posts/show/835
+Position.GetWindowSize = function(w) {
+    var width, height;
+        w = w ? w : window;
+        this.width = w.innerWidth || (w.document.documentElement.clientWidth || w.document.body.clientWidth);
+        this.height = w.innerHeight || (w.document.documentElement.clientHeight || w.document.body.clientHeight);
 
-window.onload = function () {
-	
-	getY();
-	
-};
-
-
-function getY()
-{
-	if(window.pageYOffset > 123){
-		document.getElementById("social").style.position = "fixed";
-		document.getElementById("social").style.top = "63px";
-		document.getElementById("postaPic").style.marginTop = "95px";
-	}
-	else {
-		document.getElementById("social").style.position = "static";
-		document.getElementById("postaPic").style.marginTop = "50px";
-	}
-			
-	setTimeout(function(){getY()}, 50);
-		
+        return this;
 }
-$(document).ready(function(){
-	
-
-	
-	//$('div #m').each(function(index){ $(this).wrap("<div id=\"section"+index+"Wrapper\"><div id=\"section"+index+"\"></div></div>");});
-	
-	//$(window).scroll(function(){$("div #m").each(function(index){checkElem(index);});});
-
-///////////////////////////////////////////////////////////////
-	
-	function checkElem(id)
-	{
-		var roof = window.pageYOffset + 75;
-		var picH = $('#section'+(id)+'Wrapper').siblings().height();
-		var panelH = $("#section"+(id)+" > #m").height();
-		
-	
-		var tresh = (picH - panelH) + top - 85;
-		
-		//swim along ...
-		var top = $('#section'+(id)+'Wrapper').position().top;
-		var buttom = $('#section'+(id+1)+'Wrapper').position().top - 285;
-		
-		var nextTop = $('#section'+(id+1)+'Wrapper').position().top;
-		var backward = tresh - roof;
-
-		
-		var el = $('#section'+(id));
 
 
-		if ((roof > top && buttom > roof) || (roof > backward && roof < top) && nextTop < roof)
-			swim(el);
-		else if (roof < nextTop && top > roof)
-			original(el);
-		else if ((top < roof))
-			stick(el, (panelH+65), picH);
-	}
+function loadRemainingItems(){
+  // compute amount of page below the current scroll position
+  var remaining = ($('wrapper').viewportOffset()[1] + $('wrapper').getHeight()) 
+                      - Position.GetWindowSize().height;
+  //compute height of bottom element
+  var last = $$(".contact").last().getHeight();
 
-///////////////////////////////////////////////////////////////
-	
-	function swim(element)
-	{
-		element.css('margin-top', '0%');
-		element.css('position', 'fixed');
-		element.css('right', '29.6%');
-		element.css('top', '8%');
-		//element.addClass("swim");
-		//alert("swiming");
-	}
-///////////////////////////////////////////////////////////////
-	function original(element)
-	{
-		element.css('margin-top', '0%');
-		element.css('position', 'static');
-		//element.removeClass("swim");
-		//alert("original");
-	
-	}
-///////////////////////////////////////////////////////////////
-	function stick(element, panelH, picH)
-	{
-		element.css('margin-top', '0%');
-		element.css('position', 'static');
-		element.css('margin-top', (picH-panelH)+"px");
-	}
+  if(remaining < last*2 && !$('complete')){
+    if(Ajax.activeRequestCount == 0){
+      var url = "/contacts";
+      var last = $$(".contact").last().className.match(/[0-9]+/)[0];
+      new Ajax.Request(url, {
+        method: 'get',
+        parameters: 'last=' + last,
+        onLoading: function(){
+          $('loading').show();
+        },
+        onSuccess: function(xhr){
+          $('loading').hide();
+          $('loading').insert({before : xhr.responseText})
+        }
+      });
+    }
+  }
+}
 
+// hide the pagination links
+document.observe("dom:loaded", function(){
+  $('pagination').hide();
 });
 
+// find to events that could fire loading items at the bottom
+Event.observe(window, 'scroll', function(e){
+  loadRemainingItems();
+});
 
+Event.observe(window, 'resize', function(e){
+  loadRemainingItems();
+});

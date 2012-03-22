@@ -1,7 +1,23 @@
-<div id="results">
-<% @posts.each do |a_post|%>
-<%= render :partial => "posts/posts_list", :locals => {:post => a_post} %>
-<% end %>
-<%= will_paginate(@posts, :more => true) %>
-</div>
+<div class="tabbable" style="margin-bottom: 9px;">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#1" data-toggle="tab"><%= t 'tabs.most_voted' %></a></li>
+    <li><a href="#2" data-toggle="tab"><%= t 'tabs.latest' %></a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="1">
+    <div id="posts">
+    <%= render @posts %>
+    </div>
+    <%= will_paginate(@posts, :more => true) %>
+    </div>
+
+    <div class="tab-pane" id="2">
+    <div id="posts">
+    <%= render @posts %>
+    </div>
+    <%= will_paginate(@posts, :more => true) %>
+    </div>
+    </div>
+</div> <!-- /tabbable -->
+
 <p id="back-top"><a href="#top"><span></span><%= t 'others.back_to_top' %></a></P>

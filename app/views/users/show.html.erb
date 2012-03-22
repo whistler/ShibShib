@@ -1,42 +1,13 @@
-<div class="postaControl">
-	<div class="postaTitle">
-		<%= @user.name %>
-	</div>
+﻿<div class="userPage" type="fake">
+<div class="well">
+  <div>
+  <h1><%= @user.name %></h1>
+  </div>
+  <i class="icon-pencil"></i> <%= @user.posts.count %> posts |
+  <b>Other meaningful statics worth to show: </b>
+  <i class="icon-heart"></i> # of likes earned | # of tweets | # of shares | # of comments
 </div>
-
-
-<% @user.posts.each do |post| %>
-<div id="hidden">
-	<div class="leftPosts">
-		<%= link_to image_tag(post.image.url(:medium), :class => 'displayed'), post %>
-	</div>
-	<div class="rightPosts" id="m">
-		<h2><%= post.title %></h2>
-		
-		<% if post.user == nil then %>
-			Anonymous
-		<% else %>
-			<%= link_to post.user.name, user_path(post.user) %>
-		<% end %>
-		<%= distance_of_time_in_words(Time.now, post.created_at) + " ago" %><br />
-		<span id="votes-<%= post.id %>"><%= 
-		if(post.plusminus == 0) 
-			"Be the 1st one to like"
-		elsif(post.plusminus == 1)
-			post.plusminus.to_s + " Like"
-		else
-			post.plusminus.to_s + " Likes"
-		end %>
-		</span>  |
-		<%= link_to 'Like', {:controller=> 'posts', :action=>'vote', :post_id => post.id}, :remote => true, :method => 'get' %> <br/>
-		# comments | Link to comment<br/>
-		Social Networks
-	</div>
+<%= render @posts %>
 </div>
-
-	<% @posts.reverse.each do |a_post|%>
-	<%= render :partial => "layouts/posts_list", :locals => {:post => a_post} %>
-	<% end %>
-<% end %>
-<%= link_to "#{t 'general.edit'}", edit_user_path(@user) %> |
-<%= link_to "#{t 'general.back'}", users_path %> WHAT TO DO WITH THEM??
+<%= will_paginate(@posts, :more => true, :class => "digg_pagination") %>
+<p id="back-top"><a href="#top"><span></span><%= t 'others.back_to_top' %></a></P>

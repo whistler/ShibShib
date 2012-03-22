@@ -1,4 +1,8 @@
-<%= form_for(@post) do |f| %>
+<div class="row">
+  <div class="span4">&nbsp;</div>
+
+  <div class="span4 well">
+  <%= form_for(@post) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -11,16 +15,18 @@
     </div>
   <% end %>
 
-    <%= f.hidden_field :user_id %>
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :image %><br />
-    <%= f.file_field :image %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <% if (action_name == "new") %>
+        <h2><%= t 'post.new_post' %></h2>
+  <% elsif (action_name == "edit") %>
+        <h2><%= t 'post.edit_post' %></h2>
+  <% end %>
+  <%= f.hidden_field :user_id %>
+  <%= f.label "#{t 'post.title'}" %> <%= f.text_field :title %>
+  <%= f.label "#{t 'post.image'}" %> <%= f.file_field :image %><br />
+  <%= if (action_name == "edit")
+        "#{t 'post.edit_note'}"
+      end %>
+  <br /><br />
+  <%= f.submit "#{t 'general.submit'}", :class=>"btn btn-medium" %>
 <% end %>
+</div>

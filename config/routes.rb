@@ -1,21 +1,24 @@
-ShibShibBlastic::Application.routes.draw do
-  
+ShibShibBlastic::Application.routes.draw do 
+
+  match "new_post" => "posts#new"
+  match "profile" => "users#show"
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
   devise_scope :users do
     get "/users/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session
   end
 
-  
   get "welcome/index"
 
   resources :ratings
 
-  resources :posts do 
-    get 'vote'
+  scope "/:locale" do
+    resources :welcome
+    resources :posts do
+      get 'vote'
+    end
+    resources :users
   end
-
-  resources :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

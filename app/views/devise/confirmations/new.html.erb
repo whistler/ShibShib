@@ -1,14 +1,16 @@
-<div class="sign">
-<h2>Resend confirmation instructions</h2>
+<div class="row">
 
-<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
+  <div class="span5 well">
+    <h2 ><%= t 'registrations.resend_cnfrm' %></h2>
+    <br /><br />
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+    <%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
+    <%= devise_error_messages! %>
 
-  <div><%= f.submit "Resend confirmation instructions" %></div>
-<% end %>
+    <%= f.label "#{t 'registrations.email'}" %> <%= f.email_field :email %><br /><br />
+    <%= f.submit "#{t 'registrations.resend'}", :class=>"btn btn-medium" %>
+    <% end %>
+  </div>
 
-<%= render :partial => "devise/shared/links" %>
+  <%= render :partial => "devise/shared/links" %>
 </div>
