@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120322031512) do
+ActiveRecord::Schema.define(:version => 20120322233713) do
 
   create_table "friendly_id_slugs", :force => true do |t|
     t.string   "slug",                         :null => false
@@ -28,14 +28,15 @@ ActiveRecord::Schema.define(:version => 20120322031512) do
     t.integer   "user_id"
     t.string    "title"
     t.string    "image_url"
-    t.timestamp "created_at",         :null => false
-    t.timestamp "updated_at",         :null => false
+    t.timestamp "created_at",                            :null => false
+    t.timestamp "updated_at",                            :null => false
     t.string    "image_file_name"
     t.string    "image_content_type"
     t.integer   "image_file_size"
     t.timestamp "image_updated_at"
     t.string    "slug"
     t.integer   "vote_count"
+    t.boolean   "is_inappropriate",   :default => false
   end
 
   add_index "posts", ["slug"], :name => "index_posts_on_slug"

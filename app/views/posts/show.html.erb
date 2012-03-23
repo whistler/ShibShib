@@ -10,10 +10,11 @@
     <% if @post.user == nil then %>
       Anonymous
     <% else %>
-    <%= link_to @post.user.name, user_path(@post.user) %>
+      <%= link_to @post.user.name, user_path(@post.user) %>
     <% end %> |
     <!-- the below line is needed for Arabic alginment -->
     <i style="visibility:hidden;" ><%= "#{t 'post.fake'}" %></i>
+    
     <i class="icon-time"></i>
     <%= "#{distance_of_time_in_words(Time.now, @post.created_at)} #{t 'post.ago'}" %> |
 
@@ -26,17 +27,17 @@
 
     <br/>
     <% if ((user_signed_in?) && (current_user.id == @post.user_id)) then %>
-    <div class="btn-group">
-    <a class="btn" href=" <%= edit_post_path(@post) %> ">
-    <i class="icon-edit"></i>
-    <%= t 'general.edit' %>
-    </a>
+      <div class="btn-group">
+        <a class="btn" href=" <%= edit_post_path(@post) %> ">
+          <i class="icon-edit"></i>
+          <%= t 'general.edit' %>
+        </a>
 
-    <a class="btn" href=" <%= @post %> " data-method="delete" data-confirm="<%= %-#{t 'general.delete_cnfrm'}- %>">
-    <i class="icon-remove"></i>
-    <%= t 'general.delete' %>
-    </a>
-    </div>
+        <a class="btn" href=" <%= @post %> " data-method="delete" data-confirm="<%= %-#{t 'general.delete_cnfrm'}- %>">
+          <i class="icon-remove"></i>
+          <%= t 'general.delete' %>
+        </a>
+      </div>
     <% end %>
 
   </div>
@@ -64,19 +65,18 @@
   <div class="social">
     <a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= post_url(@post)%>" data-text="<%= @post.title %>" data-size="large" data-hashtags="shibshib">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    <fb:share-button>
 
-    See me in view=>posts=>show, comments render doesn't show if FB.share is there
-    <!-- <a name="fb_share" type="button_count" share_url="<%= post_url(@post)%>">Share</a> 
-    <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script> -->
 
   </div><!-- end of social div -->
 
-  <button class="btn btn-danger" type="submit"><%= t 'post.report' %></button>
+  <a href = "<%= post_path(@post) %>/mark_inappropriate" class="btn btn-danger"><%= t 'post.report' %></a>
+  
   <hr>
 
   <div id="comments" class="comments">
     <div class="fb-comments" data-href="http://shibshib.me/posts/<%= @post.id %>" data-num-posts="3" data-width="470"></div>
-  <%= render 'layouts/facebook_sdk' %>
+    <%= render 'layouts/facebook_sdk' %>
   </div>
 
 </div><!-- end of 2nd well -->

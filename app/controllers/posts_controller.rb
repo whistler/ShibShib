@@ -21,6 +21,10 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
+    if @post.is_inappropriate then
+      notice[:flash] = "This post has been removed for having inappropriate content"
+      redirect_to :root
+    end
     @title = @post.title
     respond_to do |format|
       format.html # show.html.erb
@@ -102,4 +106,18 @@ class PostsController < ApplicationController
       format.js
     end
   end
+  
+  def mark_inappropriate
+    if user_signed_in? then
+      @post = Post.find(params[:post_id])
+      @post.is_inappropriate = true
+      @post.save!
+      flash[:notice] = "ShibShib has been notified about the inappropriate post"
+      redirect_to root_url
+    else
+      flash[:notice] = "You have to log in to mark a post as inappropriate"
+      redirect_to :back
+    end
+  end
+  
 end

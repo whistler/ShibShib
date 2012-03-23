@@ -19,6 +19,7 @@ ShibShibBlastic::Application.routes.draw do
     resources :welcome
     resources :posts do
       get 'vote'
+      get 'mark_inappropriate'
     end
     resources :users
   end
