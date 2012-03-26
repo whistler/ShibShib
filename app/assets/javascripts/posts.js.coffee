@@ -4,8 +4,8 @@
 jQuery ->
     $(window).scroll ->
       url = $('.pagination .next_page').attr('href')
-      userPage = $('.userPage').attr('type')
-      if !userPage && url && $(window).scrollTop() > $(document).height() - $(window).height() - 550
+      #userPage = $('.userPage').attr('type')
+      if url && $(window).scrollTop() > $(document).height() - $(window).height() - 550
         $('.pagination').text("Fetching more posts...")
         $.getScript(url)
     $(window).scroll()
