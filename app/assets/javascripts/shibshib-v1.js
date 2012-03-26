@@ -1,4 +1,5 @@
 // from http://codesnippets.joyent.com/posts/show/835
+/*
 Position.GetWindowSize = function(w) {
     var width, height;
         w = w ? w : window;
@@ -6,7 +7,7 @@ Position.GetWindowSize = function(w) {
         this.height = w.innerHeight || (w.document.documentElement.clientHeight || w.document.body.clientHeight);
 
         return this;
-}
+} */
 
 
 function loadRemainingItems(){
@@ -35,16 +36,15 @@ function loadRemainingItems(){
   }
 }
 
-// hide the pagination links
-document.observe("dom:loaded", function(){
+$(document).ready(function() {
   $('pagination').hide();
 });
 
 // find to events that could fire loading items at the bottom
-Event.observe(window, 'scroll', function(e){
+/*Event.observe(window, 'scroll', function(e){
   loadRemainingItems();
 });
 
 Event.observe(window, 'resize', function(e){
   loadRemainingItems();
-});
+});*/
