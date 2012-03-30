@@ -3,7 +3,7 @@
 		<%= link_to image_tag(post.image.url(:large), :class => 'displayed', :alt => post.title), post %>
 	</div>
 	<div class="span3 well">
-		<h4><%= post.title %></h4><div class="small-break"></div>
+		<h2><%= post.title %></h2><div class="small-break"></div>
 		<i class="icon-user"></i>
 		<% if post.user == nil then %>
 			Anonymous
@@ -26,7 +26,7 @@
 		end %>
 		<i class="icon-heart"></i>
 		<span id="votes-<%= post.id %>"><%= likes %></span>
-		<%= link_to image_tag("like.png", :alt => "like"), {:controller=> 'posts', :action=>'vote', :post_id => post.id}, :class => 'btn btn-mini', :remote => true, :method => 'get' %>
+		<%= link_to image_tag("Like.png", :alt => "like"), {:controller=> 'posts', :action=>'vote', :post_id => post.id}, :class => 'btn btn-mini', :remote => true, :method => 'get' %>
 
 		<div class="social">
 		<!-- Tweeter -->
@@ -35,9 +35,8 @@
 		<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script> 
 
 		<!-- Facebook -->
-		<div class="share">
-		<a name="fb_share" type="button_count" share_url="<%= post_url(post)%>">Share</a> </div>
-		<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+		<div class="like">
+		<div class="fb-like" data-href="<%= post_url(post)%>" data-send="true" data-layout="button_count" data-width="100" data-show-faces="false" data-font="tahoma" send="false"></div> </div>
 
 		</div><!-- end of social -->
 	</div><!-- end of well -->

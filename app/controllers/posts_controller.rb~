@@ -21,15 +21,19 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
+    @title = @post.title
+    if request.path != post_path(@post)
+      redirect_to @post, status: :moved_permanently
+    end
     if @post.is_inappropriate then
       notice[:flash] = "This post has been removed for having inappropriate content"
       redirect_to :root
     end
-    @title = @post.title
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @post }
-    end
+    # commented out cuz of multiple respond_to or redirect_to
+    #respond_to do |format|
+    #  format.html # show.html.erb
+    #  format.json { render json: @post }
+    #end
   end
 
   # GET /posts/new
@@ -59,8 +63,7 @@ class PostsController < ApplicationController
     @title = t 'header.new_post'
     @post = Post.new(params[:post])
     @post.user_id = current_user.id
-    current_user.vote_for(@post) if !current_user.blank?
-    @post.vote_count = @post.plusminus
+    @post.vote_count = +1
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }

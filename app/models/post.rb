@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
   after_save :update_vote_count
   
   extend FriendlyId
-  friendly_id :title
+  friendly_id :title, use: [:slugged, :history]
 
   acts_as_voteable
   belongs_to :user
