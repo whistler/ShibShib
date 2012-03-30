@@ -18,6 +18,13 @@
 .navbar .nav > li > a {
   line-height: 40px;
 }
-.tweet{float: left; padding:0 0 0 30px}
-.share{float: right; padding:0 25px 0 0}
-.small-break{padding:5px}
+.herp {
+  width: 30%;
+  margin-left:auto;
+  margin-right:auto;
+}
+.tweet{float: right;}
+.like{float: right;}
+.small-break{padding:5px 0 0 0}
+.fb_edge_widget_with_comment span.fb_edge_comment_widget iframe.fb_ltr {
+display: none !important;}

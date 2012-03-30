@@ -33,7 +33,7 @@ ar:
     many_comments: "تعليق"
     the_comments: "التعليقات"
     report: "الإبلاغ عن هذه المشاركة"
-    ago: "قبل "
+    ago: "مضى "
     fake: "ء"
     title: "العنوان"
     image: "الصورة"
@@ -99,7 +99,7 @@ ar:
         other: ! '%{count} سنوات'
       x_days:
         one: يوم واحد
-        other: ! '%{count} أيام'
+        other: ! '%{count} يوم'
       x_minutes:
         one: دقيقة واحدة
         other: ! '%{count} دقائق'

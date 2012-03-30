@@ -16,7 +16,11 @@
       }
     </style>
     <%= stylesheet_link_tag "application", :media => "all" %>
-    <%= javascript_include_tag "application" %>
+    <%= stylesheet_link_tag "bootstrap" %>
+    <%= stylesheet_link_tag "bootstrap_and_overrides" %>
+    <%= stylesheet_link_tag "docs" %>
+    <%= stylesheet_link_tag "shibshib" %>
+    <%= stylesheet_link_tag "pagination" %>
 
     <!-- Le fav and touch icons -->
     <%= favicon_link_tag %>
@@ -25,26 +29,37 @@
     <link href="images/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
   </head>
 
-  <body>    
+
   <%= render 'layouts/header' %>
+
+  <body>
   <div class="container">
     <div class="content">
       <div class="row">
         <div class="span12">
-        <%= render 'layouts/facebook_sdk'%>
         <%= render 'layouts/notice' %>
         <%= yield %>
         </div>
       </div><!--/row-->
     </div><!--/content-->
 
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <%= javascript_include_tag "application" %>
+		<%= render 'layouts/google_analytics' %>
     <%= render 'layouts/footer' %>
   </div> <!-- /container -->
 
   <!-- Le javascript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
+  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag :feedbacker %>
   <%= render 'layouts/google_analytics' %>
+  <script src="/assets/shibshib-v1.js" type="text/javascript"></script>
+  <script src="/assets/bootstrap.js" type="text/javascript"></script>
+  <script src="/assets/posts.js.coffee" type="text/javascript"></script>
   </body>
 <%= debug(params) if Rails.env.development? %>
 </html>
