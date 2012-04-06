@@ -5,3 +5,8 @@ $('#posts').append('<%= j render(@posts) %>');
   $('.pagination').remove();
 <% end %>
 <% sleep 1 %>
+$(document).ajaxComplete(function(){
+    try{
+        FB.XFBML.parse(); 
+    }catch(ex){}
+});
