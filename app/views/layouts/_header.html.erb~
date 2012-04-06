@@ -25,7 +25,7 @@
         </ul>
 <script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script>
 <script type="text/javascript">FB.init("254428867974812");</script>
-<fb:fan profile_id="374637662568823" connections="0" width="200" height="55"></fb:fan>
+<fb:fan profile_id="374637662568823" connections="0" width="150" height="55"></fb:fan>
 
         <ul class="nav pull-right">
           <% if user_signed_in? then %>
