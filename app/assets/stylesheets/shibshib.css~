@@ -23,8 +23,11 @@
   margin-left:auto;
   margin-right:auto;
 }
-.tweet{float: right;}
-.like{float: right;}
-.small-break{padding:5px}
+.like {padding:0 5px 0 0}
+.webS {width: 80%; margin: 0 auto; padding: 10px;}
+.webS2 {width: 20%; margin: 0 auto; padding: 10px;}
+.tweet {float: left; width: 50%;}
+.fb-like {float: left; width: 50%;}
+.small-break {padding: 5px 0 0 0; clear:both;}
 .fb_edge_widget_with_comment span.fb_edge_comment_widget iframe.fb_ltr {
 display: none !important;}
