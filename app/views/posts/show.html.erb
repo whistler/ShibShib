@@ -57,25 +57,38 @@
     else
       likes = "#{@post.plusminus.to_s} #{t 'post.many_likes'}"
     end %>
-  <input class="btn disabled" type="submit" value="<%= likes %>">
-  <%= link_to root_path, {:controller=> 'posts', :action=>'vote', :post_id => @post.id, :class => 'btn btn-mini'}, :remote => true, :method => 'get' do %>
-  <%= image_tag("Like.png", :alt => "like") %>
-  <% end %></span>
 
+<<<<<<< HEAD
   <div class= "social herp" >
 		<!-- Tweeter -->
 		<div class="tweet">
 		<a target="_blank" href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-url="<%= post_url(@post)%>" data-text="<%= @post.title %>" data-count="vertical" data-via="shibshib" data-hashtags="shibshib">Tweet</a> </div>
 		<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script> 
+=======
+      <div class="like">
+        <%= link_to ({:controller=> 'posts', :action=>'vote', :post_id => @post.id, :remote => true}) do %>
+        <span class="btn btn-mini"><i class="icon-heart"></i> <%= likes %></span>
+        <% end %>
+      </div>
+      <div class="webS2">
+        <!-- Tweeter -->
+        <div class="tweet">
+        <a target="_blank" href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-url="<%= post_url(@post)%>" data-text="<%= @post.title %>" data-count="vertical" data-via="shibshib" data-hashtags="shibshib">Tweet</a>
+        </div>
+        <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+>>>>>>> 3309719379e938ed4841a3fb56b461963ca09d23
 
-		<!-- Facebook -->
-		<div class="like">
-		<div class="fb-like" data-href="<%= post_url(@post)%>" data-send="true" data-layout="button_count" data-width="100" data-show-faces="false" data-font="tahoma" send="false"></div> </div>
+        <!-- Facebook -->
+        <div class="fb-like" data-href="<%= post_url(@post)%>" data-send="true" data-layout="button_count" data-width="100" data-show-faces="false" data-font="tahoma" send="false"></div>
 
+<<<<<<< HEAD
   </div><!-- end of social -->
+=======
+      </div><!-- end of webS2 -->
+<div class="small-break"></div>
+  <a href = "<%= post_path(@post) %>/mark_inappropriate" class="btn btn-mini btn-danger"><%= t 'post.report' %></a>
+>>>>>>> 3309719379e938ed4841a3fb56b461963ca09d23
 
-  <a href = "<%= post_path(@post) %>/mark_inappropriate" class="btn btn-danger"><%= t 'post.report' %></a>
-  
   <hr>
 
   <div id="comments" class="comments">

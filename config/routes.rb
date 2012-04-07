@@ -10,6 +10,8 @@ ShibShibBlastic::Application.routes.draw do
 
   match "index" => "welcome#index"
   match "latest" => "welcome#latest"
+  match "about" => "welcome#about"
+  match "faq" => "welcome#faq"
   get "welcome/index"
   get "welcome/latest"
 

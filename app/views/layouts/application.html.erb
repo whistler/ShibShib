@@ -25,8 +25,9 @@
     <link href="images/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
   </head>
 
-  <body>    
+  <body>
   <%= render 'layouts/header' %>
+  <%= render 'layouts/facebook_sdk' %>
   <div class="container">
     <div class="content">
       <div class="row">
@@ -38,6 +39,11 @@
       </div><!--/row-->
     </div><!--/content-->
 
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <%= javascript_include_tag "application" %>
+    <%= render 'layouts/google_analytics' %>
     <%= render 'layouts/footer' %>
   </div> <!-- /container -->
 

@@ -1,46 +1,51 @@
 <div class="row">
-	<div class="span8">
-		<%= link_to image_tag(post.image.url(:large), :class => 'displayed', :alt => post.title), post %>
-	</div>
-	<div class="span3 well">
-		<h2><%= post.title %></h2><div class="small-break"></div>
-		<i class="icon-user"></i>
-		<% if post.user == nil then %>
-			Anonymous
-		<% else %>
-			<%= link_to post.user.name, user_path(post.user) %>
-		<% end %> |
-		<!-- the below line is needed for Arabic alginment -->
- 		<i style="visibility:hidden;" ><%= "#{t 'post.fake'}" %></i>
-		<i class="icon-time"></i>
-		<%= "#{distance_of_time_in_words(Time.now, post.created_at)} #{t 'post.ago'}" %><div class="small-break"></div>
+  <div class="span8">
+    <%= link_to image_tag(post.image.url(:large), :class => 'displayed', :alt => post.title), post %>
+    </div>
 
-		<% if(post.plusminus == 0)
-			likes = "#{t 'post.no_likes'}"
-		elsif(post.plusminus == 1)
-			likes = "#{t 'post.one_like'}"
-		elsif(post.plusminus > 1 || post.plusminus < 11)
-			likes = "#{post.plusminus.to_s} #{t 'post.three_to_ten_likes'}"
-		else
-			likes = "#{post.plusminus.to_s} #{t 'post.many_likes'}"
-		end %>
-		<i class="icon-heart"></i>
-		<span id="votes-<%= post.id %>"><%= likes %></span>
-		<%= link_to image_tag("Like.png", :alt => "like"), {:controller=> 'posts', :action=>'vote', :post_id => post.id}, :class => 'btn btn-mini', :remote => true, :method => 'get' %>
+    <div class="span3 well">
+      <h2><%= post.title %></h2><div class="small-break"></div>
+      <i class="icon-user"></i>
+      <% if post.user == nil then %>
+        Anonymous
+      <% else %>
+        <%= link_to post.user.name, user_path(post.user) %>
+      <% end %> |
 
-		<div class="social">
-		<!-- Tweeter -->
-		<div class="tweet">
-		<a target="_blank" href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-url="<%= post_url(post)%>" data-text="<%= post.title %>" data-count="vertical" data-via="shibshib" data-hashtags="shibshib">Tweet</a> </div>
-		<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script> 
+      <!-- the below line is needed for Arabic alginment -->
+      <i style="visibility:hidden;" ><%= "#{t 'post.fake'}" %></i>
 
-		<!-- Facebook -->
-		<div class="share">
-		<div class="fb-like" data-href="<%= post_url(post)%>" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true"></div>
-		</div>
-		<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+      <i class="icon-time"></i>
+      <%= "#{distance_of_time_in_words(Time.now, post.created_at)} #{t 'post.ago'}" %>
+      <div class="small-break"></div>
 
-		</div><!-- end of social -->
-	</div><!-- end of well -->
+      <% if(post.plusminus == 0)
+        likes = "#{t 'post.no_likes'}"
+      elsif(post.plusminus == 1)
+        likes = "#{t 'post.one_like'}"
+      elsif(post.plusminus > 1 || post.plusminus < 11)
+        likes = "#{post.plusminus.to_s} #{t 'post.three_to_ten_likes'}"
+      else
+        likes = "#{post.plusminus.to_s} #{t 'post.many_likes'}"
+      end %>
+
+      <div class="like">
+        <%= link_to ({:controller=> 'posts', :action=>'vote', :post_id => post.id, :remote => true}) do %>
+        <span class="btn btn-mini"><i class="icon-heart"></i> <%= likes %></span>
+        <% end %>
+      </div>
+
+      <div class="webS">
+        <!-- Tweeter -->
+        <div class="tweet">
+        <a target="_blank" href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-url="<%= post_url(post)%>" data-text="<%= post.title %>" data-count="vertical" data-via="shibshib" data-hashtags="shibshib">Tweet</a>
+        </div>
+        <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+
+        <!-- Facebook -->
+        <div class="fb-like" data-href="<%= post_url(post)%>" data-send="true" data-layout="button_count" data-width="100" data-show-faces="false" data-font="tahoma" send="false"></div>
+
+      </div><!-- end of webS -->
+  </div><!-- end of well -->
 </div>
 <hr>
