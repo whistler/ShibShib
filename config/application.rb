@@ -51,10 +51,11 @@ module ShibShibBlastic
     # config.active_record.whitelist_attributes = true
     # Enable the asset pipeline
     config.assets.enabled = true
-
-
+    config.before_configuration do
       I18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
       I18n.reload!
+    end
+
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
     config.assets.initialize_on_precompile = false
