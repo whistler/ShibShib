@@ -8,6 +8,6 @@ jQuery ->
       if url && $(window).scrollTop() > $(document).height() - $(window).height() - 550
         img = $("<img />").attr('src', 'http://giantleague.com/load.gif')
         $('.pagination').append(img);
-        $('.pagination').remove(img);
+        $('.pagination').append(img);
         $.getScript(url)
     $(window).scroll()

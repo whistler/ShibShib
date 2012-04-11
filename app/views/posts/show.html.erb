@@ -1,10 +1,5 @@
-
 ﻿<div class="well">
-  <div>
   <h1><%= @post.title %></h1>
-  </div>
-
-  <div class="postaData small-break">
 
     <i class="icon-user"></i>
     <% if @post.user == nil then %>
@@ -28,19 +23,20 @@
     <br/>
     <% if ((user_signed_in?) && (current_user.id == @post.user_id)) then %>
       <div class="btn-group small-break">
-        <a class="btn" href=" <%= edit_post_path(@post) %> ">
+        <a class="btn btn-mini" href=" <%= edit_post_path(@post) %> ">
           <i class="icon-edit"></i>
           <%= t 'general.edit' %>
         </a>
 
-        <a class="btn" href=" <%= @post %> " data-method="delete" data-confirm="<%= %-#{t 'general.delete_cnfrm'}- %>">
+        <a class="btn btn-mini" href=" <%= @post %> " data-method="delete" data-confirm="<%= %-#{t 'general.delete_cnfrm'}- %>">
           <i class="icon-remove"></i>
           <%= t 'general.delete' %>
         </a>
       </div>
+    <% else %>
+      <a href = "<%= post_path(@post) %>/mark_inappropriate" class="btn btn-mini btn-danger"><%= t 'post.report' %></a>
     <% end %>
 
-  </div>
 </div><!-- end of 1st well -->
 
 <%= image_tag @post.image.url(:large), :class=>'displayed', :alt => @post.title %>
@@ -63,7 +59,7 @@
         <span class="btn btn-mini"><i class="icon-heart"></i> <%= likes %></span>
         <% end %>
       </div>
-      <div class="webS2">
+      <div class="webS">
         <!-- Tweeter -->
         <div class="tweet">
         <a target="_blank" href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-url="<%= post_url(@post)%>" data-text="<%= @post.title %>" data-count="vertical" data-via="shibshib" data-hashtags="shibshib">Tweet</a>
@@ -73,15 +69,13 @@
         <!-- Facebook -->
         <div class="fb-like" data-href="<%= post_url(@post)%>" data-send="true" data-layout="button_count" data-width="100" data-show-faces="false" data-font="tahoma" send="false"></div>
 
-      </div><!-- end of webS2 -->
-<div class="small-break"></div>
-  <a href = "<%= post_path(@post) %>/mark_inappropriate" class="btn btn-mini btn-danger"><%= t 'post.report' %></a>
+      </div><!-- end of webS -->
 
+      <div class="small-break"></div>
   <hr>
 
   <div id="comments" class="comments">
     <div class="fb-comments" data-href="http://shibshib.me/posts/<%= @post.id %>" data-num-posts="3" data-width="470"></div>
-    <%= render 'layouts/facebook_sdk' %>
   </div>
 
 </div><!-- end of 2nd well -->

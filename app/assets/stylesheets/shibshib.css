@@ -23,7 +23,7 @@
   margin-left:auto;
   margin-right:auto;
 }
-.webS {margin:0 auto;}
+.webS {margin:0 auto; width: 130px; padding: 5px;}
 .tweet {float: left; width: 60%;}
 .fb-like {float: left; width: 40%;}
 .small-break {padding: 5px 0 0 0; clear:both;}
@@ -37,6 +37,7 @@ display: none !important;}
   border: 0 !important;
   background: none !important;
   position: relative;
+  padding: 2px;
 }
 .fan_box .connect_top{
   background: none !important;

@@ -16,7 +16,9 @@
       <i style="visibility:hidden;" ><%= "#{t 'post.fake'}" %></i>
 
       <i class="icon-time"></i>
-      <%= "#{distance_of_time_in_words(Time.now, post.created_at)} #{t 'post.ago'}" %>
+      <%= "#{distance_of_time_in_words(Time.now, post.created_at)} #{t 'post.ago'}" %> | 
+      <i class="icon-comment"></i>
+          <fb:comments-count href="http://shibshib.me/posts/<%= post.id %>"></fb:comments-count>
       <div class="small-break"></div>
 
       <% if(post.plusminus == 0)
@@ -33,7 +35,6 @@
       <span class="btn btn-mini"><i class="icon-heart"></i> <%= likes %></span>
       <% end %>
 
-      <div class="small-break"></div>
       <div class="webS">
         <!-- Tweeter -->
         <div class="tweet">
