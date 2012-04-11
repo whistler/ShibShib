@@ -23,4 +23,9 @@ class User < ActiveRecord::Base
       User.create!(:name => data.name, :email => data.email, :password => Devise.friendly_token[0,20]) 
     end
   end
+  
+  def vote_for(voteable)
+    super
+    voteable.update_attributes!(:vote_count => voteable.plusminus)
+  end
 end
