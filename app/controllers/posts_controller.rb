@@ -9,12 +9,24 @@ class PostsController < ApplicationController
 	redirect_to post_path
     end
   end
+
+  def check_admin
+    if current_user.id != @post.user_id
+	flash[:notice] = "Sorry, you can't edit this post"
+	redirect_to post_path
+    end
+  end
   # GET /posts
   # GET /posts.json
   respond_to :html, :js
 
   def index
-    redirect_to root_path
+    if current_user.id == 1
+    @search = Post.search(params[:q])
+    @posts = @search.result(:distinct => true, :include => :user).page(params[:page]).per_page(100)
+    elsif current_user.id != 1
+      redirect_to root_path
+    end
   end
 
   # GET /posts/1

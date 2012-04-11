@@ -1,7 +1,36 @@
-<h1>Posts</h1>
+<%= search_form_for @search do |f| %>
+  <h3>Post Title</h3><%= f.text_field :title_cont %>
+  <%= f.submit %>
+<% end %>
+<table class="table">
+  <tr>
+    <th><%= sort_link @search, :id, "ID" %></th>
+    <th><%= sort_link @search, :title %></th>
+    <th><%= sort_link @search, :user %></th>
+    <th><%= sort_link @search, :updated_at, "Last Update" %></th>
+    <th><%= sort_link @search, :vote_count, "Votes" %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
 
-<div id="posts">
-  <%= render @posts %>
-</div>
+<% @posts.each do |post| %>
+  <% if post.is_inappropriate %>
+    <tr style="background-color: #84DFC1;">
+  <% elsif !post.is_inappropriate %>
+    <tr>
+  <% end %>
+    <td><%= post.id %></td>
+    <td><%= post.title %></td>
+    <td><%= link_to post.user.name, post.user %></td>
+    <td><%= post.updated_at %></td>
+    <td><%= post.vote_count %></td>
+    <td><%= link_to 'Show', post %></td>
+    <td><%= link_to 'Edit', edit_user_path(post) %></td>
+    <td><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
 
-<%= will_paginate @posts %>
+<%= will_paginate(@posts, :more => true, :class => "digg_pagination") %>
+
