@@ -34,7 +34,7 @@
         </a>
       </div>
     <% else %>
-      <a href = "<%= post_path(@post) %>/mark_inappropriate" class="report"><%= t 'post.report' %></a>
+      <a href = "<%= post_path(@post) %>/mark_inappropriate" class=""><%= t 'post.report' %></a>
     <% end %>
 
 </div><!-- end of 1st well -->

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120322233713) do
+ActiveRecord::Schema.define(:version => 20120416071355) do
 
   create_table "friendly_id_slugs", :force => true do |t|
     t.string   "slug",                         :null => false
@@ -59,10 +59,10 @@ ActiveRecord::Schema.define(:version => 20120322233713) do
 
   create_table "users", :force => true do |t|
     t.string    "name"
-    t.timestamp "created_at",                                            :null => false
-    t.timestamp "updated_at",                                            :null => false
-    t.string    "email",                                 :default => "", :null => false
-    t.string    "encrypted_password",     :limit => 128, :default => "", :null => false
+    t.timestamp "created_at",                                               :null => false
+    t.timestamp "updated_at",                                               :null => false
+    t.string    "email",                                 :default => "",    :null => false
+    t.string    "encrypted_password",     :limit => 128, :default => "",    :null => false
     t.string    "reset_password_token"
     t.timestamp "reset_password_sent_at"
     t.timestamp "remember_created_at"
@@ -71,6 +71,8 @@ ActiveRecord::Schema.define(:version => 20120322233713) do
     t.timestamp "last_sign_in_at"
     t.string    "current_sign_in_ip"
     t.string    "last_sign_in_ip"
+    t.boolean   "is_banned",                             :default => false
+    t.boolean   "is_admin",                              :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -113,7 +113,9 @@ span.total{
 }
 
 a.report,a.report:hover,a.report:active {color: #e45752;}
-
+a:hover {
+  color: none;
+}
 * {
   font-family: Tahoma, Geneva, sans-serif;
 }

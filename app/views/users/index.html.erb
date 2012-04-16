@@ -1,22 +1,30 @@
-
-<h2>Listing users</h2>
-
-<table>
+<%= search_form_for @search do |f| %>
+  <h3>User</h3><%= f.text_field :name_cont %>
+  <%= f.submit %>
+<% end %>
+<table class="table">
   <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Password</th>
-    <th>Facebook</th>
-    <th>Facebook token</th>
+    <th><%= sort_link @search, :id, "ID" %></th>
+    <th><%= sort_link @search, :name %></th>
+    <th><%= sort_link @search, :email %></th>
+    <th><%= sort_link @search, :is_admin, "Admin?" %></th>
+    <th><%= sort_link @search, :is_banned, "Banned?" %></th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
 <% @users.each do |user| %>
-  <tr>
-    <td><%= user.name %></td>
+  <% if user.is_admin %>
+    <tr style="background-color: #84DFC1;">
+  <% else %>
+    <tr>
+  <% end %>
+    <td><%= user.id %></td>
+    <td><%= link_to user.name, user %></td>
     <td><%= user.email %></td>
+    <td><%= user.is_admin %></td>
+    <td><%= user.is_banned %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></td>
@@ -24,6 +32,5 @@
 <% end %>
 </table>
 
-<br />
+<%= will_paginate(@posts, :more => true, :class => "digg_pagination") %>
 
-<%= link_to "#{t 'user.new_user'}", new_user_path %>
