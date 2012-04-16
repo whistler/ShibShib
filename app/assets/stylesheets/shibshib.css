@@ -31,6 +31,46 @@ ul.shareLinks li { list-style: none; float: left; margin-right: 5px; }
   margin-right: 50px;
   margin-left: 30px;
 }
+#back-top {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  text-align: right;
+  clear: both;
+}
+#back-top a {
+  color: #ada597;
+  text-transform: uppercase;
+  text-decoration: none;
+  -webkit-transition: background-color .7s;
+  -moz-transition: background-color .7s;
+  -o-transition: background-color .7s;
+  transition: background-color .7s;
+}
+#back-top a:hover {
+  color: #615349;
+}
+#back-top em {
+  font: normal 12px/100% "Lucida Grande", Arial, "Lucida Sans Unicode", sans-serif;
+  letter-spacing: 1px;
+  float: right;
+}
+#back-top span {
+  width: 28px;
+  height: 28px;
+  background: url(/assets/nav-icons.png) no-repeat -8px -577px;
+  background-color: rgba(255,255,255,1);
+  display: block;
+  float: right;
+  cursor: pointer;
+  margin: -8px 0 0 6px;
+  -webkit-border-radius: 10em;
+  -moz-border-radius: 10em;
+  border-radius: 10em;
+}
+#back-top a:hover span {
+  background-color: #615349;
+}
 
 .fb-like {
   width: 40px;
