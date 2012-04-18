@@ -15,8 +15,6 @@ ShibShibBlastic::Application.routes.draw do
   get "welcome/index"
   get "welcome/latest"
 
-  resources :ratings
-
   scope "/:locale" do
     resources :welcome
     resources :posts do

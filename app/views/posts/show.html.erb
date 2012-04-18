@@ -19,9 +19,9 @@
 
     <i class="icon-heart"></i>
     <%= @post.plusminus.to_s %> <%= t 'post.many_likes' %>
-
-    <br/><br/>
+    <br/>
     <% if ((user_signed_in?) && (current_user.id == @post.user_id)) then %>
+      <br/>
       <div class="btn-group small-break">
         <a class="btn btn-mini" href=" <%= edit_post_path(@post) %> ">
           <i class="icon-edit"></i>

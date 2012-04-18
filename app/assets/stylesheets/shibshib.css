@@ -112,7 +112,10 @@ span.total{
   color: #3889ce;
 }
 
-a.report,a.report:hover,a.report:active {color: #e45752;}
+a.report,a.report:hover,a.report:active {
+  color: #e45752;
+  font-size: 9px;
+}
 
 * {
   font-family: Tahoma, Geneva, sans-serif;
