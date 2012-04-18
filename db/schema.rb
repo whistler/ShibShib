@@ -11,13 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120416071355) do
+ActiveRecord::Schema.define(:version => 20120418214516) do
 
   create_table "friendly_id_slugs", :force => true do |t|
-    t.string   "slug",                         :null => false
-    t.integer  "sluggable_id",                 :null => false
-    t.string   "sluggable_type", :limit => 40
-    t.datetime "created_at"
+    t.string    "slug",                         :null => false
+    t.integer   "sluggable_id",                 :null => false
+    t.string    "sluggable_type", :limit => 40
+    t.timestamp "created_at"
   end
 
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], :name => "index_friendly_id_slugs_on_slug_and_sluggable_type", :unique => true
@@ -40,22 +40,6 @@ ActiveRecord::Schema.define(:version => 20120416071355) do
   end
 
   add_index "posts", ["slug"], :name => "index_posts_on_slug"
-
-  create_table "ratings", :force => true do |t|
-    t.integer   "post_id"
-    t.integer   "user_id"
-    t.integer   "value"
-    t.timestamp "created_at", :null => false
-    t.timestamp "updated_at", :null => false
-  end
-
-  create_table "remarks", :force => true do |t|
-    t.integer   "user_id"
-    t.string    "source_url"
-    t.text      "content"
-    t.timestamp "created_at", :null => false
-    t.timestamp "updated_at", :null => false
-  end
 
   create_table "users", :force => true do |t|
     t.string    "name"
