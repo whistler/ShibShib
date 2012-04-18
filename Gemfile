@@ -34,7 +34,7 @@ gem 'devise'                    # User authentication
 gem 'omniauth-facebook'         # Facebook login
 
 gem 'aws-sdk'                   # For storing images
-gem 'paperclip'                 # For uploading images
+gem 'paperclip', '~> 2.7'       # For uploading images, version 3.0.1 has issues with uploading to AWS
 gem 'thumbs_up', '0.4.5'        # For rating posts
 gem 'will_paginate', '~> 3.0.3' # For pagination
 gem 'twitter-bootstrap-rails'   # Twitter CSS Framework

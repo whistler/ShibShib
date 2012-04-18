@@ -111,10 +111,9 @@ GEM
       oauth2 (~> 0.5.0)
       omniauth (~> 1.0)
     orm_adapter (0.0.7)
-    paperclip (3.0.1)
-      activemodel (>= 3.0.0)
-      activerecord (>= 3.0.0)
-      activesupport (>= 3.0.0)
+    paperclip (2.7.0)
+      activerecord (>= 2.3.0)
+      activesupport (>= 2.3.2)
       cocaine (>= 0.0.2)
       mime-types
     pg (0.13.2)
@@ -206,7 +205,7 @@ DEPENDENCIES
   heroku
   jquery-rails
   omniauth-facebook
-  paperclip
+  paperclip (~> 2.7)
   pg
   pry
   rails (= 3.2.1)
