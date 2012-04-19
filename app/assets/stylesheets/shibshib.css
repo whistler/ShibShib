@@ -24,6 +24,10 @@
   margin-right:auto;
 }
 
+.center {
+  text-align: center;
+}
+
 ul.shareLinks { overflow: auto; }
 ul.shareLinks li { list-style: none; float: left; margin-right: 5px; }
 
@@ -74,10 +78,15 @@ ul.shareLinks li { list-style: none; float: left; margin-right: 5px; }
 
 .fb-like {
   width: 40px;
+  margin-left: 0px;
 }
 
 .fb_edge_widget_with_comment span.fb_edge_comment_widget iframe.fb_ltr {
-display: none !important;}
+display: none !important;
+margin: 0px;
+padding: 0px;
+width: 60px;
+}
 
 .fan_box a:hover{
   text-decoration: none;
