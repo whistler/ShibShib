@@ -1,15 +1,18 @@
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
+
   <% if (I18n.locale.to_s == "ar")
        sign_in_with = "#{provider.to_s.titleize}#{t 'registrations.sign_in_with'}"
      elsif (I18n.locale.to_s == "en")
        sign_in_with = "#{t 'registrations.sign_in_with'} #{provider.to_s.titleize}"
-     end %>
+  end %>
 
-    <%= link_to "#{sign_in_with}", omniauth_authorize_path(resource_name, provider), :class=>"btn btn-primary btn-large" %><br />
+  <br />
+
+  <%= link_to "#{sign_in_with}", omniauth_authorize_path(resource_name, provider), :class=>"btn btn-primary btn-large" %><br />
+
   <% end -%>
 <% end -%>
-
 <br/>
 
 <%- if controller_name != 'sessions' %>

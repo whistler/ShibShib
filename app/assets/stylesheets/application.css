@@ -11,6 +11,9 @@
  *= require_self
  *= require bootstrap_and_overrides
  *= require shibshib
- *= require_tree .
+ *= require bootstrap
+ *= require bootstrap-responsive
+ *= require docs
+ *= require pagination
  */
 
