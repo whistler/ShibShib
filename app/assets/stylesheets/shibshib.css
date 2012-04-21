@@ -28,8 +28,8 @@
   text-align: center;
 }
 
-ul.shareLinks { overflow: auto; }
-ul.shareLinks li { list-style: none; float: left; margin-right: 5px; }
+ul.shareLinks { width: 190px; margin: auto; overflow: hidden; }
+ul.shareLinks li { list-style: none; margin: auto; padding: 5px}
 
 #vote-up {
   margin-right: 50px;
