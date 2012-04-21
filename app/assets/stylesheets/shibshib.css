@@ -29,7 +29,7 @@
 }
 
 ul.shareLinks { width: 190px; margin: auto; overflow: hidden; }
-ul.shareLinks li { list-style: none; margin: auto; padding: 5px}
+ul.shareLinks li { list-style: none; margin: auto; padding: 5px; float: left;}
 
 #vote-up {
   margin-right: 50px;
