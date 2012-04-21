@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name
+  scope :banned, where(:is_banned => true)
   acts_as_voter
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
@@ -23,7 +24,14 @@ class User < ActiveRecord::Base
       User.create!(:name => data.name, :email => data.email, :password => Devise.friendly_token[0,20]) 
     end
   end
-  
+  def self.find_for_twitter_oauth(access_token, signed_in_resource=nil)
+    data = access_token.extra.raw_info
+    if user = User.where(:email => data.email)
+      user
+    else # Create a user with a stub password. 
+      User.create!(:name => data.name, :password => Devise.friendly_token[0,20]) 
+    end
+  end
   def vote_for(voteable)
     super
     voteable.update_attributes!(:vote_count => voteable.plusminus)
