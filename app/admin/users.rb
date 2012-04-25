@@ -4,6 +4,7 @@ ActiveAdmin.register User do
     column :id
     column :name
     column :email
+    column :oauth_provider
     column "Banned?", :is_banned
     column "Admin?", :is_admin
     column :last_sign_in_at

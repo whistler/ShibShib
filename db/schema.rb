@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120420182044) do
+ActiveRecord::Schema.define(:version => 20120423171859) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -76,10 +76,10 @@ ActiveRecord::Schema.define(:version => 20120420182044) do
 
   create_table "users", :force => true do |t|
     t.string    "name"
-    t.timestamp "created_at",                                               :null => false
-    t.timestamp "updated_at",                                               :null => false
-    t.string    "email",                                 :default => "",    :null => false
-    t.string    "encrypted_password",     :limit => 128, :default => "",    :null => false
+    t.timestamp "created_at",                                                    :null => false
+    t.timestamp "updated_at",                                                    :null => false
+    t.string    "email",                                 :default => "",         :null => false
+    t.string    "encrypted_password",     :limit => 128, :default => "",         :null => false
     t.string    "reset_password_token"
     t.timestamp "reset_password_sent_at"
     t.timestamp "remember_created_at"
@@ -90,6 +90,8 @@ ActiveRecord::Schema.define(:version => 20120420182044) do
     t.string    "last_sign_in_ip"
     t.boolean   "is_banned",                             :default => false
     t.boolean   "is_admin",                              :default => false
+    t.string    "oauth_provider",                        :default => "ShibShib"
+    t.integer   "oauth_uid"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -1,11 +1,14 @@
 class UsersController < ApplicationController
-before_filter :authenticate_user!, :only => [:edit, :update, :destroy]
-before_filter :check_user, :only => [:edit, :update, :destroy]
+  before_filter :check_user, :only => [:edit, :update, :destroy]
+
   def check_user
     @user = User.find(params[:id])
-    if current_user.id != @user.id
-	flash[:notice] = "Sorry, you can't edit someone else account"
-	redirect_to user_path
+    if current_user.id != @user.id #Rails takes "id" as "name" because of friendly_id gem, will work cuz name is unique
+      flash[:notice] = "Sorry, you can't edit someone else account"
+      redirect_to user_path
+    end
+    else if current_user.oauth_provider == "ShibShib"
+      current_user.update_attribute(:oauth_uid, current_user.id)
     end
   end
   # GET /users
