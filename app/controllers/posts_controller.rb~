@@ -53,6 +53,10 @@ class PostsController < ApplicationController
     end
     @title = t 'header.new_post'
     @post = Post.new
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @post }
+    end
   end
 
   # GET /posts/1/edit

@@ -37,7 +37,6 @@
     <% if (current_user.id != @post.user_id)  %>
       <% if (current_user.is_admin?)  %>
         </br>
-      <% end %>
       <a href = "<%= post_path(@post) %>/mark_inappropriate" class="report"><%= t 'post.report' %></a>
     <% end %>
 
