@@ -15,7 +15,6 @@
     <%= stylesheet_link_tag "shibshib" %>
     <%= stylesheet_link_tag "docs" %>
     <%= stylesheet_link_tag "pagination" %>
-    <%= stylesheet_link_tag "bootstrap-responsive" %>
 
     <%= javascript_include_tag "application" %>
     <!-- Le fav and touch icons -->
