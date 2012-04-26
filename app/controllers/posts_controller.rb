@@ -1,17 +1,6 @@
 class PostsController < ApplicationController
   before_filter :check_user, :only => [:edit, :update, :destroy]
 
-  def check_user
-    @post = Post.find(params[:id])
-    #raise @post.to_yaml
-    if current_user.id != @post.user_id
-      if !current_user.is_admin
-	flash[:notice] = "Sorry, you can't edit this post"
-	redirect_to post_path
-      end
-    end
-  end
-
   # GET /posts
   # GET /posts.json
   respond_to :html, :js

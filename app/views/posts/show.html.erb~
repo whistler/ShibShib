@@ -34,10 +34,13 @@
         </a>
       </div>
     <% end %>
-    <% if (current_user.id != @post.user_id)  %>
-      <% if (current_user.is_admin?)  %>
-        </br>
-      <a href = "<%= post_path(@post) %>/mark_inappropriate" class="report"><%= t 'post.report' %></a>
+    <% if user_signed_in? %>
+      <% if (current_user.id != @post.user_id) %>
+        <% if (current_user.is_admin?)  %>
+          </br>
+        <% end %>
+        <a href = "<%= post_path(@post) %>/mark_inappropriate" class="report"><%= t 'post.report' %></a>
+      <% end %>
     <% end %>
 
 </div><!-- end of 1st well -->
