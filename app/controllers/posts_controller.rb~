@@ -116,7 +116,10 @@ class PostsController < ApplicationController
     current_user.vote_for(@post) if !current_user.blank?
     @post.vote_count = @post.plusminus
     respond_to do |format|
-      format.js
+      format.js{
+      render :text => "alert('hello')"
+    }
+
     end
   end
   
