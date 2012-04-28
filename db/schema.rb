@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120425220251) do
+ActiveRecord::Schema.define(:version => 20120428190604) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -75,23 +75,27 @@ ActiveRecord::Schema.define(:version => 20120425220251) do
   add_index "posts", ["slug"], :name => "index_posts_on_slug"
 
   create_table "users", :force => true do |t|
-    t.string    "name"
-    t.timestamp "created_at",                                                    :null => false
-    t.timestamp "updated_at",                                                    :null => false
-    t.string    "email",                                 :default => "",         :null => false
-    t.string    "encrypted_password",     :limit => 128, :default => "",         :null => false
-    t.string    "reset_password_token"
-    t.timestamp "reset_password_sent_at"
-    t.timestamp "remember_created_at"
-    t.integer   "sign_in_count",                         :default => 0
-    t.timestamp "current_sign_in_at"
-    t.timestamp "last_sign_in_at"
-    t.string    "current_sign_in_ip"
-    t.string    "last_sign_in_ip"
-    t.boolean   "is_banned",                             :default => false
-    t.boolean   "is_admin",                              :default => false
-    t.string    "oauth_provider",                        :default => "ShibShib"
-    t.integer   "oauth_uid"
+    t.string   "name"
+    t.datetime "created_at",                                                    :null => false
+    t.datetime "updated_at",                                                    :null => false
+    t.string   "email",                                 :default => "",         :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "",         :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",                         :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.boolean  "is_banned",                             :default => false
+    t.boolean  "is_admin",                              :default => false
+    t.string   "oauth_provider",                        :default => "ShibShib"
+    t.integer  "oauth_uid"
+    t.string   "facebook_oauth_id"
+    t.string   "twitter_oauth_id"
+    t.string   "facebook_oauth_uid"
+    t.string   "twitter_oauth_uid"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
