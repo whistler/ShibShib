@@ -12,6 +12,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def twitter
+    p "********************HELLO*********************"
+    binding.pry
     # You need to implement the method below in your model
     @user = User.find_for_twitter_oauth(request.env["omniauth.auth"], current_user)
     #raise request.env["omniauth.auth"].to_yaml

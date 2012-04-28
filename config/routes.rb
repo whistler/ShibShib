@@ -6,6 +6,8 @@ ShibShibBlastic::Application.routes.draw do
 
   match "new_post" => "posts#new"
   match "profile" => "users#show"
+  match "users/auth/facebook/callback" => "users/omniauth_callbacks#facebook"
+  match "users/auth/twitter/callback" => "users/omniauth_callbacks#twitter"
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
   devise_scope :users do

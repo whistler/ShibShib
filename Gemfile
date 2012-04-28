@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.1'
+gem 'rails', '3.2.3'
 gem 'certified'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -22,11 +22,12 @@ end
 group :development, :test do
   gem 'sqlite3'
   gem 'pry'
+  gem 'webrick'
 end
 
 group :production do
   gem 'pg'                      # Postgres database
-  gem 'thin'                    # Faster server
+  #gem 'thin'                    # Faster server
 end
 
 gem 'jquery-rails'
