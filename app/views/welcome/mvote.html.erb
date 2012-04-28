@@ -1,7 +1,7 @@
 <div class="tabbable" style="margin-bottom: 9px;">
   <ul class="nav nav-tabs">
-    <li><a href="<%= index_path %>"><%= t 'tabs.most_voted' %></a></li>
-    <li class="active"><a href="<%= latest_path %>"><%= t 'tabs.latest' %></a></li>
+    <li><a href="<%= index_path %>"><%= t 'tabs.latest' %></a></li>
+    <li class="active"><a href="<%= mvote_path %>"><%= t 'tabs.most_voted' %></a></li>
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="1">
@@ -11,13 +11,6 @@
     <%= will_paginate(@posts, :more => true) %>
     </div>
 
-    <div class="tab-pane" id="2">
-    <div id="posts">
-    <%= render @posts %>
-    </div>
-    <%= will_paginate(@posts, :more => true) %>
-    </div>
-    </div>
 </div> <!-- /tabbable -->
 
 <p id="back-top"><a href="#top"><span></span><%= t 'others.back_to_top' %></a></P>
