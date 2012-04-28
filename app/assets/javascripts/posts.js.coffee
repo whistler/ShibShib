@@ -6,8 +6,6 @@ jQuery ->
     $(window).scroll ->
       url = $('.pagination .next_page').attr('href')
       img = $("<img />").attr('src', '/assets/loading.gif')
-      #userPage = $('.userPage').attr('type')
-      trigger = false
       if url && $(window).scrollTop() > $(document).height() - $(window).height() - 550
         $('.pagination').text("")
         $('.pagination').append(img);

@@ -1,24 +1,19 @@
 class PostsController < ApplicationController
-  before_filter :authenticate_user!, :only => [:new, :edit, :update, :destroy]
   before_filter :check_user, :only => [:edit, :update, :destroy]
 
-  def check_user
-    @post = Post.find(params[:id])
-    if current_user.id != @post.user_id
-	flash[:notice] = "Sorry, you can't edit this post"
-	redirect_to post_path
-    end
-  end
-
-  def check_admin
-    if current_user.id != @post.user_id
-	flash[:notice] = "Sorry, you can't edit this post"
-	redirect_to post_path
-    end
-  end
   # GET /posts
   # GET /posts.json
   respond_to :html, :js
+  def check_user
+   @post = Post.find(params[:id])
+   #raise @post.to_yaml
+   if current_user.id != @post.user_id
+     if !current_user.is_admin
+       flash[:notice] = "Sorry, you can't edit this post"
+       redirect_to post_path
+     end
+   end
+  end
 
   def index
     if current_user.id == 1
@@ -51,12 +46,12 @@ class PostsController < ApplicationController
   # GET /posts/new
   # GET /posts/new.json
   def new
+    if current_user.is_banned
+      flash[:notice] = "Sorry, you are banned. Please email us on hello@shibshib.me for further details."
+      redirect_to(:back) 
+    end
     @title = t 'header.new_post'
     @post = Post.new
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @post }
-    end
   end
 
   # GET /posts/1/edit

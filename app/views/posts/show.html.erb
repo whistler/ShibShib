@@ -20,7 +20,7 @@
     <i class="icon-heart"></i>
     <%= @post.plusminus.to_s %> <%= t 'post.many_likes' %>
     <br/>
-    <% if ((user_signed_in?) && (current_user.id == @post.user_id)) then %>
+    <% if ((user_signed_in?) && ((current_user.id == @post.user_id) || (current_user.is_admin?))) then %>
       <br/>
       <div class="btn-group small-break">
         <a class="btn btn-mini" href=" <%= edit_post_path(@post) %> ">
@@ -33,8 +33,14 @@
           <%= t 'general.delete' %>
         </a>
       </div>
-    <% else %>
-      <a href = "<%= post_path(@post) %>/mark_inappropriate" class="report"><%= t 'post.report' %></a>
+    <% end %>
+    <% if user_signed_in? %>
+      <% if current_user.id != @post.user_id %>
+        <% if (current_user.is_admin?)  %>
+          </br>
+        <% end %>
+        <a href = "<%= post_path(@post) %>/mark_inappropriate" class="report"><%= t 'post.report' %></a>
+      <% end %>
     <% end %>
 
 </div><!-- end of 1st well -->

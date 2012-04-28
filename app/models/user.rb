@@ -9,27 +9,32 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me
+  #attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :is_banned,
+             #     :oauth_uid, :oauth_provider
   
   has_many :posts
   has_many :ratings
   
   validates_presence_of :name
-  
+  validates_uniqueness_of :name
+
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     data = access_token.extra.raw_info
-    if user = User.where(:email => data.email).first
+    if user = User.where(:oauth_uid => data.uid, :oauth_provider => "Facebook").first
       user
     else # Create a user with a stub password. 
-      User.create!(:name => data.name, :email => data.email, :password => Devise.friendly_token[0,20]) 
+      User.create!(:name => data.name, :oauth_uid => data.uid, :oauth_provider => "Facebook", :email => data.email, :password => Devise.friendly_token[0,20]) 
     end
   end
+
+
   def self.find_for_twitter_oauth(access_token, signed_in_resource=nil)
     data = access_token.extra.raw_info
-    if user = User.where(:email => data.email)
+    #raise data.to_yaml
+    if user = User.where(:oauth_uid => data.id, :oauth_provider => "Twitter").first()
       user
     else # Create a user with a stub password. 
-      User.create!(:name => data.name, :password => Devise.friendly_token[0,20]) 
+      User.create!(:name => data.name, :oauth_uid => data.id, :oauth_provider => "Twitter", :email => "twitter_"+data.name+"@twitter.com", :password => Devise.friendly_token[0,20]) 
     end
   end
   def vote_for(voteable)
