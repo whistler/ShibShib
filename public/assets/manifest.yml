@@ -7,13 +7,8 @@ loading.gif: loading-b1a0e6137c7bb7d5e395a6feffb2d2b1.gif
 nav-icons.png: nav-icons-c58d6b5854404bbff3871980bc9c7656.png
 shibshib.png: shibshib-0c9dacda863412f3860c34f7ab4d079a.png
 up-arrow.png: up-arrow-cd026026c89cc728a1ccd458e5272c0b.png
-<<<<<<< HEAD
-application.js: application-ec5102b6fc68d35f20e9468a5ab1212e.js
-application.css: application-915a252ac98ef5d9edc5500b809f0be0.css
-=======
 application.js: application-b5a8bbf5edc9006952251e71180b33ae.js
-application.css: application-bd8f4b0c8b6a422af16fa1d24c359dac.css
->>>>>>> 55a846dc939977c73dfc0a45a1a51204e66fbc24
+application.css: application-0ea12371f1e860a9298c1ef4101bc1e7.css
 active_admin/admin_notes_icon.png: active_admin/admin_notes_icon-6eb45caa96d965a96dd65eba4ba136df.png
 active_admin/datepicker/datepicker-header-bg.png: active_admin/datepicker/datepicker-header-bg-d0905bcf45dbdc6ebd8a0f886465e2d5.png
 active_admin/datepicker/datepicker-input-icon.png: active_admin/datepicker/datepicker-input-icon-615b6bb25bb1b0d6e8f2688b336e65c9.png
