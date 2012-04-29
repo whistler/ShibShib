@@ -42,6 +42,7 @@ gem 'twitter-bootstrap-rails'   # Twitter CSS Framework
 gem 'friendly_id'               # For displaying names and titles instead of IDs
 gem "ransack"                   # For searching
 gem "formtastic", "~> 2.1.1"
+gem "rails_admin"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -1,9 +1,9 @@
 ShibShibBlastic::Application.routes.draw do 
 
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
   match "new_post" => "posts#new"
   match "profile" => "users#show"
-  match "users/auth/facebook/callback" => "users/omniauth_callbacks#facebook"
-  match "users/auth/twitter/callback" => "users/omniauth_callbacks#twitter"
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
   devise_scope :users do
@@ -26,6 +26,8 @@ ShibShibBlastic::Application.routes.draw do
     resources :users
   end
 
+   
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
