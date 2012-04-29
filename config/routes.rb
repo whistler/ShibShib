@@ -1,9 +1,5 @@
 ShibShibBlastic::Application.routes.draw do 
 
-  ActiveAdmin.routes(self)
-
-  devise_for :admin_users, ActiveAdmin::Devise.config
-
   match "new_post" => "posts#new"
   match "profile" => "users#show"
   match "users/auth/facebook/callback" => "users/omniauth_callbacks#facebook"
