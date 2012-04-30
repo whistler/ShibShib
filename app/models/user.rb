@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
 
   def self.find_for_twitter_oauth(access_token, signed_in_resource=nil)
     data = access_token.extra.raw_info
-    #raise data.to_yaml
+    raise data.to_yaml
     if user = User.where(:oauth_uid => data.id, :oauth_provider => "Twitter").first()
       user
     else # Create a user with a stub password. 

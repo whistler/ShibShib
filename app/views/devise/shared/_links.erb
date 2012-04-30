@@ -7,9 +7,10 @@
        sign_in_with = "#{t 'registrations.sign_in_with'} #{provider.to_s.titleize}"
   end %>
 
+   <% if provider.to_s.titleize != 'Twitter' %>
   <br />
-
   <%= link_to "#{sign_in_with}", omniauth_authorize_path(resource_name, provider), :class=>"btn btn-primary btn-large" %><br />
+  <% end %>
 
   <% end -%>
 <% end -%>

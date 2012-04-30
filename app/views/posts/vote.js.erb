@@ -1,6 +1,7 @@
+<% id = "p"+@post.id.to_s %>
 <% voteid = '#votes-' + @post.id.to_s %>
 <% selecter = '#shares' + @post.id.to_s %>
-<% @link = "<a href='http://shibshib.me/users/sign_in'><div id='login-required'>You have to log in or sign up to like</div></a>" %>
+<% @link = "<a href='http://shibshib.me/users/sign_in'><div id='login-required'>#{t 'post.log_to_vote'}</div></a>" %>
 
 $("<%= selecter %>").bind("click", function() {
   <% if current_user.nil? %>

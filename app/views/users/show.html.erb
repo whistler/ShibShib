@@ -3,9 +3,23 @@
   <div>
   <h1><%= @user.name %></h1>
   </div>
-  <i class="icon-pencil"></i> <%= @user.posts.count %> posts |
+  <i class="icon-pencil"></i>
+  <i style="visibility:hidden;" ><%= "#{t 'post.fake'}" %></i>
+  <% if(@user.posts.count == 0)
+    posts = @user.name + "#{t 'post.zero_post'}"
+  elsif(@user.posts.count == 1) 
+    posts = "#{t 'post.one_post'}"
+  elsif(@user.posts.count == 2)
+    posts = "#{t 'post.two_posts'}"
+  elsif(@user.posts.count > 2 && @user.posts.count < 11)
+    posts = @user.posts.count.to_s + " #{t 'post.three_ten_posts'}"
+  else
+    posts = @user.posts.count.to_s + " #{t 'post.many_posts'}"
+  end %>
+  <%= posts %>
+<!-- |
   <b>Other meaningful statics worth to show: </b>
-  <i class="icon-heart"></i> # of likes earned | # of tweets | # of shares | # of comments
+  <i class="icon-heart"></i> # of likes earned | # of tweets | # of shares | # of comments -->
 </div>
 <%= render @posts %>
 </div>
