@@ -48,7 +48,7 @@ en:
     one_post: "1 post"
     two_posts: "2 posts"
     three_ten_posts: " post"
-    many_post: " posts"
+    many_posts: " posts"
     log_to_vote: "You have to log in or sign up to like"
     report_notice: "ShibShib has been notified about the inappropriate post."
     login_report: "You have to log in to mark a post as inappropriate."

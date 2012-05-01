@@ -22,17 +22,15 @@ class User < ActiveRecord::Base
     data = access_token.extra.raw_info
     if user = User.where(:oauth_uid => data.uid, :oauth_provider => "Facebook").first
       user
-    elsif user = User.find_by_email(data.email)
-      user.update_attributes!(:name => data.name, :oauth_uid => data.uid, :oauth_provider => "Facebook")
     else
-      User.create!(:name => data.name, :oauth_uid => data.uid, :oauth_provider => "Facebook", :email => data.email, :password => Devise.friendly_token[0,20]) 
+      User.create!(:name => data.name, :oauth_uid => data.uid, :oauth_provider => "Facebook", :email => data.email, :password => Devise.friendly_token[0,20])
     end
   end
 
 
   def self.find_for_twitter_oauth(access_token, signed_in_resource=nil)
     data = access_token.extra.raw_info
-    raise data.to_yaml
+    #raise data.to_yaml
     if user = User.where(:oauth_uid => data.id, :oauth_provider => "Twitter").first()
       user
     else # Create a user with a stub password. 
