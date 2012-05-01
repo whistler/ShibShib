@@ -9,7 +9,7 @@ class PostsController < ApplicationController
    #raise @post.to_yaml
    if current_user.id != @post.user_id
      if !current_user.is_admin
-       flash[:notice] = "Sorry, you can't edit this post"
+       flash[:notice] = "#{t 'post.unautherized_edit'}"
        redirect_to post_path
      end
    end
@@ -47,7 +47,7 @@ class PostsController < ApplicationController
   # GET /posts/new.json
   def new
     if current_user.is_banned
-      flash[:notice] = "Sorry, you are banned. Please email us on hello@shibshib.me for further details."
+      flash[:notice] = "#{t 'user.banned'}"
       redirect_to(:back) 
     end
     @title = t 'header.new_post'
@@ -74,7 +74,7 @@ class PostsController < ApplicationController
     @post.vote_count = @post.plusminus
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to @post, notice: "#{t 'post.create'}" }
         format.json { render json: @post, status: :created, location: @post }
       else
         format.html { render action: "new" }
@@ -90,7 +90,7 @@ class PostsController < ApplicationController
     if @post.user_id == current_user.id then
       respond_to do |format|
         if @post.update_attributes(params[:post])
-          format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+          format.html { redirect_to @post, notice: "#{t 'post.update'}" }
           format.json { head :no_content }
         else
           format.html { render action: "edit" }
@@ -125,10 +125,10 @@ class PostsController < ApplicationController
       @post = Post.find(params[:post_id])
       @post.is_inappropriate = true
       @post.save!
-      flash[:notice] = "ShibShib has been notified about the inappropriate post"
+      flash[:notice] = "#{t 'post.report_notice'}"
       redirect_to root_url
     else
-      flash[:notice] = "You have to log in to mark a post as inappropriate"
+      flash[:notice] = "#{t 'post.login_report'}"
       redirect_to :back
     end
   end

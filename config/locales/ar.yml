@@ -1,5 +1,23 @@
 
 ar:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              taken: "الاسم مسجّل عندنا مسبقاً"
+              blank: "لقد تركت الحقل الخاص بالاسم فارغاً"
+            email:
+              taken: "البريد الإلكتروني مسجّل عندنا مسبقاً"
+              blank: "لقد تركت الحقل الخاص بالبريد الإلكتروني فارغاً"
+              invalid: "البريد الإلكتروني غير صحيح"
+            password:
+              confirmation: "تأكد من تطابق كلمة السر"
+              too_short: "كلمة السر قصيرة جداً"
+              blank: "لقد تركت الحقل الخاص بك فارغاً"
+            reset_password_token:
+              blank: ""
   header:
     home: "الرئيسية"
     sign_up: "التسجيل"
@@ -49,11 +67,15 @@ ar:
     many_posts: " مشاركة"
     log_to_vote: "يتوجّب عليك الدخول أو التسجيل للتصويت"
     report_notice: ".تم إبلاغ شبشب عن المشاركة"
+    login_report: ".تم إبلاغ شبشب عن المشاركة"
     unautherized_edit: ".عذراً، لا يمكنك تحرير مشاركة عضو آخر"
+    create: ".تم إنشاء المشاركة بنجاح"
+    update: ".تم تحديث بيانات المشاركة بنجاح"
   user:
     new_user: "مستخدم جديد"
     update: ".تم تحديث إعداداتك بنجاح"
     unautherized_edit: ".عذراً، لا يمكنك تحرير بيانات عضو آخر"
+    banned: ".لمزيد من المعلومات hello@shibshib.me عذراً، أنت موقوف. يرجى مراسلتنا عبر البريد الإلكتروني"
   registrations:
     email: "البريد الإلكتروني"
     password: "كلمة السر"
@@ -69,7 +91,6 @@ ar:
     reset_password_btn: "استعادة كلمة السر"
     resend_cnfrm: "إعادة ارسال تعليمات التأكيد"
     resend: "إعادة الارسال"
-    change_pass: "تغيير كلمة السر"
     new_pass: "كلمة سر جديدة"
     new_pass_cnfrm: "تأكيد كلمة السر الجديدة"
   general:

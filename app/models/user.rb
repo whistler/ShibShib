@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   has_many :ratings
   
   validates_presence_of :name
+  validates_uniqueness_of :name
 
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     data = access_token.extra.raw_info

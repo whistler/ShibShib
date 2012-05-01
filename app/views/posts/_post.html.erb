@@ -27,7 +27,7 @@
         likes = "#{t 'post.one_like'}"
       elsif(post.plusminus == 2)
         likes = "#{t 'post.two_likes'}"
-      elsif(@user.posts.count > 2 && @user.posts.count < 11)
+      elsif(post.plusminus > 2 && post.plusminus < 11)
         nlikes = "#{post.plusminus.to_s}"
         likes = " #{t 'post.three_to_ten_likes'} "
       else
