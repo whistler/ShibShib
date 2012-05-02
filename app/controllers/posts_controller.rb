@@ -121,14 +121,14 @@ class PostsController < ApplicationController
   end
   
   def mark_inappropriate
-    if user_signed_in? then
+    if user_signed_in?
       @post = Post.find(params[:post_id])
       @post.is_inappropriate = true
       @post.save!
-      flash[:notice] = "#{t 'post.report_notice'}"
+      flash[:alert] = "#{t 'post.report_notice'}"
       redirect_to root_url
     else
-      flash[:notice] = "#{t 'post.login_report'}"
+      flash[:alert] = "#{t 'post.login_report'}"
       redirect_to :back
     end
   end
