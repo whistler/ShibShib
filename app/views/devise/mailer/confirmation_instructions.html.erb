@@ -1,7 +1,7 @@
 <% if (I18n.locale.to_s == "ar") %>
-  <p>!<%= @resource.name %> مرحباً</p>
-  <p>:يمكنك تأكيد عضويتك من خلال الرابط التالي</p>
-  <p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
+  <p>مرحباً <%= @resource.name %>!</p>
+  <p>يمكنك تأكيد عضويتك من خلال الرابط التالي:</p>
+  <p><%= link_to 'تفعيل العضوية', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
 
 <% elsif (I18n.locale.to_s == "en") %>
   <p>Welcome <%= @resource.name %>!</p>

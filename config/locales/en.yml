@@ -13,7 +13,9 @@ en:
   footer:
     language: "Language"
     about: "About us"
+    all_about: "We just launched the website...!"
     faq: "FAQ"
+    all_faq: "No questions! We are smart!"
     contact: "Contact us"
   tabs:
     most_voted: "Most voted"
@@ -42,8 +44,22 @@ en:
     new_post: "New post"
     edit_post: "Edit Post"
     edit_note: "In case you don't want to change the image, you can leave the image field empty"
+    zero_post: " hasn't posted anything yet."
+    one_post: "1 post"
+    two_posts: "2 posts"
+    three_ten_posts: " post"
+    many_posts: " posts"
+    log_to_vote: "You have to log in or sign up to like"
+    report_notice: "ShibShib has been notified about the inappropriate post."
+    login_report: "You have to log in to mark a post as inappropriate."
+    unautherized_edit: "Sorry, you can't edit someone else post."
+    create: "Post was successfully created."
+    update: "Post was successfully updated."
   user:
     new_user: "New user"
+    update: "Your settings were successfully updated."
+    unautherized_edit: "Sorry, you can't edit someone else account."
+    banned: "Sorry, you are banned. Please email us on hello@shibshib.me for further details."
   registrations:
     email: "Email"
     password: "Password"
@@ -59,7 +75,6 @@ en:
     reset_password_btn: "Reset password"
     resend_cnfrm: "Resend confirmation instructions"
     resend: "Resend"
-    change_pass: "Change your password"
     new_pass: "New passoword"
     new_pass_cnfrm: "Confirm new password"
   general:

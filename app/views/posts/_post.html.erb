@@ -10,8 +10,8 @@
         Anonymous
       <% else %>
         <%= link_to post.user.name, user_path(post.user) %>
-      <% end %> |
-
+      <% end %>
+      <br/>
       <!-- the below line is needed for Arabic alginment -->
       <i style="visibility:hidden;" ><%= "#{t 'post.fake'}" %></i>
 
@@ -27,7 +27,7 @@
         likes = "#{t 'post.one_like'}"
       elsif(post.plusminus == 2)
         likes = "#{t 'post.two_likes'}"
-      elsif(post.plusminus > 2 || post.plusminus < 11)
+      elsif(post.plusminus > 2 && post.plusminus < 11)
         nlikes = "#{post.plusminus.to_s}"
         likes = " #{t 'post.three_to_ten_likes'} "
       else

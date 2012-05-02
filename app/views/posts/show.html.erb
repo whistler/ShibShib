@@ -46,24 +46,28 @@
 </div><!-- end of 1st well -->
 
 <%= image_tag @post.image.url(:large), :class=>'displayed', :alt => @post.title %>
-
+</br></br>
 <div class="well center">
 
-    <% if(@post.plusminus == 0)
-      likes = "#{t 'post.no_likes'}"
-    elsif(@post.plusminus == 1)
-      likes = "#{t 'post.one_like'}"
-    elsif(@post.plusminus > 1 || @post.plusminus < 11)
-      likes = "#{@post.plusminus.to_s} #{t 'post.three_to_ten_likes'}"
-    else
-      likes = "#{@post.plusminus.to_s} #{t 'post.many_likes'}"
-    end %>
+  <% if(@post.plusminus == 0)
+    nlikes = "#{t 'post.no_likes'}"
+  elsif(@post.plusminus == 1) 
+    likes = "#{t 'post.one_like'}"
+  elsif(@post.plusminus == 2)
+    likes = "#{t 'post.two_likes'}"
+  elsif(@post.plusminus > 2 && @post.plusminus < 11)
+    nlikes = "#{@post.plusminus.to_s}"
+    likes = " #{t 'post.three_to_ten_likes'} "
+  else
+    nlikes = "#{@post.plusminus.to_s}"
+    likes = " #{t 'post.many_likes'} "
+  end %>
     
-    <ul class='shareLinks'>
+    <ul class='shareLinks' id="shares<%= @post.id %>">
       
-      <li>
-      <%= link_to ({:controller=> 'posts', :action=>'vote', :post_id => @post.id, :remote => true}) do %>
-      <span class="btn btn-mini"><i class="icon-heart"></i> <%= likes %></span>
+     <li>
+      <%= link_to ({:controller=> 'posts', :action=>'vote', :post_id => @post.id}), :remote => true do %>
+        <span class="btn btn-mini"><i class="icon-heart"></i> <i style="visibility:hidden;" ><%= "#{t 'post.fake'}" %></i><span id="votes-<%= @post.id %>"><%= nlikes %></span><span><%= likes %></span></span>
       <% end %>
       </li>
 

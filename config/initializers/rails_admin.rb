@@ -30,7 +30,7 @@ RailsAdmin.config do |config|
   config.excluded_models = [Vote]
 
   # Add models here if you want to go 'whitelist mode':
-  # config.included_models = [AdminUser, Post, User, Vote]
+  config.included_models = [Post, User]
 
   # Application wide tried label methods for models' instances
   # config.label_methods << :description # Default is [:name, :title]

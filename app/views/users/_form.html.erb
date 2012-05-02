@@ -21,8 +21,20 @@
   <%= f.label "#{t 'registrations.name'}" %> <%= f.text_field :name %>
   <%= f.label "#{t 'registrations.email'}" %> <%= f.text_field :email %>
 
+  <!-- SOON
+  <% if (action_name == "edit") %>
+  <hr>
+  <p style="color:red">Change the password<p style="color:grey"><i>Leave blank if you don't want to change it</i></p></p>
+  <br />
+  <%= f.label :current_password %><%= f.password_field :current_password %>
+  <%= f.label :password %><%= f.password_field :password %>
+  <%= f.label :password_confirmation %><%= f.password_field :password_confirmation %>
+
+  <% end %> -->
+
   <br /><br />
 
   <%= f.submit "#{t 'general.update'}", :class=>"btn btn-medium" %>
-<% end %>
+  <% end %>
+  </div>
 </div>
