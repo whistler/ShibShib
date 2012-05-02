@@ -4,7 +4,7 @@ ar:
   errors:
     messages:
       expired: "انتهت صلاحيتها، يرجى التسجيل بأخرى جديدة"
-      not_found: "لم يتم العثور عليها"
+      not_found: "لم يتم العثور على"
       already_confirmed: "تم التأكيد عليها، يرجى الدخول"
       not_locked: "ليست مغلقة"
       not_saved:
