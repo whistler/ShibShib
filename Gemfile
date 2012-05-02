@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.1'
+gem 'rails', '3.2.3'
 gem 'certified'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -22,11 +22,12 @@ end
 group :development, :test do
   gem 'sqlite3'
   gem 'pry'
+  gem 'webrick'
 end
 
 group :production do
   gem 'pg'                      # Postgres database
-  gem 'thin'                    # Faster server
+  #gem 'thin'                    # Faster server
 end
 
 gem 'jquery-rails'
@@ -40,8 +41,8 @@ gem 'will_paginate', '~> 3.0.3' # For pagination
 gem 'twitter-bootstrap-rails'   # Twitter CSS Framework
 gem 'friendly_id'               # For displaying names and titles instead of IDs
 gem "ransack"                   # For searching
-gem 'activeadmin'
 gem "formtastic", "~> 2.1.1"
+gem "rails_admin"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

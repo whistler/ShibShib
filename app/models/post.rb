@@ -6,7 +6,6 @@ class Post < ActiveRecord::Base
 
   acts_as_voteable
   belongs_to :user
-  has_many :ratings
   
   has_attached_file :image,
   :styles => { :large => "720>", :medium => "560>", :thumb => "100x100>" },

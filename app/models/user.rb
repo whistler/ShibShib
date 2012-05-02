@@ -13,28 +13,30 @@ class User < ActiveRecord::Base
              #     :oauth_uid, :oauth_provider
   
   has_many :posts
-  has_many :ratings
-  
+
   validates_presence_of :name
-  validates_uniqueness_of :name
 
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     data = access_token.extra.raw_info
-    if user = User.where(:oauth_uid => data.uid, :oauth_provider => "Facebook").first
+    if user = User.where(:facebook_oauth_uid => data.id).first
+      user
+    elsif user = User.find_by_email(data.email)
+      user.update_attributes!(:name => data.name, :facebook_oauth_uid => data.uid)
       user
     else
-      User.create!(:name => data.name, :oauth_uid => data.uid, :oauth_provider => "Facebook", :email => data.email, :password => Devise.friendly_token[0,20])
+      user = User.create!(:name => data.name, :facebook_oauth_uid => data.uid, :email => data.email, :password => Devise.friendly_token[0,20]) 
     end
   end
 
 
   def self.find_for_twitter_oauth(access_token, signed_in_resource=nil)
     data = access_token.extra.raw_info
+    binding.pry
     #raise data.to_yaml
-    if user = User.where(:oauth_uid => data.id, :oauth_provider => "Twitter").first()
+    if user = User.where(:twitter_oauth_uid => data.id).first()
       user
     else # Create a user with a stub password. 
-      User.create!(:name => data.name, :oauth_uid => data.id, :oauth_provider => "Twitter", :email => "twitter_"+data.name+"@twitter.com", :password => Devise.friendly_token[0,20]) 
+      User.create!(:name => data.name, :twitter_oauth_uid => data.id, :email => "twitter_"+data.name+"@twitter.com", :password => Devise.friendly_token[0,20]) 
     end
   end
   
