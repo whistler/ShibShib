@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120429025101) do
+ActiveRecord::Schema.define(:version => 20120503030843) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string    "resource_id",   :null => false
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(:version => 20120429025101) do
   create_table "posts", :force => true do |t|
     t.integer   "user_id"
     t.string    "title"
-    t.string    "image_url"
+    t.string    "image"
     t.timestamp "created_at",                            :null => false
     t.timestamp "updated_at",                            :null => false
     t.string    "image_file_name"
@@ -75,7 +75,6 @@ ActiveRecord::Schema.define(:version => 20120429025101) do
   add_index "posts", ["slug"], :name => "index_posts_on_slug"
 
   create_table "rails_admin_histories", :force => true do |t|
-<<<<<<< HEAD
     t.text      "message"
     t.string    "username"
     t.integer   "item"
@@ -84,21 +83,10 @@ ActiveRecord::Schema.define(:version => 20120429025101) do
     t.integer   "year"
     t.timestamp "created_at", :null => false
     t.timestamp "updated_at", :null => false
-=======
-    t.text     "message"
-    t.string   "username"
-    t.integer  "item"
-    t.string   "table"
-    t.integer  "month",      :limit => 2
-    t.integer  "year",       :limit => 5
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
->>>>>>> 6b89e490c94174ec955f97cc16b9d81a8ecc11b2
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
-<<<<<<< HEAD
   create_table "ratings", :force => true do |t|
     t.integer   "post_id"
     t.integer   "user_id"
@@ -133,34 +121,8 @@ ActiveRecord::Schema.define(:version => 20120429025101) do
     t.boolean   "is_admin",                              :default => false
     t.string    "oauth_provider",                        :default => "ShibShib"
     t.integer   "oauth_uid"
-    t.string    "facebook_oauth_ui"
-    t.string    "twitter_oauth_ui"
     t.string    "facebook_oauth_uid"
     t.string    "twitter_oauth_uid"
-=======
-  create_table "users", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at",                                                    :null => false
-    t.datetime "updated_at",                                                    :null => false
-    t.string   "email",                                 :default => "",         :null => false
-    t.string   "encrypted_password",     :limit => 128, :default => "",         :null => false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                         :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.boolean  "is_banned",                             :default => false
-    t.boolean  "is_admin",                              :default => false
-    t.string   "oauth_provider",                        :default => "ShibShib"
-    t.integer  "oauth_uid"
-    t.string   "facebook_oauth_id"
-    t.string   "twitter_oauth_id"
-    t.string   "facebook_oauth_uid"
-    t.string   "twitter_oauth_uid"
->>>>>>> 6b89e490c94174ec955f97cc16b9d81a8ecc11b2
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
