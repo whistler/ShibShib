@@ -14,8 +14,16 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @search = User.search(params[:q])
-    @users = @search.result(:distinct => true).page(params[:page]).per_page(100)
+    if user_signed_in? 
+      if current_user.id == 1
+        @search = User.search(params[:q])
+        @users = @search.result(:distinct => true).page(params[:page]).per_page(100)
+      else
+        redirect_to root_path
+      end
+    else
+      redirect_to root_path
+    end
    #redirect_to root_path
    # respond_to do |format|
     #  format.html # index.html.erb
