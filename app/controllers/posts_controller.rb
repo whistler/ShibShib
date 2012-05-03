@@ -16,10 +16,14 @@ class PostsController < ApplicationController
   end
 
   def index
-    if current_user.id == 1
-    @search = Post.search(params[:q])
-    @posts = @search.result(:distinct => true, :include => :user).page(params[:page]).per_page(100)
-    elsif current_user.id != 1
+    if user_signed_in? 
+      if current_user.id == 1
+        @search = Post.search(params[:q])
+        @posts = @search.result(:distinct => true, :include => :user).page(params[:page]).per_page(100)
+      else
+        redirect_to root_path
+      end
+    else
       redirect_to root_path
     end
   end
@@ -121,14 +125,14 @@ class PostsController < ApplicationController
   end
   
   def mark_inappropriate
-    if user_signed_in? then
+    if user_signed_in?
       @post = Post.find(params[:post_id])
       @post.is_inappropriate = true
       @post.save!
-      flash[:notice] = "#{t 'post.report_notice'}"
+      flash[:alert] = "#{t 'post.report_notice'}"
       redirect_to root_url
     else
-      flash[:notice] = "#{t 'post.login_report'}"
+      flash[:alert] = "#{t 'post.login_report'}"
       redirect_to :back
     end
   end

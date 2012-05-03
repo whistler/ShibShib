@@ -6,7 +6,11 @@
   <i class="icon-pencil"></i>
   <i style="visibility:hidden;" ><%= "#{t 'post.fake'}" %></i>
   <% if(@user.posts.count == 0)
-    posts = @user.name + "#{t 'post.zero_post'}"
+    if(locale.to_s == 'ar')
+      posts = "#{t 'post.zero_post'}" + @user.name
+    else
+      posts = @user.name + "#{t 'post.zero_post'}"
+    end
   elsif(@user.posts.count == 1) 
     posts = "#{t 'post.one_post'}"
   elsif(@user.posts.count == 2)
