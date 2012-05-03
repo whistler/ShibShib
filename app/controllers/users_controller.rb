@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def check_user
     @user = User.find(params[:id])#Rails takes "id" as "name" because of friendly_id gem
     if current_user.oauth_uid != @user.oauth_uid 
-      flash[:notice] = "#{t 'user.unautherized_edit'}"
+      flash[:alert] = "#{t 'user.unautherized_edit'}"
       redirect_to user_path
     end
     else if current_user.oauth_provider == "ShibShib"
@@ -73,7 +73,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: "#{t 'user.unautherized_edit'}" }
+        format.html { redirect_to @user, alert: "#{t 'user.unautherized_edit'}" }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: "new" }
@@ -88,7 +88,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: "#{t 'user.update'}" }
+        format.html { redirect_to @user, alert: "#{t 'user.update'}" }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

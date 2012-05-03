@@ -9,7 +9,7 @@ class PostsController < ApplicationController
    #raise @post.to_yaml
    if current_user.id != @post.user_id
      if !current_user.is_admin
-       flash[:notice] = "#{t 'post.unautherized_edit'}"
+       flash[:alert] = "#{t 'post.unautherized_edit'}"
        redirect_to post_path
      end
    end
@@ -37,7 +37,7 @@ class PostsController < ApplicationController
       redirect_to @post, status: :moved_permanently
     end
     if @post.is_inappropriate then
-      notice[:flash] = "This post has been removed for having inappropriate content"
+      flash[:alert] = "This post has been removed for having inappropriate content"
       redirect_to :root
     end
     # commented out cuz of multiple respond_to or redirect_to
@@ -50,9 +50,11 @@ class PostsController < ApplicationController
   # GET /posts/new
   # GET /posts/new.json
   def new
-    if current_user.is_banned
-      flash[:notice] = "#{t 'user.banned'}"
-      redirect_to(:back) 
+    if current_user.nil?
+      redirect_to(:root)
+    elsif current_user.is_banned
+      flash[:alert] = "#{t 'user.banned'}"
+      redirect_to(:back)
     end
     @title = t 'header.new_post'
     @post = Post.new
@@ -78,7 +80,7 @@ class PostsController < ApplicationController
     @post.vote_count = @post.plusminus
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: "#{t 'post.create'}" }
+        format.html { redirect_to @post, alert: "#{t 'post.create'}" }
         format.json { render json: @post, status: :created, location: @post }
       else
         format.html { render action: "new" }
@@ -94,7 +96,7 @@ class PostsController < ApplicationController
     if @post.user_id == current_user.id then
       respond_to do |format|
         if @post.update_attributes(params[:post])
-          format.html { redirect_to @post, notice: "#{t 'post.update'}" }
+          format.html { redirect_to @post, alert: "#{t 'post.update'}" }
           format.json { head :no_content }
         else
           format.html { render action: "edit" }
