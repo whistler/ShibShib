@@ -14,7 +14,7 @@
       <%= f.label "#{t 'registrations.remember_me'}", :style=>"display:inline-block;"%>
       <%= f.check_box :remember_me,:style=>"display:inline-block", :value => '1'%>
     <% elsif (I18n.locale.to_s == "en") %>
-      <%= f.check_box :remember_me,:style=>"display:inline-block"%>
+      <%= f.check_box :remember_me,:style=>"display:inline-block", :value => '1'%>
       <%= f.label "#{t 'registrations.remember_me'}", :style=>"display:inline-block;"%>
     <% end %>
 

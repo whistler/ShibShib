@@ -2,6 +2,21 @@
   <h1><%= @post.title %></h1>
   <p></p>
   <i class="icon-user"></i>
+
+  <% if(@post.plusminus == 0)
+    nlikes = "#{t 'post.no_likes'}"
+  elsif(@post.plusminus == 1) 
+    likes = "#{t 'post.one_like'}"
+  elsif(@post.plusminus == 2)
+    likes = "#{t 'post.two_likes'}"
+  elsif(@post.plusminus > 2 && @post.plusminus < 11)
+    nlikes = "#{@post.plusminus.to_s}"
+    likes = " #{t 'post.three_to_ten_likes'} "
+  else
+    nlikes = "#{@post.plusminus.to_s}"
+    likes = " #{t 'post.many_likes'} "
+  end %>
+
   <% if @post.user == nil then %>
     Anonymous
   <% else %>
@@ -18,11 +33,11 @@
   <%= t 'post.many_comments' %> |
 
   <i class="icon-heart"></i>
-  <%= @post.plusminus.to_s %> <%= t 'post.many_likes' %>
+  <%= @post.plusminus.to_s %> <%= likes %>
   <br/>
   <% if ((user_signed_in?) && ((current_user.id == @post.user_id) || (current_user.is_admin?))) then %>
     <br/>
-    <div class="btn-group small-break"></div>
+    <div class="btn-group small-break">
       <a class="btn btn-mini" href=" <%= edit_post_path(@post) %> ">
         <i class="icon-edit"></i>
         <%= t 'general.edit' %>
@@ -32,6 +47,7 @@
         <i class="icon-remove"></i>
         <%= t 'general.delete' %>
       </a>
+    </div>
   <% end %>
   <% if user_signed_in? %>
     <% if current_user.id != @post.user_id %>
@@ -49,20 +65,6 @@
 <%= image_tag @post.image.url(:large), :class=>'displayed', :alt => @post.title %>
 </br></br>
 <div class="well center">
-
-  <% if(@post.plusminus == 0)
-    nlikes = "#{t 'post.no_likes'}"
-  elsif(@post.plusminus == 1) 
-    likes = "#{t 'post.one_like'}"
-  elsif(@post.plusminus == 2)
-    likes = "#{t 'post.two_likes'}"
-  elsif(@post.plusminus > 2 && @post.plusminus < 11)
-    nlikes = "#{@post.plusminus.to_s}"
-    likes = " #{t 'post.three_to_ten_likes'} "
-  else
-    nlikes = "#{@post.plusminus.to_s}"
-    likes = " #{t 'post.many_likes'} "
-  end %>
     
     <ul class='shareLinks' id="shares<%= @post.id %>">
       

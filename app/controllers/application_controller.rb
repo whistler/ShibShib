@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale
 
   def set_locale
-    I18n.locale = params[:locale]
+    I18n.locale = params[:locale].blank? ? cookies[:last_seen_locale] : (cookies[:last_seen_locale] = params[:locale])
   end
 
   def default_url_options(options={})
