@@ -125,6 +125,17 @@ a.report,a.report:hover,a.report:active {
   color: #e45752;
   font-size: 9px;
 }
+a.title,a.title:active {
+  color: #222222;
+}
+a.title:hover {
+  color: #bbbbbb;
+  text-decoration: none;
+  -webkit-transition: color .3s;
+  -moz-transition: color .3s;
+  -o-transition: color .3s;
+  transition: color .3s;
+}
 * {
   font-family: Tahoma, Geneva, sans-serif;
 }

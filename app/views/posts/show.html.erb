@@ -26,7 +26,37 @@
   <i style="visibility:hidden;" ><%= "#{t 'post.fake'}" %></i>
 
   <i class="icon-time"></i>
-  <%= "#{distance_of_time_in_words(Time.now, @post.created_at)} #{t 'post.ago'}" %> |
+  <%= if(params[:locale] == 'ar')
+        t = (Time.now - @post.created_at) #to secs
+        #check for numbers 3 to 10
+        if((t/31104000).ceil > 2 && (t/31104000).ceil < 11) #check years
+          "#{t 'post.ago'} #{(t/31104000).ceil} #{t 'others.ar_t_t_years'}"
+        elsif((t/2592000).ceil > 2 && (t/2592000).ceil < 11) #check months
+          "#{t 'post.ago'} #{(t/2592000).ceil} #{t 'others.ar_t_t_months'}"
+        elsif((t/86400).ceil > 2 && (t/86400).ceil < 11) #check days
+          "#{t 'post.ago'} #{(t/86400).ceil} #{t 'others.ar_t_t_days'}"
+        elsif((t/3600).ceil > 2 && (t/3600).ceil < 11) #check hours
+          "#{t 'post.ago'} #{(t/3600).ceil} #{t 'others.ar_t_t_hours'}"
+       elsif((t/60).ceil > 2 && (t/60).ceil < 11) #check mins
+          "#{t 'post.ago'} #{(t/60).ceil} #{t 'others.ar_t_t_mins'}"
+        #check for number 2
+        elsif((t/31104000).ceil > 1.5 && (t/31104000).ceil < 3) #check years
+          "#{t 'post.ago'} #{t 'others.ar_t_years'}"
+        elsif((t/2592000).ceil > 1.5 && (t/2592000).ceil < 3) #check months
+          "#{t 'post.ago'} #{t 'others.ar_t_months'}"
+        elsif((t/86400).ceil > 1.5 && (t/86400).ceil < 3) #check days
+          "#{t 'post.ago'} #{t 'others.ar_t_days'}"
+        elsif((t/3600).ceil > 1.5 && (t/3600).ceil < 3) #check hours
+          "#{t 'post.ago'} #{t 'others.ar_t_hours'}"
+        elsif((t/60).ceil > 1.5 && (t/60).ceil < 3) #check mins
+          "#{t 'post.ago'} #{t 'others.ar_t_mins'}"
+        #check for number 2
+        else
+          "x#{t 'post.ago'} #{distance_of_time_in_words(Time.now, @post.created_at)}"
+        end
+      else
+        "#{distance_of_time_in_words(Time.now, @post.created_at)}#{t 'post.ago'}"
+      end  %> |
 
   <i class="icon-comment"></i>
   <fb:comments-count href="http://shibshib.me/posts/<%= @post.id %>"></fb:comments-count>
