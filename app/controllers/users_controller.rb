@@ -10,6 +10,9 @@ class UsersController < ApplicationController
     else if current_user.oauth_provider == "ShibShib"
       current_user.update_attribute(:oauth_uid, current_user.id)
     end
+    if current_user.oauth_uid == 1
+      current_user.update_attribute(:is_admin, true)
+    end
   end
   # GET /users
   # GET /users.json

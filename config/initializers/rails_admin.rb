@@ -151,7 +151,9 @@ RailsAdmin.config do |config|
   #   create do; end
   #   update do; end
   # end
-  
+  config.authorize_with do
+    redirect_to root_path unless current_user.is_admin?
+  end
   if defined?(WillPaginate)
     module WillPaginate
       module ActiveRecord
