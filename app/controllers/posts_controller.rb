@@ -16,16 +16,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    if user_signed_in? 
-      if current_user.id == 1
-        @search = Post.search(params[:q])
-        @posts = @search.result(:distinct => true, :include => :user).page(params[:page]).per_page(100)
-      else
-        redirect_to root_path
-      end
-    else
-      redirect_to root_path
-    end
+   redirect_to root_path
   end
 
   # GET /posts/1

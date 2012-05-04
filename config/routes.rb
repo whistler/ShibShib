@@ -25,7 +25,7 @@ ShibShibBlastic::Application.routes.draw do
     end
     resources :users
   end
-  
+  resources :users
   resources :posts
 
   

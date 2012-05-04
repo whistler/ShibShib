@@ -26,6 +26,7 @@ ar:
     new_post: "مشاركة جديدة"
     profile: "الملف الشخصي"
     settings: "الإعدادات"
+    admin_panel: "لوحة تحكم المشرفين"
   footer:
     language: "تغيير اللغة"
     about: "من نحن؟"

@@ -34,6 +34,8 @@
             <li><%= link_to user_path(current_user) do %><i class="icon-user"></i> <%= "#{t 'header.profile'}" %><% end %></li>
             <li><%= link_to edit_user_path(current_user) do %><i class="icon-cog"></i> <%= "#{t 'header.settings'}" %><% end %></li>
             <li class="divider"></li>
+            <li><%= link_to rails_admin_path do %><i class="icon-star"></i> <%= "#{t 'header.admin_panel'}" %><% end %></li>
+            <li class="divider"></li>
             <li><%= link_to destroy_user_session_path, :method => :delete do %><i class="icon-off"></i> <%= "#{t 'header.sign_out'}" %><% end %></li>
             </ul>
           </li>

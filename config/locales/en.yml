@@ -10,6 +10,7 @@ en:
     new_post: "New post"
     profile: "Profile"
     settings: "Settings"
+    admin_panel: "Admin Panel"
   footer:
     language: "Language"
     about: "About us"

@@ -10,23 +10,11 @@ class UsersController < ApplicationController
     else if current_user.oauth_provider == "ShibShib"
       current_user.update_attribute(:oauth_uid, current_user.id)
     end
-    if current_user.oauth_uid == 1
-      current_user.update_attribute(:is_admin, true)
-    end
   end
   # GET /users
   # GET /users.json
   def index
-    if user_signed_in? 
-      if current_user.id == 1
-        @search = User.search(params[:q])
-        @users = @search.result(:distinct => true).page(params[:page]).per_page(100)
-      else
-        redirect_to root_path
-      end
-    else
-      redirect_to root_path
-    end
+    redirect_to root_path
    #redirect_to root_path
    # respond_to do |format|
     #  format.html # index.html.erb
