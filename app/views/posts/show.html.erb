@@ -52,7 +52,7 @@
           "#{t 'post.ago'} #{t 'others.ar_t_mins'}"
         #check for number 2
         else
-          "x#{t 'post.ago'} #{distance_of_time_in_words(Time.now, @post.created_at)}"
+          "#{t 'post.ago'} #{distance_of_time_in_words(Time.now, @post.created_at)}"
         end
       else
         "#{distance_of_time_in_words(Time.now, @post.created_at)}#{t 'post.ago'}"
