@@ -110,11 +110,11 @@ ar:
     ar_t_t_days: "أيام"
     ar_t_t_hours: "ساعات"
     ar_t_t_mins: "دقائق"
-    ar_t_years: "سنتان"
-    ar_t_months: "شهران"
-    ar_t_days: "يومان"
-    ar_t_hours: "ساعتان"
-    ar_t_mins: "دقيقتان"
+    ar_t_years: "سنتين"
+    ar_t_months: "شهرين"
+    ar_t_days: "يومين"
+    ar_t_hours: "ساعتين"
+    ar_t_mins: "دقيقتين"
   datetime:
     distance_in_words:
       about_x_hours:
