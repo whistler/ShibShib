@@ -31,7 +31,6 @@ class User < ActiveRecord::Base
 
   def self.find_for_twitter_oauth(access_token, signed_in_resource=nil)
     data = access_token.extra.raw_info
-    binding.pry
     #raise data.to_yaml
     if user = User.where(:twitter_oauth_uid => data.id).first()
       user
