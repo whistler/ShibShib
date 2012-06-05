@@ -18,6 +18,19 @@
     <%= stylesheet_link_tag "pagination" %>
     <%= stylesheet_link_tag "bootstrap-responsive" %>
 
+    <style type="text/css">
+      html {
+        background-image:url('/assets/bg.jpg');
+        background-repeat:repeat;
+      }
+      body {
+        padding-top: 70px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
     <%= javascript_include_tag "application" %>
     <!-- Le fav and touch icons -->
     <%= favicon_link_tag %>
@@ -27,22 +40,20 @@
   </head>
 
   <body>
+
   <%= render 'layouts/header' %>
   <%= render 'layouts/facebook_sdk' %>
 
+  <div class="notes">
+    <%= render 'layouts/notice' %>
+  </div>
+
   <div class="container">
-    <div class="content">
-      <div class="row">
-        <div class="span12">
-        <%= render 'layouts/facebook_sdk'%>
-        <%= render 'layouts/notice' %>
-        <%= yield %>
-    <p id="back-top"><a href="#top"><span></span><%= t 'others.back_to_top' %></a></P>
-        </div>
-      </div><!--/row-->
-    </div><!--/content-->
+    <%= yield %>
     <%= render 'layouts/footer' %>
   </div> <!-- /container -->
+
+  <p id="back-top"><a href="#top"><span></span><%= t 'others.back_to_top' %></a></P>
 
   <%= render 'layouts/google_analytics' %>
   </body>

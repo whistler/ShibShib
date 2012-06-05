@@ -1,7 +1,7 @@
 <% @title = "#{t 'registrations.sign_in_btn'}" %>
-<div class="row">
-
-  <div class="span5 well">
+<div class="row"><br/>
+  <div class="span1">&nbsp</div>
+  <div class="span5">
     <h2 ><%= t 'registrations.sign_in_btn' %></h2>
     <br /><br />
     <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
@@ -23,7 +23,7 @@
     <%= f.submit "#{t 'registrations.sign_in_btn'}", :class=>"btn btn-medium" %>
   </div>
 
-  <div class="span5 well">
+  <div class="span5">
     <%= render :partial => "devise/shared/links" %>
     <% end %>
   </div>

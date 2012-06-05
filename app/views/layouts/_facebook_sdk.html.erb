@@ -4,12 +4,16 @@ var head = $("head").get(0);  // using jquery
 var script2 = document.createElement("script");
 script2.innerHTML = "window.FB = null;FB=null;";
 head.appendChild(script2);
-
+<% if locale == :ar
+     @lang = "ar_AR"
+   else
+     @lang = "en_US"
+   end %>
 (function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=254428867974812";
+  js.src = "//connect.facebook.net/<%= @lang %>/all.js#xfbml=1&appId=254428867974812";
   fjs.parentNode.insertBefore(js, fjs);
 
 }(document, 'script', 'facebook-jssdk'));</script>

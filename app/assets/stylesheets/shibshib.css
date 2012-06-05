@@ -1,8 +1,21 @@
+.container {
+  text-align: center;
+  background-color: #fff;
+  -webkit-border-radius: 1em 1em 1em 1em;
+  -moz-border-radius: 1em 1em 1em 1em;
+  border-radius: 1em 1em 1em 1em;
+}
 .shibshib-logo {
   margin:0;
   padding:0;
 }
-
+.notes {
+  width: 940px;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  *zoom: 1;
+}
 .nav {
   height: 50px;
 }
@@ -23,13 +36,17 @@
   margin-left:auto;
   margin-right:auto;
 }
+.pad-sides {
+  padding-left: 15px;
+  padding-right: 15px;
+}
 
 .center {
   text-align: center;
 }
 
 ul.shareLinks { width: 250px; margin: auto; overflow: hidden; }
-ul.shareLinks li { list-style: none; margin: auto; padding: 5px; float: left;}
+ul.shareLinks li { list-style: none; margin: auto; padding: 4px; float: left;}
 
 #vote-up {
   margin-right: 50px;
@@ -43,7 +60,7 @@ ul.shareLinks li { list-style: none; margin: auto; padding: 5px; float: left;}
   clear: both;
 }
 #back-top a {
-  color: #ada597;
+  color: #333333;
   text-transform: uppercase;
   text-decoration: none;
   -webkit-transition: background-color .7s;
@@ -78,7 +95,6 @@ ul.shareLinks li { list-style: none; margin: auto; padding: 5px; float: left;}
 
 .fb-like {
   width: 40px;
-  margin-left: 0px;
 }
 
 .fb_edge_widget_with_comment span.fb_edge_comment_widget iframe.fb_ltr {

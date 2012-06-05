@@ -1,8 +1,8 @@
 <% @title = "#{t 'registrations.forgot_pass'}" %>
-<div class="row">
+<div class="row"><br/>
   <div class="span4">&nbsp;</div>
 
-  <div class="span4 well">
+  <div class="span4">
     <h2><%= "#{t 'registrations.forgot_pass'}" %></h2>
     <br /><br />
     <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>

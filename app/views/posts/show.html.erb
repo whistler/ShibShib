@@ -94,7 +94,8 @@
 
 <%= image_tag @post.image.url(:large), :class=>'displayed', :alt => @post.title %>
 </br></br>
-<div class="well center">
+
+<div class="well">
     
     <ul class='shareLinks' id="shares<%= @post.id %>">
       
@@ -107,7 +108,7 @@
       <!-- Tweeter -->
       <li>
       <div class="tweet">
-      <a target="_blank" href="http://twitter.com/share" class="twitter-share-button" data-url="<%= post_url(@post)%>" data-text="<%= @post.title %>" data-count="none" data-via="shibshibme" data-hashtags="shibshibme">Tweet</a>
+      <a target="_blank" href="http://twitter.com/share" class="twitter-share-button" data-url="<%= post_url(@post)%>" data-text="<%= @post.title %>" data-count="none" data-via="shibshibme" data-hashtags="ضحك">Tweet</a>
       </div>
       <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
       </li>
@@ -119,11 +120,9 @@
       
     </ul>
     
-      <div class="small-break"></div>
-  <hr>
+      <div class="small-break"></div><br/>
 
   <div id="comments" class="comments">
     <div class="fb-comments" data-href="http://shibshib.me/posts/<%= @post.id %>" data-num-posts="3" data-width="470"></div>
   </div>
-
 </div><!-- end of 2nd well -->
