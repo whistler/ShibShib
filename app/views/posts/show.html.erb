@@ -29,6 +29,7 @@
   <% else %>
     <%= link_to @post.user.name, user_path(@post.user) %>
   <% end %> |
+
   <!-- the below line is needed for Arabic alginment -->
   <i style="visibility:hidden;" ><%= "#{t 'post.fake'}" %></i>
 
@@ -65,8 +66,10 @@
         "#{distance_of_time_in_words(Time.now, @post.created_at)}#{t 'post.ago'}"
       end  %> |
 
+
   <i class="icon-comment"></i>
-  <fb:comments-count href="http://shibshib.me/posts/<%= @post.id %>"></fb:comments-count>
+  <!-- <fb:comments-count href="http://shibshib.me/posts/<%= @post.id %>"></fb:comments-count> -->
+  <a href="<%= post_path(@post).to_s+'#disqus_thread' %>"></a>
   <%= t 'post.many_comments' %> |
 
   <i class="icon-heart"></i>
@@ -139,9 +142,19 @@
             })();
         </script>
         <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
         
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'Shibshib'; // required: replace example with your forum shortname
 
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+        </script>
 
   <div id="comments" class="comments">
     <div class="fb-comments" data-href="http://shibshib.me/posts/<%= @post.id %>" data-num-posts="3" data-width="470"></div>
