@@ -1,4 +1,5 @@
-﻿<% if params[:locale] == 'ar'
+
+<% if params[:locale] == 'ar'
      @lang = "ar_AR"
      @tlang = "ar"
    else
@@ -56,8 +57,7 @@
             "#{distance_of_time_in_words(Time.now, post.created_at)}#{t 'post.ago'}"
           end  %> | 
       <i class="icon-comment"></i>
-      <fb:comments-count href="http://shibshib.me/posts/<%= post.id %>"></fb:comments-count>
-      <%= t 'post.many_comments' %>
+      <a href="<%= post_path(post).to_s+'#disqus_thread' %>"></a>
       <div class="small-break"></div>
       
       <% if(post.plusminus == 0)
