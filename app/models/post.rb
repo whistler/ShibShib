@@ -1,8 +1,6 @@
 class Post < ActiveRecord::Base
   after_save :update_vote_count
   scope :reported, where(:is_inappropriate => true)
-  extend FriendlyId
-  friendly_id :title, use: [:slugged, :history]
 
   acts_as_voteable
   belongs_to :user
