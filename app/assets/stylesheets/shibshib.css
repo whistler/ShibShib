@@ -137,6 +137,10 @@ span.total{
   color: #3889ce;
 }
 
+.follow {
+top:50%; margin-top:-30px;
+}
+
 a.report,a.report:hover,a.report:active {
   color: #e45752;
   font-size: 9px;

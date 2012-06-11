@@ -1,4 +1,11 @@
 <% @title = "#{t 'registrations.sign_up'}" %>
+<% if params[:locale] == 'ar'
+     @lang = "ar_AR"
+     @tlang = "ar"
+   else
+     @lang = "en_US"
+     @tlang = "en"
+   end %>
 <div class="row"><br/>
   <div class="span1">&nbsp</div>
 

@@ -60,6 +60,13 @@ module ShibShibBlastic
 	  config.assets.compile = true
 	
   end
+  config.after_initialize do
+    Disqus::defaults[:account] = "shibshib"
+    # so that the comments will load up in development environment
+    Disqus::defaults[:developer] = true
+    Disqus::defaults[:container_id] = "disqus_thread"
+    Disqus::defaults[:show_powered_by] = false
+  end
 
 
 end

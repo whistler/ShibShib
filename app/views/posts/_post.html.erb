@@ -1,3 +1,10 @@
+﻿<% if params[:locale] == 'ar'
+     @lang = "ar_AR"
+     @tlang = "ar"
+   else
+     @lang = "en_US"
+     @tlang = "en"
+   end %>
 <div class="row">
   </br>
   <div class="span8 pad-sides">
@@ -78,15 +85,8 @@
 
         <!-- Tweeter -->
         <li>
-<% if locale == :ar
-     @lang = "ar_AR"
-   else
-     @lang = "en_US"
-   end %>
         <div class="tweet">
-        <a target="_blank" href="http://twitter.com/share" class="twitter-share-button" data-url="<%= post_url(post)%>" data-text="<%= post.title %>" data-count="none" data-via="shibshibme" data-hashtags="ضحك" data-lang="<%= @lang %>"></a>
-        </div>
-        <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+        <a target="_blank" href="http://twitter.com/share" class="twitter-share-button" data-url="<%= post_url(post)%>" data-text="<%= post.title %>" data-count="none" data-via="shibshibme" data-hashtags="ضحك" data-lang="<%= @lang %>"></a></div>
         </li>
 
         <!-- Facebook -->

@@ -27,8 +27,6 @@ ar:
     profile: "الملف الشخصي"
     settings: "الإعدادات"
     admin_panel: "لوحة تحكم المشرفين"
-    fb_like: "لوحة تحكم المشرفين"
-    follow: "تابع شبشب"
   footer:
     language: "تغيير اللغة"
     about: "من نحن؟"
