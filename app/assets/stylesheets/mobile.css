@@ -1,0 +1,11 @@
+body {
+  background-color: #ffffff;
+}
+
+.center {
+  display:block; /*images must be set to block in order use auto margins*/
+  margin:0 auto; /*centers images in most browsers*/
+  text-align:center; /*centers images in older browsers*/
+}
+ul.shareLinks { width: 170px; margin: auto; overflow: hidden; }
+ul.shareLinks li { list-style: none; margin: auto; padding: 4px; float: left;}

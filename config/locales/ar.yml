@@ -322,3 +322,10 @@ ar:
         zero: "%{model} لم يتم العثور على"
     page_gap: ! '&hellip;'
     previous_label: ! '&#8592; السابق'
+  mobile:
+    next: "التالي"
+    prev: "السابق"
+    options: "خيارات"
+    full_version: "النسخة الكاملة"
+    mobile_version: "نسخة الأجهزة المحمولة"
+    share: "نسخ الرابط لمشاركته"

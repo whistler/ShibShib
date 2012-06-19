@@ -1,0 +1,34 @@
+<div class="ui-body ui-body-a center">
+<h3><%= post.title %></h3>
+<% if post.image.url(:mobile).include? "missing" %>
+  <%= link_to image_tag(post.image.url(:mobile), :alt => post.title), post %>
+<% else %>
+  <%= link_to image_tag(post.image.url(:large), :alt => post.title), post %>
+<% end %>
+<!--
+<br/>
+      
+<% if(post.plusminus == 0)
+     nlikes = "#{t 'post.no_likes'}"
+   elsif(post.plusminus == 1) 
+     likes = "#{t 'post.one_like'}"
+   elsif(post.plusminus == 2)
+     likes = "#{t 'post.two_likes'}"
+   elsif(post.plusminus > 2 && post.plusminus < 11)
+     nlikes = "#{post.plusminus.to_s}"
+     likes = " #{t 'post.three_to_ten_likes'} "
+   else
+     nlikes = "#{post.plusminus.to_s}"
+     likes = " #{t 'post.many_likes'} "
+   end %>
+
+<div data-role="controlgroup" data-type="horizontal">
+<%= link_to ({:controller=> 'posts', :action=>'vote', :post_id => post.id}), {"data-role"=>"button", "data-inline"=>"true", "data-icon"=>"star", "data-mini"=>"true", "data-iconpos"=>"right", "data-theme"=>"b", :remote => true} do %>
+  <span id="votes-<%= post.id %>"><%= nlikes %></span><span><%= likes %></span>
+<% end %>
+
+
+<a href="<%= post_path(post).to_s+'#disqus_thread' %>" data-icon="info" data-role="button" data-inline="true" data-mini="true" data-theme="b" data-iconpos="right"><span style="visibility:hidden;" ><%= "#{t 'post.fake'}" %></span></a>
+</div>
+-->
+</div>

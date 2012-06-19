@@ -1,0 +1,25 @@
+<% @title = "#{t 'registrations.sign_up'}" %>
+<% if params[:locale] == 'ar'
+     @lang = "ar_AR"
+     @tlang = "ar"
+   else
+     @lang = "en_US"
+     @tlang = "en"
+   end %>
+<div class="ui-body ui-body-a center"><br/>
+    <h2><%= t 'registrations.sign_up' %></h2>
+
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+    <%= f.label "#{t 'registrations.name'}" %> <%= f.text_field :name %><br />
+    <%= f.label "#{t 'registrations.email'}" %> <%= f.email_field :email %><br />
+    <%= f.label "#{t 'registrations.password'}" %> <%= f.password_field :password %><br />
+    <%= f.label "#{t 'registrations.password_confirm'}" %> <%= f.password_field :password_confirmation %>
+    <br /><br />
+    <%= f.submit "#{t 'registrations.sign_up_btn'}", :class=>"btn btn-medium", "data-theme"=>"b"%>
+    <% end %>
+
+    <%= render :partial => "devise/shared/links" %>
+
+
+</div>

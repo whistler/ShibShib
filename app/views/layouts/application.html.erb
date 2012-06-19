@@ -14,7 +14,6 @@
     <!-- Le styles -->
     <%= stylesheet_link_tag "bootstrap" %>
     <%= stylesheet_link_tag "shibshib" %>
-    <%= stylesheet_link_tag "docs" %>
     <%= stylesheet_link_tag "pagination" %>
     <%= stylesheet_link_tag "bootstrap-responsive" %>
 
@@ -41,6 +40,16 @@
 
   <body>
 
+  <p>
+  <% if mobile_device?.nil? %>
+  <% else %>
+    <% if mobile_device? %>
+        <%= link_to "#{t 'mobile.full_version'}", root_url(:mobile => 0), :rel => "external" %>
+      <% else %>
+        <%= link_to "#{t 'mobile.mobile_version'}", root_url(:mobile => 1), :rel => "external" %>
+    <% end %>
+  <% end %>
+  </p>
   <%= render 'layouts/header' %>
   <%= render 'layouts/facebook_sdk' %>
 

@@ -1,0 +1,66 @@
+<% if params[:locale] == 'ar'
+     @lang = "ar_AR"
+     @tlang = "ar"
+   else
+     @lang = "en_US"
+     @tlang = "en"
+   end %>
+
+<div class="ui-body ui-body-a center">
+  <%= image_tag @post.image.url(:large), :alt => @post.title %>
+
+  <% if(@post.plusminus == 0)
+    nlikes = "#{t 'post.no_likes'}"
+  elsif(@post.plusminus == 1) 
+    likes = "#{t 'post.one_like'}"
+  elsif(@post.plusminus == 2)
+    likes = "#{t 'post.two_likes'}"
+  elsif(@post.plusminus > 2 && @post.plusminus < 11)
+    nlikes = "#{@post.plusminus.to_s}"
+    likes = " #{t 'post.three_to_ten_likes'} "
+  else
+    nlikes = "#{@post.plusminus.to_s}"
+    likes = " #{t 'post.many_likes'} "
+  end %>
+  <br/>
+  <%
+    bitly = Bitly.new('o_7t70lsdg3b','R_8006c2ec01704d851dd9bea665ce9f3b')
+    page_url = bitly.shorten('shibshib.me')
+  %>
+  <a href="<%= post_path(@post.id-1) %>" data-role="button" data-inline="true" data-theme="e" data-icon="star" data-iconpos="right"><i style="visibility:hidden;" >---</i><%= page_url %><i style="visibility:hidden;" >---</i></a>
+  <br/>
+  <a href="<%= post_path(@post.id-1) %>" data-role="button" data-inline="true" data-theme="b" data-icon="arrow-l"><%= t 'mobile.prev' %></a>
+  <a href="<%= post_path(@post.id+1) %>" data-role="button" data-inline="true" data-theme="b" data-icon="arrow-r" data-iconpos="right"><%= t 'mobile.next' %></a>
+
+  <ul class='shareLinks' id="shares<%= @post.id %>">
+
+  <!-- Tweeter -->
+  <li><div class="tweet">
+    <a target="_blank" href="https://twitter.com/share" class="twitter-share-button" data-url="<%= post_url(@post)%>" data-text="<%= @post.title %>" data-count="none" data-via="shibshibme" data-hashtags="ضحك" data-lang="<%= @tlang %>"></a>
+  </div></li>
+
+  <!-- Facebook -->
+  <li><div class="fb-like" data-href="<%= post_url(@post)%>" data-send="true" data-layout="button_count" data-width="50" data-show-faces="false" data-font="tahoma" send="false" data-inline="true">
+  </div></li>
+
+  </ul>
+    <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'Shibshib'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <div id="disqus_thread"></div>
+
+  <div id="comments" class="comments">
+    <div class="fb-comments" data-href="http://shibshib.me/posts/<%= @post.id %>" data-num-posts="3" data-width="470"></div>
+  </div>
+
+</div>
+

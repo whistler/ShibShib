@@ -43,6 +43,7 @@ gem 'friendly_id'               # For displaying names and titles instead of IDs
 gem "ransack"                   # For searching
 gem "formtastic", "~> 2.1.1"
 gem "rails_admin"
+gem "bitly", "~> 0.7.0"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

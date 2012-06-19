@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery Mobile: Demos and Documentation</title>
+  <%= stylesheet_link_tag "jquery.mobile-1.1.0.min.css" %>
+  <%= stylesheet_link_tag "mobile.css" %>
+  <%= stylesheet_link_tag "pagination" %>
+  <%= javascript_include_tag "mobile/jquery.js" %>
+  <%= javascript_include_tag "mobile/mobile.js" %>
+  <%= javascript_include_tag "mobile/jquery.mobile-1.1.0.min.js" %>
+</head>
+<%= render 'layouts/header' %>
+<%= render 'layouts/facebook_sdk' %>
+<body>
+  <%= yield %>
+  <%= render 'layouts/footer' %>
+
+  <%= render 'layouts/google_analytics' %>
+  <%= debug(params) if Rails.env.development? %>
+</body>
+</html>
+
