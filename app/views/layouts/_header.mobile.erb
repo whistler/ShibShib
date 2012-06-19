@@ -6,9 +6,8 @@
      @tlang = "en"
    end %>
 <div data-role="header" data-position="inline">
-  <div><%= link_to root_path do %><%= image_tag("shibshib.png", :alt => "logo", :size => "184x45") %><% end %></div>
   <h1 class="ui-btn-left" ><%= title %></h1>
-  <form name="form1" class="ui-btn-right" >
+  <form name="form1" >
   <select name="select" onchange="goto(this.form)" data-native-menu="false">
     <option><%= t 'mobile.options' %></option>
     <!--
