@@ -1,7 +1,7 @@
 class AddDeviseToUsers < ActiveRecord::Migration
   def self.up
     change_table(:users) do |t|
-      t.database_authenticatable :null => false
+      #t.database_authenticatable :null => false
       t.recoverable
       t.rememberable
       t.trackable
