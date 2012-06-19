@@ -24,10 +24,10 @@
   end %>
   <br/>
   <%
-    bitly = Bitly.new('o_7t70lsdg3b','R_8006c2ec01704d851dd9bea665ce9f3b')
-    page_url = bitly.shorten('shibshib.me')
+    #bitly = Bitly.new('o_7t70lsdg3b','R_8006c2ec01704d851dd9bea665ce9f3b')
+    #page_url = bitly.shorten('shibshib.me')
   %>
-  <a href="<%= post_path(@post.id-1) %>" data-role="button" data-inline="true" data-theme="e" data-icon="star" data-iconpos="right"><i style="visibility:hidden;" >---</i><%= page_url %><i style="visibility:hidden;" >---</i></a>
+  <a href="<%= post_path(@post.id-1) %>" data-role="button" data-inline="true" data-theme="e" data-icon="star" data-iconpos="right"><i style="visibility:hidden;" >---</i><%= "page_url" %><i style="visibility:hidden;" >---</i></a>
   <br/>
   <a href="<%= post_path(@post.id-1) %>" data-role="button" data-inline="true" data-theme="b" data-icon="arrow-l"><%= t 'mobile.prev' %></a>
   <a href="<%= post_path(@post.id+1) %>" data-role="button" data-inline="true" data-theme="b" data-icon="arrow-r" data-iconpos="right"><%= t 'mobile.next' %></a>
