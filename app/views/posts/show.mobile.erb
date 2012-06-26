@@ -24,10 +24,21 @@
   end %>
   <br/>
   <%
-    #bitly = Bitly.new('o_7t70lsdg3b','R_8006c2ec01704d851dd9bea665ce9f3b')
-    #page_url = bitly.shorten('shibshib.me')
+    bitly = Bitly.new('o_7t70lsdg3b','R_8006c2ec01704d851dd9bea665ce9f3b')
+    page_url = bitly.shorten('http://shibshib.me')
   %>
-  <a href="<%= post_path(@post.id-1) %>" data-role="button" data-inline="true" data-theme="e" data-icon="star" data-iconpos="right"><i style="visibility:hidden;" >---</i><%= "page_url" %><i style="visibility:hidden;" >---</i></a>
+  <!-- <a data-role="button" data-inline="true" data-theme="e" data-icon="star" data-iconpos="right" onClick="ClipBoard();" id="copyID" ><i style="visibility:hidden;" >---</i><%= page_url.short_url %><i style="visibility:hidden;" >---</i></a> -->
+
+  <br/>
+  <label for="textarea-a"><%= t 'mobile.share' %></label>
+  <div data-role="fieldcontain">
+    <textarea name="textarea" id="textarea" style="text-align: right; width:470px">
+<%= @post.title %>
+
+
+<%= page_url.short_url %></textarea>
+  </div>
+
   <br/>
   <a href="<%= post_path(@post.id-1) %>" data-role="button" data-inline="true" data-theme="b" data-icon="arrow-l"><%= t 'mobile.prev' %></a>
   <a href="<%= post_path(@post.id+1) %>" data-role="button" data-inline="true" data-theme="b" data-icon="arrow-r" data-iconpos="right"><%= t 'mobile.next' %></a>
@@ -40,7 +51,7 @@
   </div></li>
 
   <!-- Facebook -->
-  <li><div class="fb-like" data-href="<%= post_url(@post)%>" data-send="true" data-layout="button_count" data-width="50" data-show-faces="false" data-font="tahoma" send="false" data-inline="true">
+  <li><div class="fb-like" data-href="<%= post_url(@post)%>" data-send="true" data-layout="button_count" data-width="50" data-show-faces="false" data-font="tahoma" send="false" data-inline="true" value="yoyoyo">
   </div></li>
 
   </ul>
@@ -58,9 +69,7 @@
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   <div id="disqus_thread"></div>
 
-  <div id="comments" class="comments">
-    <div class="fb-comments" data-href="http://shibshib.me/posts/<%= @post.id %>" data-num-posts="3" data-width="470"></div>
-  </div>
+  <div class="fb-comments" data-href="http://shibshib.me/posts/<%= @post.id %>" data-num-posts="3"></div>
 
 </div>
 

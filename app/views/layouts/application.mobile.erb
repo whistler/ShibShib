@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <% response.cache_control.replace(:no_cache => true) %>
   <title><%= title %></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">

@@ -6,7 +6,9 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale, :prepare_for_mobile
 #o_7t70lsdg3b
 #R_8006c2ec01704d851dd9bea665ce9f3b
-
+  def expires_now #:doc:
+    response.cache_control.replace(:no_cache => true)
+  end
   def set_locale
     I18n.locale = :ar
     #params[:locale].blank? ? cookies[:last_seen_locale] : (cookies[:last_seen_locale] = params[:locale])
