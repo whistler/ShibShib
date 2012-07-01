@@ -8,31 +8,15 @@
 
 <div class="ui-body ui-body-a center">
   <%= image_tag @post.image.url(:large), :alt => @post.title %>
-
-  <% if(@post.plusminus == 0)
-    nlikes = "#{t 'post.no_likes'}"
-  elsif(@post.plusminus == 1) 
-    likes = "#{t 'post.one_like'}"
-  elsif(@post.plusminus == 2)
-    likes = "#{t 'post.two_likes'}"
-  elsif(@post.plusminus > 2 && @post.plusminus < 11)
-    nlikes = "#{@post.plusminus.to_s}"
-    likes = " #{t 'post.three_to_ten_likes'} "
-  else
-    nlikes = "#{@post.plusminus.to_s}"
-    likes = " #{t 'post.many_likes'} "
-  end %>
   <br/>
   <%
     bitly = Bitly.new('o_7t70lsdg3b','R_8006c2ec01704d851dd9bea665ce9f3b')
     page_url = bitly.shorten('http://shibshib.me')
   %>
-  <!-- <a data-role="button" data-inline="true" data-theme="e" data-icon="star" data-iconpos="right" onClick="ClipBoard();" id="copyID" ><i style="visibility:hidden;" >---</i><%= page_url.short_url %><i style="visibility:hidden;" >---</i></a> -->
-
   <br/>
   <label for="textarea-a"><%= t 'mobile.share' %></label>
   <div data-role="fieldcontain">
-    <textarea name="textarea" id="textarea" style="text-align: right; width:470px">
+    <textarea name="textarea" id="textarea" style="text-align: right; width:470px" readonly="readonly" onclick="this.focus();this.select()">
 <%= @post.title %>
 
 
@@ -69,7 +53,7 @@
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   <div id="disqus_thread"></div>
 
-  <div class="fb-comments" data-href="http://shibshib.me/posts/<%= @post.id %>" data-num-posts="3"></div>
+  <div class="fb-comments" data-href="http://shibshib.me/posts/<%= @post.id %>" data-num-posts="3" data-width="470"></div>
 
 </div>
 

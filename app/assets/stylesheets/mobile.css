@@ -9,3 +9,5 @@ body {
 }
 ul.shareLinks { width: 170px; margin: auto; overflow: hidden; }
 ul.shareLinks li { list-style: none; margin: auto; padding: 4px; float: left;}
+
+textarea {max-width: 400px; max-height: 100px;}
