@@ -7,7 +7,7 @@
    end %>
 
 <div class="ui-body ui-body-a center">
-  <%= image_tag @post.image.url(:large), :alt => @post.title %>
+  <%= image_tag @post.image.url(:large), :alt => @post.title, :size => "100x100" %>
   <br/>
   <%
     bitly = Bitly.new('o_7t70lsdg3b','R_8006c2ec01704d851dd9bea665ce9f3b')
