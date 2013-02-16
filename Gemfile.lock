@@ -37,6 +37,9 @@ GEM
       uuidtools (~> 2.1)
     bbenezech-nested_form (0.0.6)
     bcrypt-ruby (3.0.1)
+    better_errors (0.6.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
     bitly (0.7.0)
       crack (>= 0.1.4)
       httparty (>= 0.7.6)
@@ -237,6 +240,7 @@ PLATFORMS
 
 DEPENDENCIES
   aws-sdk
+  better_errors
   bitly (~> 0.7.0)
   certified
   coffee-rails (~> 3.2.1)

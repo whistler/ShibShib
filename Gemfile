@@ -23,6 +23,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'pry'
   gem 'webrick'
+  gem 'better_errors'
 end
 
 group :production do

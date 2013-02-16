@@ -1,8 +1,6 @@
 class PostsController < ApplicationController
   before_filter :check_user, :only => [:edit, :update, :destroy]
 
-  # GET /posts
-  # GET /posts.json
   respond_to :html, :js
   def check_user
    @post = Post.find(params[:id])
@@ -19,8 +17,6 @@ class PostsController < ApplicationController
    redirect_to root_path
   end
 
-  # GET /posts/1
-  # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
     @title = @post.title
@@ -38,8 +34,6 @@ class PostsController < ApplicationController
     #end
   end
 
-  # GET /posts/new
-  # GET /posts/new.json
   def new
     if current_user.nil?
       redirect_to(:root)
@@ -51,7 +45,6 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
     if (params[:locale] == "ar")
@@ -61,8 +54,6 @@ class PostsController < ApplicationController
     end
   end
 
-  # POST /posts
-  # POST /posts.json
   def create
     @title = t 'header.new_post'
     @post = Post.new(params[:post])
@@ -72,16 +63,16 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, alert: "#{t 'post.create'}" }
+        format.mobile { redirect_to @post, alert: "#{t 'post.create'}" }
         format.json { render json: @post, status: :created, location: @post }
       else
         format.html { render action: "new" }
+        format.mobile { render action: "new" }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PUT /posts/1
-  # PUT /posts/1.json
   def update
     @post = Post.find(params[:id])
     if @post.user_id == current_user.id then
@@ -97,8 +88,6 @@ class PostsController < ApplicationController
     end
   end
 
-  # DELETE /posts/1
-  # DELETE /posts/1.json
   def destroy
     @post = Post.find(params[:id])
     @post.destroy

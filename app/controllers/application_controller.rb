@@ -9,14 +9,15 @@ class ApplicationController < ActionController::Base
   def expires_now #:doc:
     response.cache_control.replace(:no_cache => true)
   end
+  
   def set_locale
-    I18n.locale = :ar
+    I18n.locale = params[:locale] if params[:locale].present?
+    #I18n.locale = :ar
     #params[:locale].blank? ? cookies[:last_seen_locale] : (cookies[:last_seen_locale] = params[:locale])
   end
 
-  def default_url_options(options={})
-    logger.debug "default_url_options is passed options: #{options.inspect}\n"
-    { :locale => I18n.locale }
+  def default_url_options(options= {} )
+    {locale: I18n.locale}
   end
 
   def mobile_device?

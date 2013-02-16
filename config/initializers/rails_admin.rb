@@ -78,7 +78,7 @@ RailsAdmin.config do |config|
   config.model Post do
     # Found associations:
       configure :user, :belongs_to_association 
-      configure :slugs, :has_many_association         # Hidden 
+      # configure :slugs, :has_many_association         # Hidden 
       configure :votes, :has_many_association   #   # Found columns:
       configure :user_id, :integer         # Hidden 
       configure :title, :string 

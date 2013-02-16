@@ -26,20 +26,20 @@
 <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
 
 
-<% @title = "#{t 'registrations.sign_up'}" %>
+<% @title = "#{t 'registrations.sign_in_btn'}" %>
+
 <div class="ui-body center"><br/>
-    <h2><%= t 'registrations.sign_up' %></h2>
+    <h2><%= t 'registrations.sign_in_btn' %></h2>
+    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+      <%= f.label "#{t 'registrations.email'}" %> <%= f.email_field :email %>
+      <%= f.label "#{t 'registrations.password'}" %> <%= f.password_field :password %>
 
-    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
-    <%= f.label "#{t 'registrations.name'}" %> <%= f.text_field :name %><br />
-    <%= f.label "#{t 'registrations.email'}" %> <%= f.email_field :email %><br />
-    <%= f.label "#{t 'registrations.password'}" %> <%= f.password_field :password %><br />
-    <%= f.label "#{t 'registrations.password_confirm'}" %> <%= f.password_field :password_confirmation %>
-    <br /><br />
-    <%= f.submit "#{t 'registrations.sign_up_btn'}", :class=>"btn btn-medium", "data-theme"=>"b" %>
+      <% if devise_mapping.rememberable? -%>
+        <br />
+        <label><input type="checkbox" name="remember_me" value='1' /> <%= t 'registrations.remember_me' %> </label>
+      <% end -%>
+        <br />
+        <%= f.submit "#{t 'registrations.sign_in_btn'}", :class=>"btn btn-medium", "data-theme"=>"b" %>
     <% end %>
-
     <%= render :partial => "devise/shared/links" %>
-
 </div>

@@ -5,9 +5,29 @@
      @lang = "en_US"
      @tlang = "en"
    end %>
+<div data-role="header" data-position="inline" class="ui-body-b">
+  <h1 class="ui-btn-left" ><%= title %></h1>
+  <form name="form1" >
+  <select name="select" onchange="goto(this.form)" data-native-menu="false">
+    <option><%= t 'mobile.options' %></option>
+    <% if user_signed_in? then %>
+      <option value="<%= new_post_path %>"><%="#{t 'header.new_post'}"%></option>
+      <option value="<%= destroy_user_session_path %>"><%="#{t 'header.sign_out'}"%></option>
+    <% else %>
+      <option value="<%= new_user_session_path %>"><%="#{t 'header.login'}"%></option>
+      <option value="<%= new_user_registration_path %>"><%="#{t 'header.sign_up'}"%></option>
+    <% end %>
+    <option value="<%= index_path %>"><%= t 'tabs.latest' %></option>
+    <option value="<%= mvote_path %>"><%= t 'tabs.most_voted' %></option>
+    <option value="<%= root_url(:mobile => 0) %>"><%= t 'mobile.full_version' %></option>
+  </select>
+  </form>
+</div>
+<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
 
-<div class="ui-body ui-body-a center">
-  <%= image_tag @post.image.url(:large), :alt => @post.title, :size => "100x100" %>
+<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+<div class="ui-body ui-body-d center">
+  <%= image_tag @post.image.url(:large), :alt => @post.title %>
   <br/>
   <%
     bitly = Bitly.new('o_7t70lsdg3b','R_8006c2ec01704d851dd9bea665ce9f3b')
@@ -16,7 +36,7 @@
   <br/>
   <label for="textarea-a"><%= t 'mobile.share' %></label>
   <div data-role="fieldcontain">
-    <textarea name="textarea" id="textarea" style="text-align: right; width:470px" readonly="readonly" onclick="this.focus();this.select()">
+    <textarea name="textarea" id="textarea" readonly="readonly" onclick="this.focus();this.select()">
 <%= @post.title %>
 
 

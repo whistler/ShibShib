@@ -1,35 +1,38 @@
-ShibShibBlastic::Application.routes.draw do 
+ShibShibBlastic::Application.routes.draw do
 
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
+    mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  match "new_post" => "posts#new"
-  match "profile" => "users#show"
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+    match "new_post" => "posts#new"
+    match "profile" => "users#show"
+    devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
-  devise_scope :users do
-    get "/users/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session
-  end
+    devise_scope :user do
+     get "/users/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session
+    end
 
-  match "index" => "welcome#index"
-  match "mvote" => "welcome#mvote"
-  match "about" => "welcome#about"
-  match "faq" => "welcome#faq"
-  get "welcome/index"
-  get "welcome/latest"
+    match "index" => "welcome#index"
+    match "mvote" => "welcome#mvote"
+    match "about" => "welcome#about"
+    match "faq" => "welcome#faq"
+    get "welcome/index"
+    get "welcome/latest"
 
-  scope "/:locale" do
     resources :welcome
     resources :posts do
       get 'vote'
       get 'mark_inappropriate'
     end
-    resources :users
-  end
-  resources :users
-  resources :posts
 
-  
-  
+    resources :users
+    resources :posts
+
+    root :to => 'welcome#index'
+  end
+
+  match '*path', to: redirect("/#{I18n.default_locale}/%{path}"), constraints: lambda { |req| !req.path.starts_with? "/#{I18n.default_locale}/" }
+  match '', to: redirect("/#{I18n.default_locale}")
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -79,7 +82,6 @@ ShibShibBlastic::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
 

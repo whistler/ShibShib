@@ -1,4 +1,4 @@
-<div class="ui-body ui-body-a center">
+<div class="ui-body ui-body-d center">
 <h3><%= post.title %></h3>
 <% if post.image.url(:mobile).include? "missing" %>
   <%= link_to image_tag(post.image.url(:mobile), :alt => post.title), post %>
