@@ -57,6 +57,7 @@ class PostsController < ApplicationController
   def create
     @title = t 'header.new_post'
     @post = Post.new(params[:post])
+    @post.content = @post.content.to_s.gsub("\r\n", '<br>')
     @post.user_id = current_user.id
     respond_to do |format|
       if @post.save
@@ -78,6 +79,8 @@ class PostsController < ApplicationController
     if @post.user_id == current_user.id then
       respond_to do |format|
         if @post.update_attributes(params[:post])
+          @post.content = @post.content.to_s.gsub("\r\n", '<br>')
+          @post.update_attributes(:content => @post.content)
           format.html { redirect_to @post, alert: "#{t 'post.update'}" }
           format.json { head :no_content }
         else
