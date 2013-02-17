@@ -55,6 +55,8 @@ ar:
     ago: "منذ"
     fake: "ء"
     title: "العنوان"
+    content: "المحتوى"
+    or: "أو"
     image: "الصورة"
     browse_btn: "...استدراج"
     create_post: "اعتمد المشاركة"

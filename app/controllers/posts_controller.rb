@@ -58,10 +58,10 @@ class PostsController < ApplicationController
     @title = t 'header.new_post'
     @post = Post.new(params[:post])
     @post.user_id = current_user.id
-    current_user.vote_for(@post)
-    @post.vote_count = @post.plusminus
     respond_to do |format|
       if @post.save
+        current_user.vote_for(@post)
+        @post.vote_count = @post.plusminus
         format.html { redirect_to @post, alert: "#{t 'post.create'}" }
         format.mobile { redirect_to @post, alert: "#{t 'post.create'}" }
         format.json { render json: @post, status: :created, location: @post }

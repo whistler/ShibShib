@@ -19,10 +19,20 @@ class Post < ActiveRecord::Base
   end
   
   validates_presence_of :title
-  validates_attachment_presence :image
+  validates_presence_of :content, :if => :image_exists
+  validates_attachment_presence :image, :if => :content_exists
   validates_attachment_size :image, :less_than=>2.megabyte, :if => Proc.new { |imports| !imports.image_file_name.blank? }
   
   def update_vote_count
     self.vote_count = self.plusminus
   end
+
+  def image_exists
+    image.to_s.include? "missing" #true
+  end
+
+  def content_exists
+    content.gsub(/\s+/, "").tr("\n","").empty?
+  end
+
 end

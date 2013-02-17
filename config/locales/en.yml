@@ -39,6 +39,8 @@ en:
     ago: " ago"
     fake: ""
     title: "Title"
+    content: "Content"
+    or: "or"
     image: "Image"
     browse_btn: "Browse..."
     create_post: "Create post"

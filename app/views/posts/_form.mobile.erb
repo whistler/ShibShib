@@ -41,6 +41,8 @@
 
   <%= f.hidden_field :user_id %>
   <%= f.label "#{t 'post.title'}" %> <%= f.text_field :title %><br />
+  <%= f.label "#{t 'post.content'}" %> <%= f.text_area :content, :class=>"center",:style=>"resize:none; min-height: 250px; min-width: 98% !important;" %>
+  <br /><br /><br /><%= t 'post.or' %> <br /><br /><br />
   <%= f.label "#{t 'post.image'}" %><br /><%= f.file_field :image %><br />
   <%= if (action_name == "edit")
         "#{t 'post.edit_note'}"

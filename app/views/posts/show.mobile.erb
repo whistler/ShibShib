@@ -25,9 +25,9 @@
 </div>
 <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
 
-<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
 <div class="ui-body ui-body-d center">
-  <%= image_tag @post.image.url(:large), :alt => @post.title %>
+  <%= @post.content if @post.content.present? %><br/><br/>
+  <%= image_tag @post.image.url(:large), :alt => @post.title if @post.image.present? %>
   <br/>
   <%
     bitly = Bitly.new('o_7t70lsdg3b','R_8006c2ec01704d851dd9bea665ce9f3b')
@@ -37,10 +37,10 @@
   <label for="textarea-a"><%= t 'mobile.share' %></label>
   <div data-role="fieldcontain">
     <textarea name="textarea" id="textarea" readonly="readonly" onclick="this.focus();this.select()">
-<%= @post.title %>
+    <%= @post.title if @post.image.present? %>
 
-
-<%= page_url.short_url %></textarea>
+    <%= @post.content %>
+    <%= page_url.short_url %></textarea>
   </div>
 
   <br/>

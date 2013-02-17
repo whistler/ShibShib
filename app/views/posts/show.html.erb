@@ -113,7 +113,8 @@ var disqus_shortname = 'Shibshib'; // required: replace example with your forum 
   <% end %>
 </div><!-- end of 1st well -->
 
-<%= image_tag @post.image.url(:large), :class=>'displayed', :alt => @post.title %>
+<%= image_tag @post.image.url(:large), :class=>'displayed', :alt => @post.title if @post.image.present?%>
+<%= @post.content if @post.content.present? %>
 </br></br>
 
 <div class="well">
