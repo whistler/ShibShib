@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
-  before_filter :check_user, :only => [:edit, :update, :destroy]
+  include AutoHtml
 
+  before_filter :check_user, :only => [:edit, :update, :destroy]
   respond_to :html, :js
+
   def check_user
    @post = Post.find(params[:id])
    #raise @post.to_yaml
@@ -57,7 +59,10 @@ class PostsController < ApplicationController
   def create
     @title = t 'header.new_post'
     @post = Post.new(params[:post])
-    @post.content = @post.content.to_s.gsub("\r\n", '<br>')
+    post_formated = auto_html(@post.content) { simple_format; link(:target => 'blank') }
+    @post.title = @post.content.split("\r\n")[0] if @post.content.present? && !@post.title.present?
+    @post.content = post_formated
+    #@post.content = @post.content.to_s.gsub("\r\n", '<br>')
     @post.user_id = current_user.id
     respond_to do |format|
       if @post.save

@@ -38,7 +38,7 @@
   <div data-role="fieldcontain">
     <textarea name="textarea" id="textarea" readonly="readonly" onclick="this.focus();this.select()">
     <%= @post.title if @post.image.present? %>
-    <%= @post.content.gsub('<br>', "\r\n") if @post.content.present? %>
+    <%= @post.content.gsub('<br />', "\r\n").gsub('<br>', "\r\n").gsub('<p>', "").gsub('</p>', "") if @post.content.present? %>
 
     
     <%= page_url.short_url %></textarea>

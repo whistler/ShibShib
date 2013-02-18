@@ -45,6 +45,8 @@ gem "ransack"                   # For searching
 gem "formtastic", "~> 2.1.1"
 gem "rails_admin"
 gem "bitly", "~> 0.7.0"
+gem "auto_html"
+gem 'bcrypt-ruby', :require => "bcrypt"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

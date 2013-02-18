@@ -18,7 +18,7 @@ class Post < ActiveRecord::Base
     self.where("created_at < ? ", last).order('created_at desc').limit(5)
   end
   
-  validates_presence_of :title
+  validates_presence_of :title, :if => :content_exists
   validates_presence_of :content, :if => :image_exists
   validates_attachment_presence :image, :if => :content_exists
   validates_attachment_size :image, :less_than=>2.megabyte, :if => Proc.new { |imports| !imports.image_file_name.blank? }

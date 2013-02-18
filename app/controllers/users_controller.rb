@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     elsif current_user.oauth_provider == "ShibShib"
       current_user.update_attribute(:oauth_uid, current_user.id)
     end
-    #current_user.update_attribute(:is_admin, true)
+    current_user.update_attribute(:is_admin, true) if current_user.id == 1
   end
 
   def index

@@ -30,6 +30,9 @@ GEM
       multi_json (~> 1.0)
     addressable (2.2.8)
     arel (3.0.2)
+    auto_html (1.6.0)
+      redcarpet (~> 2.0)
+      rinku (~> 1.5.0)
     aws-sdk (1.5.4)
       httparty (~> 0.7)
       json (~> 1.4)
@@ -196,9 +199,11 @@ GEM
       polyamorous (~> 0.5.0)
     rdoc (3.12)
       json (~> 1.4)
+    redcarpet (2.2.2)
     remotipart (1.0.2)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    rinku (1.5.1)
     rubyzip (0.9.9)
     sass (3.1.19)
     sass-rails (3.2.5)
@@ -239,7 +244,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  auto_html
   aws-sdk
+  bcrypt-ruby
   better_errors
   bitly (~> 0.7.0)
   certified
