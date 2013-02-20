@@ -114,7 +114,7 @@ var disqus_shortname = 'Shibshib'; // required: replace example with your forum 
 </div><!-- end of 1st well -->
 
 <%= image_tag @post.image.url(:large), :class=>'displayed', :alt => @post.title if @post.image.present?%>
-<%= emojify(@post.content) if @post.content.present? %>
+<div class="text"><%= emojify(@post.content) if @post.content.present? %></div>
 </br></br>
 
 <div class="well">

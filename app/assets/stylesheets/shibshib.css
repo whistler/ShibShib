@@ -159,3 +159,9 @@ a.title:hover {
 * {
   font-family: Tahoma, Geneva, sans-serif;
 }
+
+p {
+  direction:RTL;
+  unicode-bidi:embed;
+  font-size: 15px;
+}
