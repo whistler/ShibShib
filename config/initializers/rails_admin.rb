@@ -30,7 +30,7 @@ RailsAdmin.config do |config|
   config.excluded_models = [Vote]
 
   # Add models here if you want to go 'whitelist mode':
-  config.included_models = [Post, User]
+  config.included_models = [Post, User,Emoticon]
 
   # Application wide tried label methods for models' instances
   # config.label_methods << :description # Default is [:name, :title]
@@ -132,6 +132,19 @@ RailsAdmin.config do |config|
     create do; end
     update do; end
   end
+
+  config.model User do
+      configure :keycap, :string 
+      configure :unicode, :string 
+      configure :name, :string 
+    list do; end
+    export do; end
+    show do; end
+    edit do; end
+    create do; end
+    update do; end
+  end
+
   # config.model Vote do
   #   # Found associations:
   #     configure :voteable, :polymorphic_association 

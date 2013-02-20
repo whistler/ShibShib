@@ -22,7 +22,7 @@ var disqus_shortname = 'Shibshib'; // required: replace example with your forum 
   <div class="span8 pad-sides">
     <%= link_to image_tag(post.image.url(:large), :class => 'displayed', :alt => post.title), post if post.image.
     present? %>
-    <%= raw post.content if post.content.present? %>
+    <%= raw emojify(post.content) if post.content.present? %>
     </div>
 
     <div class="span3 well center">

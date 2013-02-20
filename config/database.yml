@@ -5,6 +5,7 @@
 #   gem 'sqlite3'
 development:
   adapter: sqlite3
+  encoding: utf8
   database: db/development.sqlite3
   pool: 5
   timeout: 5000
@@ -20,6 +21,7 @@ test:
 
 production:
   adapter: sqlite3
+  encoding: utf8
   database: db/production.sqlite3
   pool: 5
   timeout: 5000

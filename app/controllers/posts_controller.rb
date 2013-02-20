@@ -22,6 +22,9 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @title = @post.title
+
+    content_keycap(@post.content) if @post.content.present?
+
     if request.path != post_path(@post)
       redirect_to @post, status: :moved_permanently
     end
@@ -29,11 +32,6 @@ class PostsController < ApplicationController
       flash[:alert] = "This post has been removed for having inappropriate content"
       redirect_to :root
     end
-    # commented out cuz of multiple respond_to or redirect_to
-    #respond_to do |format|
-    #  format.html # show.html.erb
-    #  format.json { render json: @post }
-    #end
   end
 
   def new
@@ -49,6 +47,7 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    content_keycap(@post.content) if @post.content.present?
     if (params[:locale] == "ar")
       @title = "#{t 'general.edit'}: #{@post.title}"
     else
@@ -59,10 +58,21 @@ class PostsController < ApplicationController
   def create
     @title = t 'header.new_post'
     @post = Post.new(params[:post])
-    post_formated = auto_html(@post.content) { simple_format; link(:target => 'blank') }
+    @em = Emoticon.all
+    final_content = ""
+    @post.content.split(//).each do |c|
+      i = @em.map(&:keycap).index c
+      if i
+        final_content = "#{final_content}#{@em[i].name}"
+        
+      else
+        final_content = "#{final_content}#{c}"
+      end
+    end
     @post.title = @post.content.split("\r\n")[0] if @post.content.present? && !@post.title.present?
-    @post.content = post_formated
-    #@post.content = @post.content.to_s.gsub("\r\n", '<br>')
+    @post.content = final_content
+    @post.content = auto_html(@post.content) { simple_format; link(:target => 'blank') }
+    @post.content = @post.content.to_s.gsub("\r\n", '<br>')
     @post.user_id = current_user.id
     respond_to do |format|
       if @post.save
@@ -124,6 +134,17 @@ class PostsController < ApplicationController
     else
       flash[:alert] = "#{t 'post.login_report'}"
       redirect_to :back
+    end
+  end
+
+  def content_keycap(content)
+    @distro = content
+    @em = Emoticon.all
+    @distro.to_str.gsub(/:([a-z0-9\+\-_]+):/) do |c|
+      i = @em.map(&:name).index c
+      if i
+        @distro = @distro.gsub(c, @em[i].keycap)    
+      end
     end
   end
   

@@ -75,6 +75,7 @@ GEM
     formtastic (2.1.1)
       actionpack (~> 3.0)
     friendly_id (4.0.7)
+    gemoji (1.4.0)
     haml (3.1.6)
     hashie (1.2.0)
     heroku (2.27.3)
@@ -246,7 +247,6 @@ PLATFORMS
 DEPENDENCIES
   auto_html
   aws-sdk
-  bcrypt-ruby
   better_errors
   bitly (~> 0.7.0)
   certified
@@ -254,6 +254,7 @@ DEPENDENCIES
   devise
   formtastic (~> 2.1.1)
   friendly_id
+  gemoji
   heroku
   jquery-rails
   omniauth-facebook

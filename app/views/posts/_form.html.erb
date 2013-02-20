@@ -23,7 +23,7 @@
   <%= f.hidden_field :user_id %>
   <%= f.label "#{t 'post.title'}" %> <%= f.text_field :title %>
   <% cont = "" %>
-  <% cont = @post.content.gsub('<br />', "").gsub('<p>', "").gsub('</p>', "") if @post.content.present? %>
+  <% cont = @distro.gsub('<br />', "").gsub('<p>', "").gsub('</p>', "") if @post.content.present? %>
   <%= f.label "#{t 'post.content'}" %> <%= f.text_area :content, :value=>cont, :style=>"resize:none", :cols=>"10", :rows=>"10" %>
   <br /><br /><br /><%= t 'post.or' %> <br /><br /><br />
   <%= f.label "#{t 'post.image'}" %> <%= f.file_field :image %><br />
