@@ -92,11 +92,25 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
+    @em = Emoticon.all
+    new_content = params[:post][:content]
+    final_content = ""
+    new_content.split(//).each do |c|
+      i = @em.map(&:keycap).index c
+      if i
+        final_content = "#{final_content}#{@em[i].name}"
+        
+      else
+        final_content = "#{final_content}#{c}"
+      end
+    end
+    @post.title = new_content.split("\r\n")[0] if new_content.present? && !@post.title.present?
+    new_content = final_content
+    # @post.content = auto_html(@post.content) { simple_format; link(:target => 'blank') }
+    params[:post][:content] = new_content.to_s.gsub("\r\n", '<br>')
     if @post.user_id == current_user.id then
       respond_to do |format|
         if @post.update_attributes(params[:post])
-          @post.content = @post.content.to_s.gsub("\r\n", '<br>')
-          @post.update_attributes(:content => @post.content)
           format.html { redirect_to @post, alert: "#{t 'post.update'}" }
           format.json { head :no_content }
         else
