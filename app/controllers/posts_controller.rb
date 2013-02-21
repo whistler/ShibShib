@@ -72,7 +72,7 @@ class PostsController < ApplicationController
     end
     @post.title = @post.content.split("\r\n")[0] if @post.content.present? && !@post.title.present?
     @post.content = final_content
-    @post.content = auto_html(@post.content) { simple_format; link(:target => 'blank') }
+    # @post.content = auto_html(@post.content) { simple_format; link(:target => 'blank') }
     @post.content = @post.content.to_s.gsub("\r\n", '<br>')
     @post.user_id = current_user.id
     respond_to do |format|

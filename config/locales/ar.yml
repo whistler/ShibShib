@@ -1,4 +1,4 @@
-
+# encoding: utf-8
 ar:
   activerecord:
     errors:
@@ -18,6 +18,16 @@ ar:
               blank: "لقد تركت الحقل الخاص بك فارغاً"
             reset_password_token:
               blank: ""
+        post:
+          attributes:
+            title:
+              blank: "لقد تركت الحقل الخاص بالعنوان فارغاً"
+            content:
+              blank: "لقد تركت الحقل الخاص بالمحتوى فارغاً"
+            image:
+              empty: "لقد تركت الحقل الخاص بالصورة فارغاً"
+            image_file_name:
+              empty: ""
   header:
     home: "الرئيسية"
     sign_up: "التسجيل"

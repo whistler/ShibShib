@@ -160,8 +160,10 @@ a.title:hover {
   font-family: Tahoma, Geneva, sans-serif;
 }
 
-p {
+.text {
   direction:RTL;
   unicode-bidi:embed;
-  font-size: 15px;
+  font-size: 22px;
+  margin: 15px;
+  line-height:110%;
 }

@@ -30,7 +30,7 @@ module ShibShibBlastic
     # config.time_zone = 'Central Time (US & Canada)'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-    # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
+    config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :ar
 
     # Configure the default encoding used in templates for Ruby 1.9.
@@ -52,7 +52,6 @@ module ShibShibBlastic
     # config.active_record.whitelist_attributes = true
     # Enable the asset pipeline
     config.assets.enabled = true
-    config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
@@ -60,9 +59,6 @@ module ShibShibBlastic
 	config.assets.compile = true
     config.assets.paths << Emoji.images_path
     config.assets.precompile << "emoji/keycap/*.png"
-	
   end
-
-
 
 end

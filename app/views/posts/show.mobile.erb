@@ -27,7 +27,9 @@
 <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
 
 <div class="ui-body ui-body-d center">
-  <br/><br/><div class="ui-body-d text"><%= emojify(@post.content) if @post.content.present? %></div><br/><br/>
+  <br/><br/>
+  <div class="ui-body-d text"><%= emojify(@post.content) if @post.content.present? %></div>
+  <br/><br/>
   <%= image_tag @post.image.url(:large), :alt => @post.title if @post.image.present? %>
   <br/>
   <%
@@ -39,7 +41,7 @@
   <div data-role="fieldcontain">
     <textarea name="textarea" id="textarea" readonly="readonly" onclick="this.focus();this.select()">
     <%= @post.title if @post.image.present? %>
-    <%= @distro.gsub('<br />', "\r\n").gsub('<br>', "\r\n").gsub('<p>', "").gsub('</p>', "") if @post.content.present? %>
+    <%= @distro.gsub('<br />', "\r\n").gsub('<br>', "\r\n") if @post.content.present? %>
 
 
     <%= page_url.short_url %></textarea>
