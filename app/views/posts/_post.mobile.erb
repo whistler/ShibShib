@@ -1,10 +1,6 @@
 <div class="ui-body ui-body-d center">
 <h3><%= link_to post.title, post %></h3>
-<% if post.image.url(:mobile).include? "missing" %>
-  <%= link_to image_tag(post.image.url(:mobile), :alt => post.title), post if post.image.present? %>
-<% else %>
-  <%= link_to image_tag(post.image.url(:large), :alt => post.title), post if post.image.present? %>
-<% end %>
+<%= link_to image_tag(post.image.url(:medium), :alt => post.title), post if post.image.present? %>
 
 <div class="text"><%= raw emojify(post.content) if post.content.present? %></div>
 <!--

@@ -28,10 +28,10 @@
 
 <div class="ui-body ui-body-d center">
   <br/><br/>
-  <div class="ui-body-d text"><%= emojify(@post.content) if @post.content.present? %></div>
+  <div class="ui-body-d text"><%= emojify(@post.content) if @post.content.present? %>
+  <%= image_tag @post.image.url(:medium), :alt => @post.title if @post.image.present? %>
+  </div>
   <br/><br/>
-  <%= image_tag @post.image.url(:large), :alt => @post.title if @post.image.present? %>
-  <br/>
   <%
     bitly = Bitly.new('o_7t70lsdg3b','R_8006c2ec01704d851dd9bea665ce9f3b')
     page_url = bitly.shorten('http://shibshib.me')
