@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = Post.where(:user_id => @user.id, :is_inappropriate => false).page(params[:page]).per_page(10)
+    @posts = Post.where(:user_id => @user.id, :is_inappropriate => false).page(params[:page]).order('created_at DESC').per_page(10)
     if (params[:locale] == "ar")
       @title = "#{@user.name} #{t 'header.profile'}"
     else
