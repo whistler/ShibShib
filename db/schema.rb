@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130224090854) do
+ActiveRecord::Schema.define(:version => 20130224120200) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string    "resource_id",   :null => false
@@ -66,20 +66,20 @@ ActiveRecord::Schema.define(:version => 20130224090854) do
   add_index "friendly_id_slugs", ["sluggable_type"], :name => "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "posts", :force => true do |t|
-    t.integer   "user_id"
-    t.string    "title"
-    t.string    "image_url"
-    t.timestamp "created_at",                            :null => false
-    t.timestamp "updated_at",                            :null => false
-    t.string    "image_file_name"
-    t.string    "image_content_type"
-    t.integer   "image_file_size"
-    t.timestamp "image_updated_at"
-    t.string    "slug"
-    t.integer   "vote_count"
-    t.boolean   "is_inappropriate",   :default => false
-    t.text      "content"
-    t.string    "content_html"
+    t.integer  "user_id"
+    t.string   "title"
+    t.string   "image_url"
+    t.datetime "created_at",                                           :null => false
+    t.datetime "updated_at",                                           :null => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "slug"
+    t.integer  "vote_count"
+    t.boolean  "is_inappropriate",                  :default => false
+    t.text     "content"
+    t.text     "content_html",       :limit => 255
   end
 
   add_index "posts", ["slug"], :name => "index_posts_on_slug"
