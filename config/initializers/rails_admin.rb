@@ -82,7 +82,8 @@ RailsAdmin.config do |config|
       configure :votes, :has_many_association   #   # Found columns:
       configure :user_id, :integer         # Hidden 
       configure :title, :string 
-      configure :content, :text 
+      configure :content, :text
+      configure :content_html, :text
       # configure :image_url, :string 
       # configure :image_file_name, :string         # Hidden 
       # configure :image_content_type, :string         # Hidden 

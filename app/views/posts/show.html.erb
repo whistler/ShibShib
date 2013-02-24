@@ -122,7 +122,8 @@ var disqus_shortname = 'Shibshib'; // required: replace example with your forum 
 </div><!-- end of 1st well -->
 
 <%= image_tag @post.image.url(:large), :class=>'displayed', :alt => @post.title if @post.image.present?%>
-<p class="text"><%= emojify(@post.content_html) { simple_format; link(:target => 'blank') } if @post.content.present? %></p>
+<%= emojify(@post.content_html.gsub('<p>', '<p class="text RTL">')) if @post.content.present? %>
+
 </br></br>
 
 <div class="well">
