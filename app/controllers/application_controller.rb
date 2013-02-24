@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 
   #require 'bitly'
-
+  helper ApplicationHelper
   protect_from_forgery
   before_filter :set_locale, :prepare_for_mobile
 #o_7t70lsdg3b

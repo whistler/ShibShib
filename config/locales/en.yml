@@ -42,6 +42,8 @@ en:
     content: "Content"
     or: "or"
     image: "Image"
+    tags: "Tags (separated by commas)"
+    show_tags: "Tags"
     browse_btn: "Browse..."
     create_post: "Create post"
     new_post: "New post"

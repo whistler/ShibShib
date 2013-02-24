@@ -17,6 +17,7 @@ ShibShibBlastic::Application.routes.draw do
     match "faq" => "welcome#faq"
     get "welcome/index"
     get "welcome/latest"
+    get 'tags/:tag', to: 'posts#index', as: :tag
 
     resources :welcome
     resources :posts do

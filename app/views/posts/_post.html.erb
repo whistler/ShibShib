@@ -22,7 +22,7 @@ var disqus_shortname = 'Shibshib'; // required: replace example with your forum 
   <div class="span8 pad-sides">
     <%= link_to image_tag(post.image.url(:large), :class => 'displayed', :alt => post.title), post if post.image.
     present? %>
-    <p class="text"><%= raw emojify(post.content) if post.content.present? %></p>
+    <p class="text"><%= emojify(post.content_html) if post.content_html.present? %></p>
     </div>
 
     <div class="span3 well center">
@@ -108,7 +108,9 @@ var disqus_shortname = 'Shibshib'; // required: replace example with your forum 
         </li>
         
       </ul>
-
+      <p>
+        <%= "#{t 'post.show_tags'}: " if post.tag_list.present? %> <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+      </p>
   </div><!-- end of well -->
   </br>
 </div>

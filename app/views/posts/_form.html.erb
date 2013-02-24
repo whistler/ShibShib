@@ -25,13 +25,15 @@
   <% cont = "" %>
   <% cont = @distro.gsub('<br />', "").gsub('<p>', "").gsub('</p>', "") if @post.content.present? %>
   <%= f.label "#{t 'post.content'}" %> <%= f.text_area :content, :value=>cont, :style=>"resize:none", :cols=>"10", :rows=>"10" %>
-  <br /><br /><br /><%= t 'post.or' %> <br /><br /><br />
+  <br /><br /><%= t 'post.or' %> <br /><br /><br />
   <%= f.label "#{t 'post.image'}" %> <%= f.file_field :image %><br />
   <%= if (action_name == "edit")
         "#{t 'post.edit_note'}"
-      end %>
-  <br /><br />
+      end %><br />
+  <%= f.label "#{t 'post.tags'}" %> <%= f.text_field :tag_list %>
+  <br />
   <%= f.submit "#{t 'general.submit'}", :class=>"btn btn-medium" %>
+  <br />
   <% end %>
   </div>
 </div>

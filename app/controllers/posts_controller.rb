@@ -17,7 +17,11 @@ class PostsController < ApplicationController
   end
 
   def index
-   redirect_to root_path
+    if params[:tag]
+      @posts = Post.tagged_with(params[:tag]).page(params[:page]).order('created_at DESC').per_page(10)
+    else
+      redirect_to root_path
+    end
   end
 
   def show
@@ -107,7 +111,7 @@ class PostsController < ApplicationController
     @post.title = new_content.split("\r\n")[0] if new_content.present? && !@post.title.present?
     new_content = final_content
     # @post.content = auto_html(@post.content) { simple_format; link(:target => 'blank') }
-    params[:post][:content] = new_content.to_s.gsub("\r\n", '<br>')
+    params[:post][:content] = new_content.to_s.gsub("\r\n", '</br>')
     if @post.user_id == current_user.id then
       respond_to do |format|
         if @post.update_attributes(params[:post])
