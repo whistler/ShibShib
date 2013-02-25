@@ -135,17 +135,17 @@ RailsAdmin.config do |config|
     update do; end
   end
 
-  config.model User do
-      configure :keycap, :string 
-      configure :unicode, :string 
-      configure :name, :string 
-    list do; end
-    export do; end
-    show do; end
-    edit do; end
-    create do; end
-    update do; end
-  end
+  # config.model Emoticon do
+  #     configure :keycap, :string 
+  #     configure :unicode, :string 
+  #     configure :name, :string 
+  #   list do; end
+  #   export do; end
+  #   show do; end
+  #   edit do; end
+  #   create do; end
+  #   update do; end
+  # end
 
   # config.model Vote do
   #   # Found associations:
