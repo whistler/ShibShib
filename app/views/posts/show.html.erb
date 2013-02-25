@@ -125,7 +125,18 @@ var disqus_shortname = 'Shibshib'; // required: replace example with your forum 
 <%= emojify(@post.content_html.to_s.gsub('<p>', '<p class="text RTL">')) if @post.content.present? %>
 
 </br></br>
+<% if user_signed_in? && current_user.is_admin %>
+  <%
+    bitly = Bitly.new('o_7t70lsdg3b','R_8006c2ec01704d851dd9bea665ce9f3b')
+    page_url = bitly.shorten('http://shibshib.me')
+  %>
+  <div>
+    <textarea readonly="readonly" onclick="this.focus();this.select()">
+    <%= @post.title %>
 
+    <%= page_url.short_url %></textarea>
+  </div>
+<% end %>
 <div class="well">
     <ul class='shareLinks' id="shares<%= @post.id %>">
       

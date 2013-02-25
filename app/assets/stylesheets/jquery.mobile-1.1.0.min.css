@@ -6,3 +6,9 @@
   font-size: 16px;
   padding: 15px;
 }
+img {
+	max-width: 100%;
+}
+iframe {
+	max-width: 100%;
+}

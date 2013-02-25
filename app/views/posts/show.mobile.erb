@@ -28,7 +28,7 @@
 
 <div class="ui-body ui-body-d center">
   <br/><br/>
-  <div class="ui-body-d text"><%= emojify(@post.content) if @post.content.present? %>
+  <div class="ui-body-d text"><%= emojify(@post.content_html) if @post.content.present? %>
   <%= image_tag @post.image.url(:medium), :alt => @post.title if @post.image.present? %>
   </div>
   <br/><br/>
