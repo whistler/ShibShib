@@ -34,7 +34,7 @@
   <br/><br/>
   <%
     bitly = Bitly.new('o_7t70lsdg3b','R_8006c2ec01704d851dd9bea665ce9f3b')
-    page_url = bitly.shorten("http://shibshib.me/#{request.host_with_port}#{request.fullpath}")
+    page_url = bitly.shorten("http://shibshib.me#{request.fullpath}")
   %>
   <br/>
   <label for="textarea-a"><%= t 'mobile.share' %></label>
@@ -44,7 +44,7 @@
     <%= @distro.gsub('<br />', "\r\n").gsub('<br>', "\r\n") if @post.content.present? %>
 
 
-    <%= page_url.short_url %></textarea>
+    <%= "http://shibshib.me/#{request.host_with_port}#{request.fullpath}" %></textarea>
   </div>
 
   <br/>
