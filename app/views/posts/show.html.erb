@@ -128,7 +128,7 @@ var disqus_shortname = 'Shibshib'; // required: replace example with your forum 
 <% if user_signed_in? && current_user.is_admin %>
   <%
     bitly = Bitly.new('o_7t70lsdg3b','R_8006c2ec01704d851dd9bea665ce9f3b')
-    page_url = bitly.shorten('http://shibshib.me')
+    page_url = bitly.shorten("http://shibshib.me/#{request.host_with_port}#{request.fullpath}")
   %>
   <div>
     <textarea readonly="readonly" onclick="this.focus();this.select()">
