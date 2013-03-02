@@ -113,14 +113,10 @@ class PostsController < ApplicationController
     # @post.content = auto_html(@post.content) { simple_format; link(:target => 'blank') }
     params[:post][:content] = new_content.to_s.gsub("\r\n", '</br>')
     if @post.user_id == current_user.id then
-      respond_to do |format|
-        if @post.update_attributes(params[:post])
-          format.html { redirect_to @post, alert: "#{t 'post.update'}" }
-          format.json { head :no_content }
-        else
-          format.html { render action: "edit" }
-          format.json { render json: @post.errors, status: :unprocessable_entity }
-        end
+      if @post.update_attributes(params[:post])
+        redirect_to @post, alert: "#{t 'post.update'}"
+      else
+        render action: "edit"
       end
     end
   end
