@@ -40,11 +40,11 @@
   <label for="textarea-a"><%= t 'mobile.share' %></label>
   <div data-role="fieldcontain">
     <textarea name="textarea" id="textarea" readonly="readonly" onclick="this.focus();this.select()">
-    <%= @post.title if @post.image.present? %>
+    <%= @post.title %>
     <%= @distro.gsub('<br />', "\r\n").gsub('<br>', "\r\n") if @post.content.present? %>
 
 
-    <%= "http://shibshib.me/#{request.host_with_port}#{request.fullpath}" %></textarea>
+    <%= page_url%></textarea>
   </div>
 
   <br/>
