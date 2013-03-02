@@ -44,7 +44,7 @@
     <%= @distro.gsub('<br />', "\r\n").gsub('<br>', "\r\n") if @post.content.present? %>
 
 
-    <%= page_url%></textarea>
+    <%= page_url.short_url %></textarea>
   </div>
 
   <br/>
