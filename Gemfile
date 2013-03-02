@@ -11,12 +11,10 @@ gem 'heroku'
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer'
 
-  gem 'uglifier', '>= 1.0.3'
 end
 
 group :development, :test do
@@ -48,7 +46,8 @@ gem "bitly", "~> 0.7.0"
 gem "auto_html", "~> 1.5.2"
 gem 'gemoji'
 gem 'acts-as-taggable-on'
-
+gem 'coffee-rails', '~> 3.2.1'
+gem 'uglifier', '>= 1.0.3'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
